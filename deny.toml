@@ -1,5 +1,5 @@
 # cargo-deny policy: every dependency must be permissively licensed, come from crates.io and
-# carry no copyleft obligation on AniCraft. Run:  cargo deny check licenses bans sources
+# carry no copyleft obligation on crocwork Animate. Run:  cargo deny check licenses bans sources
 # (and `cargo deny check advisories` when online). See docs/legal/compliance.md.
 
 [graph]

@@ -547,7 +547,7 @@ impl Language {
 }
 
 /// A script kept verbatim with the document (ADR 0013 tier 1): its text exactly as written,
-/// and its language. AniCraft shows and edits it, and runs it when it is in the ActionScript 3.0
+/// and its language. crocwork Animate shows and edits it, and runs it when it is in the ActionScript 3.0
 /// subset ([`SourceScript::compiled`], tier 2).
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SourceScript {
@@ -600,8 +600,8 @@ impl SourceScript {
     pub fn compiled(&self) -> &CompileResult {
         self.compiled.0.get_or_init(|| match self.language {
             Language::ActionScript3 => as3::compile(&self.text),
-            Language::ActionScript1or2 => Err(vec![as3::Problem::whole("ActionScript 1.0 and 2.0 don't run; AniCraft runs a subset of ActionScript 3.0")]),
-            Language::Other => Err(vec![as3::Problem::whole("scripts in other languages don't run; AniCraft runs a subset of ActionScript 3.0")]),
+            Language::ActionScript1or2 => Err(vec![as3::Problem::whole("ActionScript 1.0 and 2.0 don't run; crocwork Animate runs a subset of ActionScript 3.0")]),
+            Language::Other => Err(vec![as3::Problem::whole("scripts in other languages don't run; crocwork Animate runs a subset of ActionScript 3.0")]),
         })
     }
 

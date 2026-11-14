@@ -30,7 +30,7 @@ That must never happen on the UI thread.
    (`std::fs::File::try_lock`, Rust 1.89+; `LockFileEx` on Windows, `flock` elsewhere). The OS
    drops the lock when the process ends, however it ends, so at start-up a copy whose lock can
    be taken was left by a session that didn't close cleanly, and one whose lock is held belongs
-   to another open AniCraft window and is not offered. No heartbeat files, no PIDs to guess
+   to another open crocwork Animate window and is not offered. No heartbeat files, no PIDs to guess
    about. Stale locks with no copy are pruned at start.
 4. **Background writer.** `recovery::Autosaver` owns a thread. The shell hands it a snapshot
    (O(1)); the thread serializes and writes. Jobs run in order (a clear after a save can never

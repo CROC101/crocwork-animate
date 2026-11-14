@@ -61,7 +61,7 @@ fn every_openable_document_type_is_registered() {
         let mime_type = &mime[open..open + mime[open..].find('"').unwrap_or(0)];
         assert!(desktop_types.split(';').any(|t| t == mime_type), "Linux: the desktop entry doesn't list {mime_type} (.{ext})");
     }
-    // .anicraft is AniCraft's own: the default app on each OS, never only an alternative.
+    // .anicraft is crocwork Animate's own: the default app on each OS, never only an alternative.
     assert!(wxs.contains("<Extension Id=\"anicraft\" ContentType=\"application/x-anicraft\">"));
     assert!(plist.contains("<string>Owner</string>"));
 }
@@ -89,7 +89,7 @@ fn windows_registry_inventory_matches_the_installer() {
         .collect();
     assert!(!from_wxs.is_empty());
     assert_eq!(from_wxs, from_policy, "update packaging/windows/install-policy.json with anicraft.wxs");
-    assert_eq!(policy["name"], "AniCraft");
+    assert_eq!(policy["name"], "crocwork Animate");
     assert!(wxs.contains(&format!("UpgradeCode=\"{}\"", policy["upgradeCode"].as_str().unwrap())));
 }
 

@@ -71,7 +71,7 @@ fn exempt(l: &Literal, lines: &[&str]) -> bool {
     if after.starts_with("=>") || after.starts_with('|') || after.starts_with("if ") {
         return true;
     }
-    NOT_UI.iter().any(|m| l.line_before.contains(m)) || l.value == "AniCraft"
+    NOT_UI.iter().any(|m| l.line_before.contains(m)) || l.value == "crocwork Animate"
 }
 
 #[test]
@@ -191,7 +191,7 @@ fn row(k: &Key) -> (String, String) {
 }
 
 const HEADER: &str = "\
-# <Language> (<locale>) interface catalog for AniCraft.
+# <Language> (<locale>) interface catalog for crocwork Animate.
 # Columns, separated by a TAB:  context <TAB> English source text <TAB> translation
 #   context  usually empty. `@plural`, `@id` and `@msg` mean something to the apps; any other
 #            word is a label that tells apart two meanings of the same English.
@@ -206,7 +206,7 @@ const HEADER: &str = "\
 ";
 
 /// A craft-i18n locale's merged catalog, read from a checkout on disk: the base language's
-/// files, then the locale's, shared before AniCraft's.
+/// files, then the locale's, shared before crocwork Animate's.
 fn disk_catalog(locales: &Path, code: &str) -> (Catalog, Vec<catalog::Row>) {
     let read = |c: &str, f: &str| std::fs::read_to_string(locales.join(c).join(f)).map(|t| catalog::parse(&t).0).unwrap_or_default();
     let mut cat = Catalog::default();
@@ -233,8 +233,8 @@ fn translated(cat: &Catalog, k: &Key) -> bool {
 fn extract() {
     // Writes every interface string as a craft-i18n catalog template (each row commented out,
     // as craft-i18n's starter files are) to $ANICRAFT_I18N_OUT, or prints it. With
-    // $CRAFT_I18N_DIR, prints how much of AniCraft each craft-i18n locale already translates
-    // (its shared catalog counts) and the stale rows of AniCraft's own catalogs; with
+    // $CRAFT_I18N_DIR, prints how much of crocwork Animate each craft-i18n locale already translates
+    // (its shared catalog counts) and the stale rows of crocwork Animate's own catalogs; with
     // $ANICRAFT_I18N_LOCALE too, the template lists only what that locale is missing.
     let keys = all_keys();
     let checkout = std::env::var_os("CRAFT_I18N_DIR").map(|d| PathBuf::from(d).join("locales"));
@@ -243,7 +243,7 @@ fn extract() {
     if let Some(locales) = &checkout {
         let mut codes: Vec<String> = std::fs::read_dir(locales).map(|r| r.flatten().filter(|e| e.path().is_dir()).map(|e| e.file_name().to_string_lossy().into_owned()).collect()).unwrap_or_default();
         codes.sort();
-        println!("locale     translated        stale  (of {} AniCraft strings; READY = offered once it has anicraft.tsv)", keys.len());
+        println!("locale     translated        stale  (of {} crocwork Animate strings; READY = offered once it has anicraft.tsv)", keys.len());
         for code in &codes {
             let (cat, own) = disk_catalog(locales, code);
             let n = keys.iter().filter(|k| translated(&cat, k)).count();
@@ -492,7 +492,7 @@ fn plain_names(what: &str, app: &crate::app::App, nodes: Vec<(egui::accesskit::N
             // egui names its own window close button; it offers no way to name it ourselves
             // (docs/localisation.md › Not yet). The product name stays as it is in every
             // language (the macOS app menu is titled with it, ADR 0006), as the source scan allows.
-            let translated = name.chars().any(pseudo::is_accented) || EGUI_OWN.contains(&name) || name == "AniCraft";
+            let translated = name.chars().any(pseudo::is_accented) || EGUI_OWN.contains(&name) || name == "crocwork Animate";
             let ours = scan::is_prose(name) && !doc_text.contains(name) && !doc_text.iter().any(|d| name.contains(d.as_str()));
             if ours && !translated {
                 found.insert(format!("[{what}] {:?} {name:?}", n.role()));

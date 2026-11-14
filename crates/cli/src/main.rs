@@ -20,7 +20,7 @@ fn main() {
 fn delegate_to_desktop(argv: &[String]) -> i32 {
     let exe = std::env::current_exe().ok().and_then(|p| p.parent().map(|d| d.join(format!("anicraft{}", std::env::consts::EXE_SUFFIX))));
     let Some(exe) = exe.filter(|p| p.exists()) else {
-        eprintln!("error: --screenshot needs the AniCraft desktop app (`anicraft`) next to anicraft-cli; build it with `cargo build`");
+        eprintln!("error: --screenshot needs the crocwork Animate desktop app (`anicraft`) next to anicraft-cli; build it with `cargo build`");
         return 1;
     };
     match std::process::Command::new(&exe).args(argv).status() {

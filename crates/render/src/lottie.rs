@@ -6,7 +6,7 @@
 //! shape layer, its outline baked into stage space. Whatever changes (outline, colours,
 //! gradient points, stroke width, opacity, masks; colour effects of every style are baked into
 //! the colours, ADR 0056) is written as hold keyframes at the frames
-//! where it changes, so any Lottie player shows exactly AniCraft's frames. Strokes keep their
+//! where it changes, so any Lottie player shows exactly crocwork Animate's frames. Strokes keep their
 //! caps, joins, miter limit and dashes (dash lengths scaled like the width, dots as zero-length
 //! round dashes; ADR 0046); variable-width strokes are filled outlines (the polygons the
 //! renderer fills, dashes included).
@@ -564,7 +564,7 @@ pub fn to_lottie(doc: &Document, name: &str, from: u32, to: u32, background: boo
         "ddd": 0,
         "assets": [],
         "layers": layers,
-        "meta": {"g": format!("AniCraft {}", env!("CARGO_PKG_VERSION"))}
+        "meta": {"g": format!("crocwork Animate {}", env!("CARGO_PKG_VERSION"))}
     });
     let report = notes.into_iter().map(|(k, v)| (k.to_string(), v.len())).collect();
     LottieExport { json: root.to_string(), layers: shape_layers, report }
@@ -818,7 +818,7 @@ mod tests {
     fn custom_eases_are_baked_frame_by_frame() {
         // ADR 0081: Lottie's own eases are one cubic per keyframe pair, so a custom curve of
         // several segments (or Bounce, Elastic) can't map onto them exactly; the outline is
-        // baked at every frame from `evaluate`, so the player shows AniCraft's motion exactly.
+        // baked at every frame from `evaluate`, so the player shows crocwork Animate's motion exactly.
         use anicraft_doc::{ColorEffect, CustomEase, Document, Easing, Element, ElementId, ElementKind, Keyframe, Shape, Tween, TweenKind};
         use std::sync::Arc;
         let curve = CustomEase::from_flat(&[(0.0, 0.0), (0.2, 1.4), (0.3, 1.4), (0.4, 1.4), (0.6, 0.5), (0.8, 1.0), (1.0, 1.0)].map(|(x, y)| Vec2::new(x, y))).unwrap();

@@ -1,6 +1,6 @@
 # Plug-ins
 
-Plug-ins add new commands to AniCraft: generators that draw for you, effects that change the
+Plug-ins add new commands to crocwork Animate: generators that draw for you, effects that change the
 selection, and scripts that steer a movie while it plays. This chapter shows how to install, run
 and manage them, and what a plug-in is and isn't allowed to do.
 
@@ -18,35 +18,35 @@ and Linux. There are two kinds:
   Actions panel, and it runs while the movie plays in Test Movie. See
   [Interactivity](interactivity.md) for keyframe actions.
 
-A plug-in changes your document only through AniCraft's own commands, the same ones the menus
+A plug-in changes your document only through crocwork Animate's own commands, the same ones the menus
 use. So everything it does is checked like any other edit, and the whole run is a single step
 you can undo.
 
-Plug-ins belong to AniCraft on your computer, not to a document. They stay installed when you
+Plug-ins belong to crocwork Animate on your computer, not to a document. They stay installed when you
 open or create documents, and a document never contains a plug-in.
 
 ## Installing a plug-in
 
 1. Choose **Commands › Install Plug-in…**.
 2. Pick the `.wasm` file.
-3. AniCraft checks the file and copies it into its plug-ins folder. The status bar says
+3. crocwork Animate checks the file and copies it into its plug-ins folder. The status bar says
    "Installed Star Field 1.0.0 — find it in Commands › Plug-ins" (with the plug-in's own name and
    version).
 
-If a plug-in with the same id is already installed, installing replaces it, and AniCraft asks
+If a plug-in with the same id is already installed, installing replaces it, and crocwork Animate asks
 first because the old file is overwritten. The status bar then says "Updated".
 
 You can also copy `.wasm` files into the plug-ins folder yourself and choose **Commands › Reload
-Plug-ins**. Every `.wasm` in the folder loads when AniCraft starts. The folder is called
-`plugins` and sits in AniCraft's settings folder:
+Plug-ins**. Every `.wasm` in the folder loads when crocwork Animate starts. The folder is called
+`plugins` and sits in crocwork Animate's settings folder:
 
 | System | Plug-ins folder |
 |---|---|
-| Windows | `%APPDATA%\AniCraft\plugins` |
-| macOS | `~/Library/Application Support/AniCraft/plugins` |
+| Windows | `%APPDATA%\crocwork Animate\plugins` |
+| macOS | `~/Library/Application Support/crocwork Animate/plugins` |
 | Linux | `~/.config/anicraft/plugins` (or `$XDG_CONFIG_HOME/anicraft/plugins`) |
 
-If a file can't be loaded, AniCraft starts anyway, skips it and names it in the status bar.
+If a file can't be loaded, crocwork Animate starts anyway, skips it and names it in the status bar.
 
 Only install plug-ins from people you trust, as you would with any download. The sandbox below
 keeps them away from your files, but a plug-in can still change the open document in ways you
@@ -83,7 +83,7 @@ plug-in with its name, version, author, id and size, and its description.
 
 * **Run** (or **Run…** for plug-ins with settings) runs it, as the menu does.
 * **Remove…** uninstalls it. Because this deletes the plug-in's file from the plug-ins folder,
-  AniCraft asks first, and it can't be undone. Keep a copy of the `.wasm` if you might want it
+  crocwork Animate asks first, and it can't be undone. Keep a copy of the `.wasm` if you might want it
   again.
 * **Folder** shows where the plug-ins folder is. **Show Folder** opens it on your computer.
 * **Install Plug-in…** and **Reload** do the same as the Commands menu items.
@@ -93,15 +93,15 @@ When nothing is installed yet, the window says so: "No plug-ins installed yet".
 ## The sandbox: what plug-ins may do
 
 Plug-ins run sandboxed. In the words of the Plug-ins window: they can change the open document
-through AniCraft's commands, never your files.
+through crocwork Animate's commands, never your files.
 
 A plug-in **can**:
 
 * read the stage size, frame rate, scenes, layers and the current selection;
 * read the elements on the active layer at the playhead;
-* run AniCraft's editing commands: draw shapes, add layers, move, transform and recolour artwork,
+* run crocwork Animate's editing commands: draw shapes, add layers, move, transform and recolour artwork,
   add keyframes and so on, with the same checks as the menus;
-* write lines to its own log, which AniCraft shows when the run fails.
+* write lines to its own log, which crocwork Animate shows when the run fails.
 
 A plug-in **cannot**:
 
@@ -117,7 +117,7 @@ how long it may take (5 seconds), how much memory it may use and how much it may
 document. If a plug-in goes over a limit, fails or crashes, the run stops, the document goes back
 to how it was before the run, and the status bar says why.
 
-While a command plug-in runs, AniCraft waits for it, at most for its time limit. Frame-script
+While a command plug-in runs, crocwork Animate waits for it, at most for its time limit. Frame-script
 plug-ins have much tighter limits per frame, and if one runs out the movie keeps playing.
 
 ## Frame-script plug-ins
@@ -155,12 +155,12 @@ Test Movie notes it and plays on without it.
 
 ## For plug-in authors
 
-Plug-ins can be written in any language that compiles to WebAssembly. The AniCraft repository
+Plug-ins can be written in any language that compiles to WebAssembly. The crocwork Animate repository
 has a small Rust kit and two complete sample plug-ins, Star Field (a generator) and Jitter
 Selection (a selection effect). The plug-in interface, the manifest that describes a plug-in's
 settings, the exact limits and the frame-script requests are documented in
-[the plug-in API on GitHub](https://github.com/storytold/AniCraft/blob/main/docs/plugins.md).
+[the plug-in API on GitHub](https://github.com/storytold/crocwork Animate/blob/main/docs/plugins.md).
 
-You can test a plug-in without installing it: point AniCraft at a folder of `.wasm` files with
+You can test a plug-in without installing it: point crocwork Animate at a folder of `.wasm` files with
 the `ANICRAFT_PLUGINS` environment variable, then use **Commands › Reload Plug-ins** after each
 build. Every command a plug-in can run is listed in [the command reference](reference/commands.md).

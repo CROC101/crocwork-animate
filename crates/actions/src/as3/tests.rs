@@ -351,7 +351,7 @@ fn every_problem_says_where_it_is() {
         ("stop(); #", 1, 9, "unexpected character '#'"),
         ("var re = /ab+c/;", 1, 10, "regular expressions aren't supported"),
         ("1 = 2;", 1, 3, "the left side of this assignment can't be assigned to"),
-        ("é.play();", 1, 1, "`é` isn't an instance name AniCraft can address"),
+        ("é.play();", 1, 1, "`é` isn't an instance name crocwork Animate can address"),
         ("\tstop();\n\t\twith (a) {}", 2, 3, "`with` statements"),
     ];
     for (src, line, col, msg) in cases {

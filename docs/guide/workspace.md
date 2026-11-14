@@ -1,22 +1,22 @@
 # The workspace
 
-This chapter is a tour of the AniCraft window: what each panel is for, how to find any
+This chapter is a tour of the crocwork Animate window: what each panel is for, how to find any
 command, how to move around the stage, and how to work with scenes. If you know Animate,
 most of it will be where you expect.
 
 Shortcuts are written the Windows and Linux way. On macOS, use ⌘ (Command) for Ctrl and ⌥
 (Option) for Alt: **Ctrl+K** is **⌘K**.
 
-![The AniCraft window with the sample animation open](images/workspace.png)
+![The crocwork Animate window with the sample animation open](images/workspace.png)
 
 ## The window layout
 
-AniCraft opens with the **Essentials** workspace: the panels docked as below. You can move
+crocwork Animate opens with the **Essentials** workspace: the panels docked as below. You can move
 every panel (see [Arranging panels and workspaces](#arranging-panels-and-workspaces)).
 
 | Area | Where | What it's for |
 |---|---|---|
-| Menu bar | top | Every command, grouped as in Animate: File, Edit, View, Insert, Modify, Commands, Control, Window, Help. On macOS there's also the AniCraft menu, with About, Settings… and Quit. |
+| Menu bar | top | Every command, grouped as in Animate: File, Edit, View, Insert, Modify, Commands, Control, Window, Help. On macOS there's also the crocwork Animate menu, with About, Settings… and Quit. |
 | Edit bar | above the stage | The scene menu, the path to the symbol you're editing, the active layer, the stage size, an **Onion skin** switch, the **Clip content outside the stage** button and the zoom menu. |
 | Tools | left | The drawing and editing tools, the **Snap to Objects** magnet, and the current fill and stroke colours. |
 | Stage | middle | Your artwork. The stage rectangle is what the movie shows. You can draw on the grey area around it too. |
@@ -60,7 +60,7 @@ Timeline, Motion Editor, Actions and Output.
 * **Floating panels** have their own window on the desktop, which you can put on another
   screen. **Dock** in that window puts the panel back where it came from. Your shortcuts with
   Ctrl or Alt (Undo, Save, Test Movie…) still work there. Where a system can't open another
-  window (the web version), a floating panel floats inside the AniCraft window instead.
+  window (the web version), a floating panel floats inside the crocwork Animate window instead.
 * **Close a panel** from its menu, or from its floating window. **Window** lists every panel,
   ticked while it's in front; choose one to bring it forward (it reopens where it was), or
   choose a ticked one to close it.
@@ -82,7 +82,7 @@ A workspace is a named arrangement of the panels. **Window › Workspace** has t
 Each workspace remembers how you changed it, until you choose **Window › Workspace › Reset**.
 **Save Workspace…** keeps the current arrangement under a name of your own; it's listed with
 the others, and Reset brings it back as you saved it. Your workspaces and where every panel is
-are kept in your preferences, so AniCraft opens the way you left it.
+are kept in your preferences, so crocwork Animate opens the way you left it.
 
 ### Properties
 
@@ -196,11 +196,11 @@ Arrow keys nudge the selection by one screen pixel, or ten with **Shift**.
 
 ### Graphics card or CPU
 
-AniCraft draws the stage on your graphics card by default, which is much faster on big stages
+crocwork Animate draws the stage on your graphics card by default, which is much faster on big stages
 and busy scenes. The same menu, and **Preferences › Stage › Renderer**, offers:
 
 * **Graphics card (GPU)**: the default.
-* **CPU (reference)**: AniCraft's reference renderer. It's slower on large stages.
+* **CPU (reference)**: crocwork Animate's reference renderer. It's slower on large stages.
 
 The picture is the same either way. If there's no graphics card that can do the job, or a
 frame needs something the card can't draw, the CPU takes over for that moment. The status bar
@@ -243,7 +243,7 @@ searches as you type. You can search for:
 
 Choose whether to search this scene and the symbols in it, or the whole document. Click a
 result, or press **Find Next** (**F3**) or **Find Previous** (**Shift+F3**), to go there:
-AniCraft switches to the scene and frame, opens the symbol if needed, and selects the item.
+crocwork Animate switches to the scene and frame, opens the symbol if needed, and selects the item.
 
 **Replace** replaces the current result and moves on to the next one. **Replace All** is a
 single undo step, and asks first if it would change more than 100 places.

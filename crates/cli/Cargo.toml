@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-cli"
-description = "AniCraft L4: headless CLI and JSON-lines control channel for agents and pipelines"
+description = "crocwork Animate L4: headless CLI and JSON-lines control channel for agents and pipelines"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

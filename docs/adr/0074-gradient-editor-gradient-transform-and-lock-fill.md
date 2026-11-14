@@ -101,7 +101,7 @@ turned radial gradients. XFL import reported all four as approximations.
     centre, width square, rotate knob), radial (ring, centre, focal triangle, width square, size
     circle, rotate knob) and bitmap (tile box, centre, width and height squares, skew diamonds,
     size circle, rotate knob). The plain selection box is hidden while it shows. In Animate it
-    shares a flyout with Free Transform; AniCraft has no flyouts yet, so it has its own button.
+    shares a flyout with Free Transform; crocwork Animate has no flyouts yet, so it has its own button.
 
 ## Consequences
 

@@ -1,4 +1,4 @@
-//! AniCraft GPU stage renderer (layer L3, beside the engine; ADR 0019, ADR 0029, ADR 0032).
+//! crocwork Animate GPU stage renderer (layer L3, beside the engine; ADR 0019, ADR 0029, ADR 0032).
 //!
 //! Draws the same scene as the CPU oracle (`anicraft-render`) with wgpu compute: the oracle
 //! prepares it ([`anicraft_render::prepare_scene`]: flattening, strokes, paints and their

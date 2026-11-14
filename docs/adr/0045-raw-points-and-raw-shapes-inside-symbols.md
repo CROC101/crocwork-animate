@@ -15,7 +15,7 @@ ADR 0042 left these out of its slice:
 * a default shortcut for Snap to Objects;
 * Subselection (and, from ADR 0041, the Selection tool) inside symbols.
 
-The last one needed more than the raw tools: AniCraft had no way to edit a symbol's timeline at
+The last one needed more than the raw tools: crocwork Animate had no way to edit a symbol's timeline at
 all. In Animate a double-click on an instance opens the symbol **in place**: the rest of the
 stage dims, the timeline shows the symbol's layers, every tool works inside it, and the edit bar
 says where you are (`Scene 1 › Badge`).

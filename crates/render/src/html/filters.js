@@ -1,4 +1,4 @@
-// AniCraft HTML canvas player: filters and per-pixel blending (ADR 0072).
+// crocwork Animate HTML canvas player: filters and per-pixel blending (ADR 0072).
 // SPDX-License-Identifier: MIT OR Apache-2.0
 //
 // A port of crates/render/src/filters.rs (the CPU renderer, the oracle) and of its `blend` for

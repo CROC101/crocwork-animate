@@ -1,4 +1,4 @@
-//! AniCraft audio (layer L0): sounds as data, and the pure functions that turn them into
+//! crocwork Animate audio (layer L0): sounds as data, and the pure functions that turn them into
 //! samples.
 //!
 //! * [`decode`] reads WAV (own reader), Ogg Vorbis (`lewton`) and MP3 (`nanomp3`) into [`Pcm`]:

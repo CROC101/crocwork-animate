@@ -25,7 +25,7 @@ English. A change shows at once. For one run, without saving: `anicraft --lang d
 (`--lang auto`, `--lang pseudo`).
 
 Which languages a build offers depends on the catalogs it was built with (below). Today
-craft-i18n has no AniCraft catalog yet, so builds offer English, and the **pseudo-locale**
+craft-i18n has no crocwork Animate catalog yet, so builds offer English, and the **pseudo-locale**
 (`--lang pseudo`; listed in Preferences in debug builds) for testing.
 
 ## The pseudo-locale
@@ -78,14 +78,14 @@ Translations live in the Craft family's shared repository,
 [storytold/craft-i18n](https://github.com/storytold/craft-i18n) (MIT OR Apache-2.0), in its
 format: `locales/<locale>/anicraft.tsv`, one row per string, `context<TAB>English<TAB>translation`
 (see its `docs/catalog-format.md`). Strings the apps share are in `locales/<locale>/common.tsv`
-and already apply to AniCraft; AniCraft's catalog adds the rest and may override a shared row.
+and already apply to crocwork Animate; crocwork Animate's catalog adds the rest and may override a shared row.
 
 To get the list of strings:
 
 ```sh
 scripts/i18n-extract.sh                                  # target/i18n/anicraft.tsv: every string
 CRAFT_I18N_DIR=/abs/path/craft-i18n scripts/i18n-extract.sh
-    # also prints how much of AniCraft each locale already covers
+    # also prints how much of crocwork Animate each locale already covers
 CRAFT_I18N_DIR=/abs/path/craft-i18n ANICRAFT_I18N_LOCALE=de scripts/i18n-extract.sh de.tsv
     # only the strings German doesn't have yet
 ```

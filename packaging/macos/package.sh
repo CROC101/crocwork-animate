@@ -52,7 +52,7 @@ else
   warn "macOS: APPLE_ID / APPLE_PASSWORD / APPLE_TEAM_ID incomplete; signed but not notarized"
 fi
 
-echo "==> AniCraft $VERSION for macOS ($ARCH), identity: $IDENTITY, notarize: $NOTARIZE"
+echo "==> crocwork Animate $VERSION for macOS ($ARCH), identity: $IDENTITY, notarize: $NOTARIZE"
 
 # ---- build -------------------------------------------------------------------------------------
 if [[ "$SKIP_BUILD" = 0 ]]; then
@@ -119,17 +119,17 @@ staple() {
 echo "==> assembling $APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 # Executable and icon carry the display name (CFBundleExecutable / CFBundleIconFile).
-cp "$WORK/bin/anicraft" "$APP/Contents/MacOS/AniCraft"
+cp "$WORK/bin/anicraft" "$APP/Contents/MacOS/crocwork Animate"
 cp "$WORK/bin/anicraft-cli" "$APP/Contents/MacOS/anicraft-cli"
 # The .icns is made here from the committed tile on Apple's grid (assets/app-icon/README.md) with
 # the system's own sips and iconutil, so no generated binary is committed for it.
-ICONSET="$WORK/AniCraft.iconset"
+ICONSET="$WORK/crocwork Animate.iconset"
 mkdir -p "$ICONSET"
 for s in 16 32 128 256 512; do
   sips -z "$s" "$s" "$ROOT/assets/app-icon/anicraft-padded-1024.png" --out "$ICONSET/icon_${s}x${s}.png" >/dev/null
   sips -z $((s * 2)) $((s * 2)) "$ROOT/assets/app-icon/anicraft-padded-1024.png" --out "$ICONSET/icon_${s}x${s}@2x.png" >/dev/null
 done
-iconutil -c icns -o "$APP/Contents/Resources/AniCraft.icns" "$ICONSET"
+iconutil -c icns -o "$APP/Contents/Resources/crocwork Animate.icns" "$ICONSET"
 # Licences and notices, inside the bundle before it is signed.
 cp "$ROOT/NOTICE" "$ROOT/ATTRIBUTION.md" "$ROOT/LICENSE-MIT" "$ROOT/LICENSE-APACHE" "$APP/Contents/Resources/"
 # Licences of the embedded craft-fonts fonts (only when built with CRAFT_FONTS_DIR).
@@ -146,13 +146,13 @@ printf 'APPL????' >"$APP/Contents/PkgInfo"
 # Sign inside-out: nested code first, then the bundle itself (no --deep on the final signature).
 # The bundled CLI is nested executable code; sign it before sealing the app bundle.
 sign --options runtime --identifier ai.storyteller.anicraft-cli "$APP/Contents/MacOS/anicraft-cli"
-sign --options runtime --entitlements "$HERE/entitlements.plist" "$APP/Contents/MacOS/AniCraft"
+sign --options runtime --entitlements "$HERE/entitlements.plist" "$APP/Contents/MacOS/crocwork Animate"
 sign --options runtime --entitlements "$HERE/entitlements.plist" "$APP"
 codesign --verify --strict --deep --verbose=2 "$APP"
 
 if [[ "$NOTARIZE" = 1 ]]; then
-  ditto -c -k --keepParent "$APP" "$WORK/AniCraft-notarize.zip"
-  notarize "$WORK/AniCraft-notarize.zip"
+  ditto -c -k --keepParent "$APP" "$WORK/crocwork Animate-notarize.zip"
+  notarize "$WORK/crocwork Animate-notarize.zip"
   staple "$APP"
   spctl --assess --type execute -vvv "$APP"
 fi
@@ -171,7 +171,7 @@ rm -f "$DMG" "$WORK/raw.dmg"
 # makehybrid + convert builds the image without attaching a device, unlike `create -srcfolder`,
 # which is flaky on CI runners ("Resource busy") and hangs in sandboxed sessions.
 # The volume name has no version: .DS_Store finds the background through an alias that includes it.
-hdiutil makehybrid -hfs -hfs-volume-name "AniCraft" -hfs-openfolder "$STAGE" -o "$WORK/raw.dmg" "$STAGE"
+hdiutil makehybrid -hfs -hfs-volume-name "crocwork Animate" -hfs-openfolder "$STAGE" -o "$WORK/raw.dmg" "$STAGE"
 hdiutil convert "$WORK/raw.dmg" -format UDZO -imagekey zlib-level=9 -o "$DMG"
 rm -f "$WORK/raw.dmg"
 sign "$DMG"

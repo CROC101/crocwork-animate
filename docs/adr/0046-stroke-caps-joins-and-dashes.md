@@ -8,7 +8,7 @@
 
 ## Context
 
-Every AniCraft stroke had round caps and round joins and was solid. Artists coming from Animate
+Every crocwork Animate stroke had round caps and round joins and was solid. Artists coming from Animate
 expect Properties › Stroke to offer Cap (None, Round, Square), Join (Miter, Round, Bevel) with
 a Miter limit, and a Style (Solid, Dashed, Dotted, Ragged, Stipple, Hatched). SVG files use
 `stroke-linecap`, `stroke-linejoin`, `stroke-miterlimit` and `stroke-dasharray`; the SVG and XFL

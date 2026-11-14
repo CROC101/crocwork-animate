@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-gpu"
-description = "AniCraft L3: wgpu stage renderer (tile-binned analytic coverage), checked against the CPU oracle"
+description = "crocwork Animate L3: wgpu stage renderer (tile-binned analytic coverage), checked against the CPU oracle"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build and package AniCraft for Linux (<arch> is x86_64, aarch64 or riscv64):
+# Build and package crocwork Animate for Linux (<arch> is x86_64, aarch64 or riscv64):
 #
 #   $DIST/anicraft-<version>-linux-<arch>.AppImage        any distro with glibc >= the build host's
 #   $DIST/anicraft-<version>-linux-<arch>.AppImage.zsync  delta updates (needs zsyncmake)
@@ -8,7 +8,7 @@
 #   $DIST/anicraft-<version>-linux-<arch>.tar.gz          plain FHS-style tree (bin/, share/)
 #
 # Every format installs the desktop entry, the AppStream metainfo, the hicolor icons and the
-# MIME types (.anicraft is AniCraft's; .fla and .xfl open as an untitled import).
+# MIME types (.anicraft is crocwork Animate's; .fla and .xfl open as an untitled import).
 #
 # Usage: packaging/linux/package.sh [--skip-build] [--formats "appimage deb rpm tar"]
 #
@@ -44,10 +44,10 @@ case "$ARCH" in
   aarch64 | arm64) ARCH=aarch64; DEB_ARCH=arm64 ;;
   *) echo "unsupported architecture $ARCH" >&2; exit 2 ;;
 esac
-export ANICRAFT_MAINTAINER="${ANICRAFT_MAINTAINER:-AniCraft maintainers <anicraft@storyteller.ai>}"
+export ANICRAFT_MAINTAINER="${ANICRAFT_MAINTAINER:-crocwork Animate maintainers <anicraft@storyteller.ai>}"
 BASENAME="anicraft-$VERSION-linux-$ARCH"
 
-echo "==> AniCraft $VERSION for Linux $ARCH ($FORMATS)"
+echo "==> crocwork Animate $VERSION for Linux $ARCH ($FORMATS)"
 
 if [[ "$SKIP_BUILD" = 0 ]]; then
   (cd "$ROOT" && cargo build --release --locked -p anicraft -p anicraft-cli --bins ${CROSS_TARGET:+--target "$CROSS_TARGET"})
@@ -104,7 +104,7 @@ fi
 
 # ---- AppImage -----------------------------------------------------------------------------------
 if has appimage; then
-  APPDIR="$WORK/AniCraft.AppDir"
+  APPDIR="$WORK/crocwork Animate.AppDir"
   cp -R "$STAGE" "$APPDIR"
   ln -s usr/bin/anicraft "$APPDIR/AppRun"
   cp "$HERE/$APP_ID.desktop" "$APPDIR/$APP_ID.desktop"
@@ -151,7 +151,7 @@ if has appimage; then
   # Update information: AppImageUpdate and the like read it from the file and fetch only the
   # blocks that changed in a newer release, through the .zsync published next to each AppImage.
   # A fork's builds point at its own releases through GITHUB_REPOSITORY.
-  REPO="${GITHUB_REPOSITORY:-storytold/AniCraft}"
+  REPO="${GITHUB_REPOSITORY:-storytold/crocwork Animate}"
   UPDATE_INFO="gh-releases-zsync|${REPO%%/*}|${REPO#*/}|latest|anicraft-*-linux-$ARCH.AppImage.zsync"
   # Extract-and-run: works without FUSE (containers, CI). The output embeds the static runtime,
   # so users don't need libfuse2 either.

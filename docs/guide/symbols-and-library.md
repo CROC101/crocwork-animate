@@ -167,7 +167,7 @@ Deleting a folder that holds items asks first, and its items go with it.
 * **Duplicate Symbol** (right-click): makes a copy called, for example, "Ball copy" in the
   same folder, ready to rename and change.
 * **Delete** (right-click, the delete button, or **Delete**): removes the selected items and
-  folders. If the movie uses an item, AniCraft asks first, and its instances go with it.
+  folders. If the movie uses an item, crocwork Animate asks first, and its instances go with it.
   Undo brings everything back.
 
 ### Sorting and searching
@@ -234,7 +234,7 @@ To set it up:
 
 Rotation and skew are applied after the 9-slice scaling. Symbols, text and bitmaps nested
 inside scale normally, as in Animate. If an instance is too small for its corners, they
-shrink together in proportion. If you turn the guides off, AniCraft remembers where they were.
+shrink together in proportion. If you turn the guides off, crocwork Animate remembers where they were.
 
 The HTML canvas export doesn't do 9-slice scaling yet. It scales such instances as a whole,
 and its report says so.

@@ -1,8 +1,8 @@
 # AGENTS.md: guide for AI agents and contributors
 
-AniCraft is an open-source, native, clean-room 2D animation studio (Adobe Animate class), written
+crocwork Animate is an open-source, native, clean-room 2D animation studio (Adobe Animate class), written
 in **Rust only**. There is no Tauri, Electron or webview. The UI is egui/eframe. The product name
-is written **AniCraft**; machine names are lowercase (`anicraft-*`). Read `docs/` first.
+is written **crocwork Animate**; machine names are lowercase (`anicraft-*`). Read `docs/` first.
 
 ## Workspace map
 
@@ -76,7 +76,7 @@ a new crate needs a row here and in its `LAYERS` table.
 
 ## Licensing and legal compliance (read `docs/legal/compliance.md`)
 
-* AniCraft is **MIT OR Apache-2.0**, like PhotoCraft (`LICENSE-MIT`, `LICENSE-APACHE`, `NOTICE`).
+* crocwork Animate is **MIT OR Apache-2.0**, like PhotoCraft (`LICENSE-MIT`, `LICENSE-APACHE`, `NOTICE`).
 * **Dependencies**: permissive only, from crates.io only. `deny.toml` is the policy, and
   `cargo deny check licenses bans sources` must pass. Adding a crate with a new licence needs
   a deliberate `deny.toml` change and a note in `compliance.md`. No copyleft, "non-commercial"
@@ -92,7 +92,7 @@ a new crate needs a row here and in its `LAYERS` table.
 
 ## Version control
 
-* Git. Remote `origin` = `https://github.com/storytold/AniCraft` (public). `main` is the
+* Git. Remote `origin` = `https://github.com/storytold/crocwork Animate` (public). `main` is the
   development branch; it begins with "Initial commit v0.1.0 early alpha", and contributors are
   credited in `AUTHORS.md`.
 * **Every change reaches `main` through a pull request** from a topic branch (`feat/…`, `fix/…`,

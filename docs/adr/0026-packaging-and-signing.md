@@ -6,7 +6,7 @@
 
 ## Context
 
-AniCraft had a release workflow that calls the Craft family's shared one
+crocwork Animate had a release workflow that calls the Craft family's shared one
 (`storytold/craft-common-actions/.github/workflows/release.yml`) and a Packaging lint workflow,
 but no `packaging/` folder, so neither could do anything and Packaging lint failed on every pull
 request that touched a workflow. The shared release workflow is a contract: it runs
@@ -35,11 +35,11 @@ prompt they didn't ask for.
    `src/packaging_tests.rs` fails `cargo test` if any of them drifts.
 3. **What each OS gets.**
    * **Windows:** a WiX v5 MSI (x64 and arm64) with the family install policy: per-user into
-     `%LOCALAPPDATA%\Programs\ArtCraft\AniCraft` by default with no admin prompt, "everyone"
+     `%LOCALAPPDATA%\Programs\crocwork\crocwork Animate` by default with no admin prompt, "everyone"
      (Program Files, elevated) as an explicit choice on the first page, upgrades in place,
      cross-scope duplicates refused (`install-policy.wxi`, checked on the compiled MSI by
      `check-install-policy.ps1`, and on fixture builds in Packaging lint). Start menu shortcut,
-     App Paths (Win+R `anicraft`), Finish-page "Launch AniCraft". Plus a portable zip and an
+     App Paths (Win+R `anicraft`), Finish-page "Launch crocwork Animate". Plus a portable zip and an
      optional symbols zip (PDBs). The UpgradeCode `95D4D208-…` and the app component GUID never
      change.
    * **macOS:** a universal `AniCraft.app` (Info.plist with the document types, hardened runtime,
@@ -52,7 +52,7 @@ prompt they didn't ask for.
      asks for display, GPU, sound (`pulseaudio`) and the Documents, Pictures and Videos folders;
      not network, not home.
 4. **Documents.** `.anicraft` (`application/x-anicraft`, a JSON sub-class on Linux, UTI
-   `ai.storyteller.anicraft.document`) is AniCraft's own: AniCraft is its default app on every OS.
+   `ai.storyteller.anicraft.document`) is crocwork Animate's own: crocwork Animate is its default app on every OS.
    `.fla` and `.xfl` are offered as an alternative only ("Open with"; macOS role Viewer, rank
    Alternate), never taken over: they open as an untitled import (ADR 0009), so Save never
    writes them back. Their type names are neutral ("FLA document"), never Adobe's marks. The
@@ -95,13 +95,13 @@ prompt they didn't ask for.
 
 * **macOS: opening a document from Finder.** The document types are declared (icons, "Open
   With"), but macOS hands the file to a running app as an Apple Event, not on the command line,
-  and winit 0.30 doesn't deliver it; double-clicking a `.anicraft` starts AniCraft without
+  and winit 0.30 doesn't deliver it; double-clicking a `.anicraft` starts crocwork Animate without
   opening the file. Needs an open-documents hook in the shell without `unsafe`.
   **Done in ADR 0062:** the open-documents and quit Apple Events reach the shell through
   `platform.rs`, at launch and while running, and open through the unsaved-changes guard.
   A test covers Windows' and Linux's command-line hand-over. The Mac-only checks are listed
   there.
-* A version override for manual release runs (the family's `cargo xtask version set`): AniCraft
+* A version override for manual release runs (the family's `cargo xtask version set`): crocwork Animate
   has no `xtask` yet, so the dispatch input was removed; a manual run builds the `Cargo.toml`
   version.
 * AppImage desktop integration on first run (the siblings' `AppRun` script), Windows portable
@@ -118,6 +118,6 @@ prompt they didn't ask for.
 * **Per-machine MSI by default** (Program Files, admin prompt). Rejected for the family policy:
   artists on managed or shared machines often can't elevate; "everyone" stays one click away.
 * **Taking over `.fla`/`.xfl` as the default app.** Rejected: users with Animate installed must
-  keep their default, and AniCraft imports these files rather than editing them in place.
+  keep their default, and crocwork Animate imports these files rather than editing them in place.
 * **Committing an `.icns`.** Rejected: it can only be made reliably on a Mac and would be one
   more generated binary; the macOS runner has `sips` and `iconutil`.

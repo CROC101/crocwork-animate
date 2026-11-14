@@ -168,20 +168,20 @@ impl Icon {
             // A hollow arrowhead, mirrored to point like a cursor: the subselection arrow.
             Icon::Subselect => ("navigation", true),
             Icon::Transform => ("scaling", false),
-            // A stroke swelling and tapering, with a width point across it (AniCraft original).
+            // A stroke swelling and tapering, with a width point across it (crocwork Animate original).
             Icon::Width => ("anicraft-width", false),
-            // A box of gradient bands with a turning knob on its corner (AniCraft original).
+            // A box of gradient bands with a turning knob on its corner (crocwork Animate original).
             Icon::GradientTransform => ("anicraft-gradient-transform", false),
             Icon::Pen => ("pen-tool", false),
             Icon::Pencil => ("pencil", false),
-            // A round brush: handle, ferrule and a painted tip (AniCraft original, on Lucide's grid).
+            // A round brush: handle, ferrule and a painted tip (crocwork Animate original, on Lucide's grid).
             Icon::Brush => ("anicraft-brush", false),
             // The brush over a swelling and thinning line: the Paint Brush draws strokes
-            // (AniCraft original, on Lucide's grid).
+            // (crocwork Animate original, on Lucide's grid).
             Icon::PaintBrush => ("anicraft-paint-brush", false),
-            // A block eraser on its edge, its sleeve marked off (AniCraft original).
+            // A block eraser on its edge, its sleeve marked off (crocwork Animate original).
             Icon::Eraser => ("anicraft-eraser", false),
-            // A dropper: bulb, collar, glass tube and a drop (AniCraft original).
+            // A dropper: bulb, collar, glass tube and a drop (crocwork Animate original).
             Icon::Eyedropper => ("anicraft-eyedropper", false),
             Icon::Rect => ("rectangle-horizontal", false),
             Icon::Oval => ("circle", false),
@@ -213,7 +213,7 @@ impl Icon {
             Icon::Sound => ("volume-2", false),
             // The speaker crossed out (a muted layer).
             Icon::SoundOff => ("anicraft-sound-off", false),
-            // Lucide's object-align icons aren't in the local set; these are AniCraft originals
+            // Lucide's object-align icons aren't in the local set; these are crocwork Animate originals
             // drawn on the same 24 grid with the same 2-unit round strokes.
             Icon::AlignLeft => ("anicraft-align-left", false),
             Icon::AlignHCenter => ("anicraft-align-hcenter", false),
@@ -227,29 +227,29 @@ impl Icon {
             Icon::Mask => ("anicraft-mask", false),
             Icon::Masked => ("anicraft-masked", false),
             Icon::Folder => ("folder", false),
-            // A film camera with its two reels (AniCraft original, on Lucide's grid).
+            // A film camera with its two reels (crocwork Animate original, on Lucide's grid).
             Icon::Camera => ("anicraft-camera", false),
-            // A horseshoe magnet, poles up (AniCraft original, on Lucide's grid): Snap to Objects.
+            // A horseshoe magnet, poles up (crocwork Animate original, on Lucide's grid): Snap to Objects.
             Icon::Magnet => ("anicraft-magnet", false),
-            // A bone: a wedge from its joint to its end (AniCraft original, on Lucide's grid).
+            // A bone: a wedge from its joint to its end (crocwork Animate original, on Lucide's grid).
             Icon::Bone => ("anicraft-bone", false),
-            // A bone whose end is tied to two points (AniCraft original, on Lucide's grid): Bind.
+            // A bone whose end is tied to two points (crocwork Animate original, on Lucide's grid): Bind.
             Icon::Bind => ("anicraft-bind", false),
-            // A mesh bent around a pin (AniCraft original, on Lucide's grid): Asset Warp.
+            // A mesh bent around a pin (crocwork Animate original, on Lucide's grid): Asset Warp.
             Icon::Warp => ("anicraft-warp", false),
-            // Frames stacked one behind the other, all edited at once (AniCraft original, on
+            // Frames stacked one behind the other, all edited at once (crocwork Animate original, on
             // Lucide's grid): Edit Multiple Frames.
             Icon::EditMultiple => ("anicraft-edit-multiple", false),
             Icon::FolderOpen => ("folder-open", false),
-            // A layer: a row with a keyframe and its span (AniCraft original, on Lucide's grid).
+            // A layer: a row with a keyframe and its span (crocwork Animate original, on Lucide's grid).
             Icon::Layer => ("anicraft-layer", false),
             // Insert Frame / Keyframe / Blank Keyframe: the timeline's own marks (a frame cell, a
-            // filled keyframe dot, a hollow blank-keyframe dot), each with a plus (AniCraft
+            // filled keyframe dot, a hollow blank-keyframe dot), each with a plus (crocwork Animate
             // originals, on Lucide's grid).
             Icon::InsertFrame => ("anicraft-insert-frame", false),
             Icon::InsertKeyframe => ("anicraft-insert-keyframe", false),
             Icon::InsertBlankKeyframe => ("anicraft-insert-blank-keyframe", false),
-            // The stage with crop marks at its corners (AniCraft original, on Lucide's grid):
+            // The stage with crop marks at its corners (crocwork Animate original, on Lucide's grid):
             // Clip Content Outside the Stage.
             Icon::ClipStage => ("anicraft-clip-stage", false),
             // New layer, Delete, Duplicate and a panel's options menu.

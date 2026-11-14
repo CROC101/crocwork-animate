@@ -54,7 +54,7 @@ was copied.
 
 2. **Only raw shapes are erased.** Drawing objects, gradient or bitmap fills and width-profiled
    strokes (which the merge keeps whole, ADR 0031), symbols and text are left alone, as in
-   Animate. AniCraft has no "edit inside a symbol" mode yet, so symbols are never erased.
+   Animate. crocwork Animate has no "edit inside a symbol" mode yet, so symbols are never erased.
 
 3. **Nothing erased, nothing changed.** A stroke that only comes near the artwork must not
    create a keyframe or an undo step. The command compares the total fill area and line length

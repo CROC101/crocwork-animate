@@ -215,8 +215,8 @@
     quietly showing the sample, and `anicraft-cli info`, `render` and the export commands open
     `.fla` and `.xfl` files too.
   * Fixed: Animate documents opening on a black stage instead of white (#163).
-  * Fixed: AniCraft not opening at all on some laptops with two graphics chips, such as the
-    Surface Book 2 (#207). If a way of drawing the window fails, AniCraft now tries the next one
+  * Fixed: crocwork Animate not opening at all on some laptops with two graphics chips, such as the
+    Surface Book 2 (#207). If a way of drawing the window fails, crocwork Animate now tries the next one
     (on Windows: DirectX 12 on the built-in chip, then OpenGL) instead of exiting, and a start that
     crashed inside a graphics driver tries that way last next time. If nothing works, a message
     says so. A start-up log in the settings folder (`Logs/anicraft.log`) records what was tried,
@@ -255,10 +255,10 @@
 * **Filters, Subtract and Invert in HTML canvas export** (ADR 0072, M6). Exported web pages now
   show every filter (Drop Shadow, Blur, Glow, Bevel, Gradient Glow, Gradient Bevel and Adjust
   Color, with inner, knockout, hide object and Inner/Outer/Full) and the Subtract and Invert blend
-  modes as AniCraft draws them, in every browser: the page runs a port of AniCraft's own filters
+  modes as crocwork Animate draws them, in every browser: the page runs a port of crocwork Animate's own filters
   over the symbol's pixels instead of the browser's effects, and shadows and glows reach onto the
   stage from symbols beside it. A filtered symbol that doesn't change is filtered once. Tested
-  against AniCraft's renderer pixel by pixel (35 filter set-ups at three view scales, within
+  against crocwork Animate's renderer pixel by pixel (35 filter set-ups at three view scales, within
   1/1000) and checked in a browser. At 1080p the demo's filtered symbols cost 3.4 ms a frame while
   they change; one covering the whole frame 50 to 150 ms. The export report no longer lists them.
 * **Timeline, bones, menus and stage fixes from user reports** (M1).
@@ -310,15 +310,15 @@
   found one macOS-only failure: the screen-reader translation tests treated the macOS app
   menu's title, the product name, as untranslated.
 * **The user guide** (ADR 0069, M8).
-  * **Help › User Guide** opens AniCraft's guide in your browser. It comes with the app, so it
+  * **Help › User Guide** opens crocwork Animate's guide in your browser. It comes with the app, so it
     works offline; the web editor serves it beside the editor. It is also in the command palette.
   * Eighteen chapters written for artists, from getting started, drawing, symbols, the timeline and
     tweens to masks, the camera and bones, text, images and sound, interactivity, exporting and
     Publish, opening Animate files, preferences and accessibility, plug-ins, working headless, and
     troubleshooting, plus **Coming from Animate**, which maps Animate's panels, tools and shortcuts
-    to AniCraft's.
+    to crocwork Animate's.
   * A **command reference** and a **shortcut reference** (with the macOS keys beside the others),
-    generated from AniCraft itself, so they always match the version you have.
+    generated from crocwork Animate itself, so they always match the version you have.
   * `anicraft-cli guide --out <folder>` writes the guide as HTML pages.
   * On macOS, the fixed keys that hold a key while dragging ("Space+Drag") keep that key in their
     label.
@@ -396,7 +396,7 @@
       applications.
     * Alt+F, Alt+E and the rest open a menu directly. While Alt is held, each title shows its
       letter underlined.
-  * **Follow system** is the new default theme. AniCraft switches to high contrast while
+  * **Follow system** is the new default theme. crocwork Animate switches to high contrast while
     Windows uses a contrast theme, macOS has Increase Contrast on, the Linux desktop asks for
     high contrast, or the browser prefers more contrast. Choosing Graphite or High contrast
     keeps that palette.
@@ -413,9 +413,9 @@
     you prefer. On Wayland the desktop places the window, so it can't come back where it was
     (Preferences says so).
   * **macOS:** double-clicking a `.anicraft`, `.fla` or `.xfl` in Finder, dropping it on the
-    Dock icon, or choosing Open With › AniCraft opens it, whether AniCraft is running or
+    Dock icon, or choosing Open With › crocwork Animate opens it, whether crocwork Animate is running or
     not. If there are unsaved changes it asks first, and the Dock's Quit asks to save too.
-    This uses the small `fmv-macos-events` crate (MIT OR Apache-2.0), so AniCraft's own code
+    This uses the small `fmv-macos-events` crate (MIT OR Apache-2.0), so crocwork Animate's own code
     stays free of `unsafe`. Still to be checked on a Mac (the list is in ADR 0062).
   * Windows and Linux already open a double-clicked document from the command line; a test
     now covers it.
@@ -442,7 +442,7 @@
     animations with real transparency, for the web and chat apps, where a GIF has 256 colours
     and hard edges. WebP is lossless. Both are transparent by default; turn on the stage colour
     as background if you want it. Loop forever, play once, or play a set number of times.
-  * Every frame is exactly what AniCraft renders. Frames that repeat the one before are stored
+  * Every frame is exactly what crocwork Animate renders. Frames that repeat the one before are stored
     once and shown longer, and each later frame stores only the rectangle that changed, so
     holds and small motions cost little.
   * Timing is exact: APNG delays are fractions of the frame rate (29.97 fps stays 29.97), and
@@ -455,7 +455,7 @@
 
 * **Publish Settings and Publish** (ADR 0060, M8).
   * **File › Publish Settings** (Ctrl+Shift+F12) is a window that stays open while you work.
-    It lists every format AniCraft exports (HTML canvas, animated GIF, video, Lottie, sprite
+    It lists every format crocwork Animate exports (HTML canvas, animated GIF, video, Lottie, sprite
     sheet, PNG sequence, PNG, SVG, audio), each with a checkbox. The selected format shows
     its output name and the same options its File › Export command has. The settings are
     saved **in the document** and every change can be undone. Older files open with the HTML
@@ -481,12 +481,12 @@
     unsaved work); SVG drawings, PNG and JPEG images and WAV, Ogg and MP3 sounds dropped on the
     **stage** go onto the active layer at the playhead, centred where they were dropped, and
     dropped on the **Library** go into the folder under the pointer. One undo step per drop.
-    A highlight shows where they will land; anything AniCraft can't take gets one clear
+    A highlight shows where they will land; anything crocwork Animate can't take gets one clear
     status line. In the web editor too.
   * **File › Open Recent**: the last 10 documents opened or saved, with pinned favourites on
     top, missing files greyed out with Remove, and Clear Recent Files. Kept in the
     preferences (browser storage on the web).
-  * **Start screen** when AniCraft starts without a document: New with HD, Full HD, square
+  * **Start screen** when crocwork Animate starts without a document: New with HD, Full HD, square
     and vertical presets or a custom size and frame rate, Open, the sample animation, and the
     recent files with a picture of their first frame (captured on save). Esc goes back to the
     document; File › Start Screen brings it back; it can be switched off.
@@ -759,7 +759,7 @@
   roll over and out, with a named or inline function); `trace`; and setting `x`, `y`,
   `alpha`, `visible`, `rotation`, `scaleX` and `scaleY`.
   * A script runs whole or not at all. Anything else (variables, `if`, loops, reading
-    properties) keeps it from running, and AniCraft says where: the Script view lists each
+    properties) keeps it from running, and crocwork Animate says where: the Script view lists each
     problem with its line and column above the code and marks the lines (click one to go
     there), or says the script runs. Test Movie's Output begins with which scripts run and
     which don't, and why.
@@ -798,7 +798,7 @@
     this build has, named in itself. A change shows at once. `--lang <code>` sets it for one
     run.
   * Translations come from the Craft family's shared **craft-i18n** catalogs, built in with
-    `CRAFT_I18N_DIR`; a missing one shows the English. craft-i18n has no AniCraft catalog yet,
+    `CRAFT_I18N_DIR`; a missing one shows the English. craft-i18n has no crocwork Animate catalog yet,
     so builds are English for now: `scripts/i18n-extract.sh` lists every string for
     translators (and, with a craft-i18n checkout, how much each language already covers).
   * A **pseudo-locale** (`--lang pseudo`) draws everything accented, longer and bracketed, to
@@ -934,7 +934,7 @@
   anchors tied to frames (spatial keys; ADR 0038 explains why), a marquee over path anchors,
   nudging and transforming a whole path.
 
-* **AniCraft in a web browser** (ADR 0036, first slice; `docs/web.md`). The editor builds for
+* **crocwork Animate in a web browser** (ADR 0036, first slice; `docs/web.md`). The editor builds for
   WebAssembly and runs in a page: `scripts/build-web.sh` (or `.ps1`) makes `web/`, which any
   static server can serve. The module is about 9 MB, 3.3 MB gzipped.
   * Open and import with the browser's file picker. Save and exports download the file; Save
@@ -1071,13 +1071,13 @@
 * **HTML canvas export** (ADR 0028). File › Export › Export HTML Canvas… writes the movie as
   one web page that plays in any modern browser: open it from your disk, put it on a server or
   send it as one file. Everything moves exactly as on the stage, because every frame of every
-  timeline is computed by AniCraft (classic, shape and motion tweens, easing, motion guides,
+  timeline is computed by crocwork Animate (classic, shape and motion tweens, easing, motion guides,
   shape hints); shapes, gradients, strokes (variable-width ones too), text, bitmaps, masks,
   symbols that fade or blend as one, alpha and tint all come across. It is interactive: movie
   clips play on their own timelines, buttons show Up, Over and Down and answer in their Hit
   area, and frame actions and button events (stop, play, go to a frame or label in any scene,
   next/previous frame and scene, trace, set properties, instance paths like `panel.door`)
-  behave as in Test Movie: the page's player is a port of AniCraft's and the tests run both
+  behave as in Test Movie: the page's player is a port of crocwork Animate's and the tests run both
   side by side. Sounds play with the first click (Event, Start, Stop; Stream over its span).
   The movie fits the browser window, sharp on high-density screens. The demo exports in 1 ms
   to a 59 KB page (18 KB of movie data). Filters, Subtract and Invert blending, tints on
@@ -1099,18 +1099,18 @@
   an animated camera asks first. Headless: `camera.add`, `camera.remove`, `camera.set`,
   `camera.info`, `layer.set_depth`.
 * **Installers for Windows, macOS and Linux** (ADR 0026, `docs/release.md`). A push to the
-  `release` branch now builds installable AniCraft for every platform and drafts a GitHub
+  `release` branch now builds installable crocwork Animate for every platform and drafts a GitHub
   Release: a Windows **MSI** (x64 and arm64) that installs for your account without an admin
   prompt, or for everyone if you choose, with a Start menu entry; a macOS **DMG** with the
   universal app (drag to Applications); a Linux **AppImage**, **deb**, **rpm**, **Flatpak** and
-  tarball. Everywhere, `.anicraft` documents get AniCraft's icon and open in AniCraft, and FLA
-  and XFL files list AniCraft under "Open with" without changing your default app.
+  tarball. Everywhere, `.anicraft` documents get crocwork Animate's icon and open in crocwork Animate, and FLA
+  and XFL files list crocwork Animate under "Open with" without changing your default app.
   `anicraft-cli` is installed next to the app. Windows and macOS builds are signed (macOS also
   notarized) and the Linux packages and checksums are signed when the release secrets are set.
-  `anicraft --version` and `anicraft-cli --version` print the version. On Windows, AniCraft no
+  `anicraft --version` and `anicraft-cli --version` print the version. On Windows, crocwork Animate no
   longer opens a console window beside the app. On Linux the window now
-  reports the app id `ai.storyteller.anicraft`, so docks show AniCraft's icon. Not yet: on macOS,
-  double-clicking a document starts AniCraft but doesn't open the file.
+  reports the app id `ai.storyteller.anicraft`, so docks show crocwork Animate's icon. Not yet: on macOS,
+  double-clicking a document starts crocwork Animate but doesn't open the file.
 
 * **Bevel, Gradient Glow and Gradient Bevel filters** (ADR 0025). Properties › Filters ›
   Add filter now offers all seven of Animate's filters on movie clip and button instances.
@@ -1226,9 +1226,9 @@
   such as the sample **Jitter Selection**. A plug-in with settings opens a dialog with a live
   preview on the stage; OK keeps the result as one undo step named after the plug-in. Install
   with Commands › Install Plug-in…, see and remove them in Commands › Manage Plug-ins…; they
-  load from the `plugins` folder in AniCraft's settings folder (or `ANICRAFT_PLUGINS`), and the
+  load from the `plugins` folder in crocwork Animate's settings folder (or `ANICRAFT_PLUGINS`), and the
   command palette finds them too. Plug-ins run sandboxed: they change the open document through
-  AniCraft's own commands, never files, the clipboard or the undo history, and a runaway or
+  crocwork Animate's own commands, never files, the clipboard or the undo history, and a runaway or
   broken plug-in stops with a message and leaves the document as it was. Headless:
   `plugin.install/list/run/remove/reload`, `anicraft-cli --plugins <folder>`. The samples and a
   small Rust SDK are in `examples/plugins`.
@@ -1247,9 +1247,9 @@
   motion. Headless: `timeline.create_motion_tween`, `motion.set_key`, `motion.remove_key`,
   `motion.set_ease`, `motion.info`. Not yet: motion paths on the stage, moving keys in time,
   importing motion tweens from Animate files.
-* **Crash recovery.** AniCraft keeps a recovery copy of unsaved work in the background (every
+* **Crash recovery.** crocwork Animate keeps a recovery copy of unsaved work in the background (every
   minute, or after 25 changes, whichever comes first; Preferences › Files › Autosave changes
-  both or turns it off). If AniCraft closes unexpectedly, the next start shows what was left
+  both or turns it off). If crocwork Animate closes unexpectedly, the next start shows what was left
   behind: **Restore** opens it as unsaved work, and Save puts it back where it was (or asks for
   a name if that file was saved after the copy); **Discard** deletes it after a second click;
   **Later** keeps it for File › Recover Autosaved Documents…. Copies live in the settings
@@ -1257,7 +1257,7 @@
   close normally. Drawing never waits for them: the 65 MB stress document is copied in 0.18 s
   on a background thread. Headless: `file.recovery_list`, `file.recover`,
   `file.discard_recovery`, `file.autosave`.
-* **App icon**: an engraved rabbit on AniCraft yellow, on the same rounded tile as the other
+* **App icon**: an engraved rabbit on crocwork Animate yellow, on the same rounded tile as the other
   Crafting Apps. It shows on the window, the macOS Dock (on Apple's icon grid), the Windows
   taskbar and `anicraft.exe`, and in Help › About. Files and how to regenerate them are in
   `assets/app-icon/`.
@@ -1305,14 +1305,14 @@
   `text.fonts`.
 
 * **Export Lottie Animation** (File › Export, `file.export_lottie`): the movie, or a range of
-  its frames, as a Lottie animation (JSON) for websites and apps. Every frame matches AniCraft:
+  its frames, as a Lottie animation (JSON) for websites and apps. Every frame matches crocwork Animate:
   shapes, strokes, solid and gradient fills, colour effects, opacity and masks come across,
   each piece of artwork as its own layer that changes exactly where it changes in the movie.
   Transparent by default, or with the stage colour behind. Anything that can't come across
   exactly (images, masks inside masks, symbols fading as one, stretched round gradients) is
   named in the status bar.
 
-* **AniCraft for AI assistants** (`anicraft-cli mcp`): a Model Context Protocol server, so an
+* **crocwork Animate for AI assistants** (`anicraft-cli mcp`): a Model Context Protocol server, so an
   assistant can open a document, draw, animate, look at frames and export, through the same
   commands as the app, with undo and the same "are you sure" rules. See `docs/mcp.md`.
 
@@ -1336,7 +1336,7 @@
   image.
 
 * **Export Video** (File › Export, `file.export_video`): the movie as **WebM** (VP9,
-  royalty-free; the default) or **MP4** (H.264), made by your own installed ffmpeg. AniCraft
+  royalty-free; the default) or **MP4** (H.264), made by your own installed ffmpeg. crocwork Animate
   bundles no video encoder. ffmpeg is found through the `ffmpeg` parameter, the
   `ANICRAFT_FFMPEG` setting, or the system path, and if it's missing you're told how to get it.
   Frames stream in order straight from the renderer; odd sizes are padded to even.

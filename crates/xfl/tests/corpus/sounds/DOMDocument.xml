@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- AniCraft XFL corpus: sounds (ADR 0057, ADR 0086). The sound files are original:
+<!-- crocwork Animate XFL corpus: sounds (ADR 0057, ADR 0086). The sound files are original:
      LIBRARY/Sounds/beep.wav (a quarter second of 880 Hz, 16-bit mono at 11025 Hz, made by a
      script), LIBRARY/Sounds/tone.mp3 (the audio crate's test tone), LIBRARY/theme.aif (an AIFF
      header) and LIBRARY/voice.wav (a WAV in IMA ADPCM), and bin/M 3 1.dat (bytes in none of
-     the formats AniCraft reads, standing in for Animate's own sound data). A streamed, looping
+     the formats crocwork Animate reads, standing in for Animate's own sound data). A streamed, looping
      soundtrack; event, start and stop sounds with every kind of effect (presets by name, a
      custom envelope, an unknown name); repeats; in and out points; a frame whose sound is in a
      format AniCraft can't decode, and a sound whose file is missing. Self-authored. -->

@@ -17,7 +17,7 @@ wobble is smoothed. Paint modes decide what the paint covers on the layer:
 * Paint Selection paints only inside the selected fill.
 * Paint Inside paints only inside the fill where the stroke started.
 
-Artists coming from Animate block in characters and backgrounds this way, and AniCraft had no
+Artists coming from Animate block in characters and backgrounds this way, and crocwork Animate had no
 brush. We learned the behaviour from Adobe's public help pages and by watching the program.
 Nothing was copied.
 

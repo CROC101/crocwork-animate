@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-xml"
-description = "AniCraft L0: a small, bounded XML element reader shared by the XFL and SVG importers"
+description = "crocwork Animate L0: a small, bounded XML element reader shared by the XFL and SVG importers"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

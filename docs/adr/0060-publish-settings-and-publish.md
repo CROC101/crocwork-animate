@@ -6,7 +6,7 @@
 
 ## Context
 
-AniCraft can export a PNG frame or sequence, an animated GIF, an SVG frame, a sprite sheet and
+crocwork Animate can export a PNG frame or sequence, an animated GIF, an SVG frame, a sprite sheet and
 its JSON map, video through the user's ffmpeg, Lottie, an HTML canvas page and the soundtrack,
 each as its own command with its own prompt. Animate collects these in **File › Publish
 Settings** (Ctrl+Shift+F12): you tick formats, set each one's options and output name, and

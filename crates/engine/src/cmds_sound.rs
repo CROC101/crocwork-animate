@@ -71,7 +71,7 @@ fn with_null_sound(p: &Value) -> Value {
 /// Largest sound file read.
 const MAX_SOUND_BYTES: u64 = 256 * 1024 * 1024;
 
-/// Whether `path` names a sound file AniCraft reads.
+/// Whether `path` names a sound file crocwork Animate reads.
 pub fn is_sound(path: &Path) -> bool {
     let ext = path.extension().and_then(|e| e.to_str()).map(str::to_ascii_lowercase);
     matches!(ext.as_deref(), Some("wav" | "wave" | "ogg" | "oga" | "mp3"))

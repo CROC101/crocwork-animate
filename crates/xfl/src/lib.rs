@@ -1,5 +1,5 @@
-//! AniCraft XFL import (between `doc` and `engine`): opens Animate documents, as an XFL folder
-//! or a `.fla` archive, into the AniCraft document model.
+//! crocwork Animate XFL import (between `doc` and `engine`): opens Animate documents, as an XFL folder
+//! or a `.fla` archive, into the crocwork Animate document model.
 //!
 //! Clean room: written from the publicly documented structure of XFL (an XML package:
 //! `DOMDocument.xml`, `LIBRARY/*.xml`) and the published ZIP format. No Animate code, and no

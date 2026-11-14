@@ -1,7 +1,7 @@
 //! Paint Bucket, Ink Bottle and Eyedropper; the fill swatch's gradients and bitmaps, Lock Fill
 //! and the Gradient Transform tool (ADR 0074).
 //!
-//! AniCraft shapes are independent objects (like object drawing), so a fill for an area
+//! crocwork Animate shapes are independent objects (like object drawing), so a fill for an area
 //! enclosed by several shapes has to be found, not looked up:
 //!
 //! 1. Click on a filled shape: it is recoloured.

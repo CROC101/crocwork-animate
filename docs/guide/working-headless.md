@@ -1,6 +1,6 @@
 # Working headless
 
-Everything you do in AniCraft is a named command, and the same commands run without a window.
+Everything you do in crocwork Animate is a named command, and the same commands run without a window.
 This chapter is for technical artists and pipeline TDs: rendering from the command line, batch
 jobs, scripting edits as JSON, and connecting AI assistants.
 
@@ -8,13 +8,13 @@ On macOS, press ⌘ where this guide says Ctrl, and ⌥ where it says Alt.
 
 ## The command-line tool
 
-`anicraft-cli` comes with AniCraft:
+`anicraft-cli` comes with crocwork Animate:
 
 * **Windows**: `anicraft-cli.exe` sits next to `anicraft.exe` in the install folder. It isn't
   added to your `PATH`, so call it by its full path or add the folder yourself.
 * **macOS**: it is inside the app at `AniCraft.app/Contents/MacOS/anicraft-cli`, and also a
   separate download, `anicraft-cli-<version>-macos-universal.zip`, on the
-  [releases page](https://github.com/storytold/AniCraft/releases).
+  [releases page](https://github.com/storytold/crocwork Animate/releases).
 * **Linux**: the deb and rpm packages install it as `/usr/bin/anicraft-cli`; the tarball has it
   next to `anicraft`.
 
@@ -95,7 +95,7 @@ anicraft-cli exec shot010.anicraft file.export_html '{"path":"web/shot010.html"}
 anicraft-cli exec shot010.anicraft file.export_video '{"path":"shot010.mp4"}'
 ```
 
-Video export streams frames to your own copy of ffmpeg. AniCraft looks for it in the `ffmpeg`
+Video export streams frames to your own copy of ffmpeg. crocwork Animate looks for it in the `ffmpeg`
 param, then the `ANICRAFT_FFMPEG` environment variable, then your `PATH`.
 
 On Windows PowerShell, quoting JSON on the command line is awkward. Put the steps in a script
@@ -135,7 +135,7 @@ app shows: what each format wrote, skipped or why it failed.
 
 ## Batch jobs for pipelines
 
-Because each call is a plain process with JSON in and out, AniCraft fits into any build system,
+Because each call is a plain process with JSON in and out, crocwork Animate fits into any build system,
 render farm or shell loop. Exit status is 0 on success and 1 on any error, with the message on
 standard error, so a failed step stops your pipeline.
 
@@ -185,7 +185,7 @@ See [Plug-ins](plugins.md).
 ## A live session: serve
 
 `anicraft-cli serve [file|--sample]` keeps one document open and reads one JSON request per
-line on standard input, answering one line each on standard output. Tools that drive AniCraft
+line on standard input, answering one line each on standard output. Tools that drive crocwork Animate
 interactively (a game engine exporter, a custom panel in another app) use it.
 
 ```text
@@ -260,10 +260,10 @@ Things to know:
 * The assistant reads and writes files with your permissions, at the paths it chooses. Only
   connect assistants you trust with those files.
 * The server works on its own copy of the document, not on the window you have open. Save from
-  the assistant, then open the file in AniCraft.
+  the assistant, then open the file in crocwork Animate.
 
 The full details are in
-[the MCP notes on GitHub](https://github.com/storytold/AniCraft/blob/main/docs/mcp.md).
+[the MCP notes on GitHub](https://github.com/storytold/crocwork Animate/blob/main/docs/mcp.md).
 
 ## This guide as a web page
 
@@ -278,4 +278,4 @@ anicraft-cli guide --out docs/anicraft-guide
 
 `anicraft-cli bench` builds a large generated document and times editing, undo, rendering,
 saving and autosave on your machine. Run it on a release build; `bench --check yes` compares the
-default scenario with AniCraft's published budgets and fails if one is missed.
+default scenario with crocwork Animate's published budgets and fails if one is missed.

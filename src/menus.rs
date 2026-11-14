@@ -22,9 +22,9 @@ pub fn bar(app: &mut App, ui: &mut egui::Ui) {
         ui.add_space(platform::menu_inset());
         if platform::OS == Os::Mac {
             // The application menu, as every Mac app has (About, Settings, Quit).
-            ui.menu_button(text(Type::Body, "AniCraft").strong(), |ui| {
+            ui.menu_button(text(Type::Body, "crocwork Animate").strong(), |ui| {
                 ui.set_min_width(220.0);
-                if ui_item(ui, tr!("About AniCraft"), "", None) {
+                if ui_item(ui, tr!("About crocwork Animate"), "", None) {
                     app.show_about = true;
                 }
                 ui.separator();
@@ -32,7 +32,7 @@ pub fn bar(app: &mut App, ui: &mut egui::Ui) {
                     app.open_prefs();
                 }
                 ui.separator();
-                if ui_item(ui, tr!("Quit AniCraft"), "Ctrl+Q", None) {
+                if ui_item(ui, tr!("Quit crocwork Animate"), "Ctrl+Q", None) {
                     ui.ctx().send_viewport_cmd(egui::ViewportCommand::Close);
                 }
             });
@@ -585,7 +585,7 @@ pub(crate) fn menu_contents(app: &mut App, ui: &mut egui::Ui, top: &str, cmds: &
     }
 
     match top {
-        // Windows / Linux conventions; on macOS these live in the AniCraft (application) menu.
+        // Windows / Linux conventions; on macOS these live in the crocwork Animate (application) menu.
         // A web page is closed with its tab.
         "File" if platform::OS != Os::Mac && !platform::WEB => {
             ui.separator();
@@ -734,7 +734,7 @@ pub(crate) fn menu_contents(app: &mut App, ui: &mut egui::Ui, top: &str, cmds: &
             if ui_item(ui, tr!("Licenses & Notices"), "", None) {
                 app.show_licenses = true;
             }
-            if ui_item(ui, tr!("About AniCraft"), "", None) {
+            if ui_item(ui, tr!("About crocwork Animate"), "", None) {
                 app.show_about = true;
             }
             ui.label(text(Type::Caption, trn!("{n} command is scriptable with anicraft-cli", "{n} commands are scriptable with anicraft-cli", cmds.len())));

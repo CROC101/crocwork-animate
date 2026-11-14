@@ -68,7 +68,7 @@ pub struct DockView {
     stage: Option<Rect>,
     /// Floating windows placed this session (later frames leave them where the user put them).
     placed: HashSet<Panel>,
-    /// Where windows of their own are now (desktop points), kept when AniCraft quits.
+    /// Where windows of their own are now (desktop points), kept when crocwork Animate quits.
     live: HashMap<Panel, ([f32; 2], [f32; 2])>,
 }
 
@@ -168,7 +168,7 @@ pub fn save_when_settled(app: &mut App, ctx: &egui::Context) {
     }
 }
 
-/// When AniCraft quits: where the windows of their own are, into the preferences.
+/// When crocwork Animate quits: where the windows of their own are, into the preferences.
 pub fn remember(app: &mut App) {
     if app.dock_view.live.is_empty() {
         return;

@@ -576,7 +576,7 @@ fn sounds_in_the_package_come_across_on_frames_and_buttons_states() {
     assert_eq!(on(3), None);
     assert_eq!(on(2).map(|s| s.effect), Some(anicraft_doc::sound::SoundEffect::FadeIn), "the effect comes across (ADR 0086)");
     // Sounds that don't come across are named, with their format (ADR 0086).
-    assert_eq!(report.names.get("sounds in formats AniCraft can't decode"), Some(&vec!["private.mp3: Animate's own sound data".to_string()]));
+    assert_eq!(report.names.get("sounds in formats crocwork Animate can't decode"), Some(&vec!["private.mp3: Animate's own sound data".to_string()]));
     assert_eq!(report.names.get("missing sound files"), Some(&vec!["gone.wav".to_string()]));
     assert_eq!(report.skipped.get("frame sounds whose sound isn't in the package"), Some(&1));
     assert!(report.summary().contains("1 missing sound files (gone.wav)"), "{}", report.summary());
@@ -633,7 +633,7 @@ fn hostile_sound_files_are_bounded_and_named() {
     wide[32..34].copy_from_slice(&64u16.to_le_bytes());
     wide.truncate(44 + 10);
     let (d, r) = open(wide);
-    assert!(d.sounds.is_empty() && r.skipped.get("sounds in formats AniCraft can't decode") == Some(&1), "{r:?}");
+    assert!(d.sounds.is_empty() && r.skipped.get("sounds in formats crocwork Animate can't decode") == Some(&1), "{r:?}");
 }
 
 /// ADR 0086: the report names what didn't come across, a few per kind in the summary line.

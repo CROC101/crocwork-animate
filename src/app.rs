@@ -1,4 +1,4 @@
-//! The AniCraft shell: view state plus the frame loop. Document changes go through
+//! The crocwork Animate shell: view state plus the frame loop. Document changes go through
 //! `Session::execute`, so everything here is also reachable headless.
 
 use crate::a11y::Named;
@@ -761,7 +761,7 @@ impl App {
         };
         app.apply_prefs(ctx);
         app.decode_sounds();
-        app.status_ok(tr!("Welcome to AniCraft. Press Enter to play the sample animation."));
+        app.status_ok(tr!("Welcome to crocwork Animate. Press Enter to play the sample animation."));
         if let Some(e) = recovery_err {
             app.status_err(e);
         }
@@ -2435,7 +2435,7 @@ impl App {
                 match v.get("report").and_then(Value::as_str) {
                     // An imported file: say what came across and what didn't, and that saving
                     // makes a new .anicraft document.
-                    Some(r) => self.status_ok(tr!("{report} Save to keep it as an AniCraft document.", report = r)),
+                    Some(r) => self.status_ok(tr!("{report} Save to keep it as an crocwork Animate document.", report = r)),
                     None => match v["template"].as_str() {
                         Some(t) => self.status_ok(tr!("New document from the template “{name}”", name = crate::i18n::t_dyn(t))),
                         None => self.status_ok(if id == "file.open" || id == "file.open_recent" { tr!("Opened") } else { tr!("New document") }),
@@ -3130,7 +3130,7 @@ impl App {
 
     fn update_title(&mut self, ctx: &egui::Context) {
         let name = self.s.path.as_ref().and_then(|p| p.file_name()).map_or_else(|| tr!("Untitled").to_string(), |n| n.to_string_lossy().into_owned());
-        let title = format!("AniCraft — {name}{}", if self.s.is_dirty() { " •" } else { "" }); // i18n-exempt: the product name and the file's
+        let title = format!("crocwork Animate — {name}{}", if self.s.is_dirty() { " •" } else { "" }); // i18n-exempt: the product name and the file's
         if title != self.title {
             ctx.send_viewport_cmd(egui::ViewportCommand::Title(title.clone()));
             self.title = title;
@@ -3179,16 +3179,16 @@ impl App {
 
     fn about_window(&mut self, ctx: &egui::Context) {
         let mut open = self.show_about;
-        let shown = egui::Window::new(tr!("About AniCraft")).id(egui::Id::new("about_window")).open(&mut open).collapsible(false).resizable(false).show(ctx, |ui| {
+        let shown = egui::Window::new(tr!("About crocwork Animate")).id(egui::Id::new("about_window")).open(&mut open).collapsible(false).resizable(false).show(ctx, |ui| {
             ui.add(egui::Image::new((app_mark(ctx).id(), egui::vec2(64.0, 64.0))));
-            ui.heading("AniCraft");
+            ui.heading("crocwork Animate");
             ui.label(tr!("Version {version} · {stage}", version = env!("CARGO_PKG_VERSION"), stage = crate::i18n::t(RELEASE_STAGE)));
             ui.label(tr!("Open-source 2D vector animation studio, written in Rust."));
             ui.label(trn!("{n} engine command — all available headless via anicraft-cli.", "{n} engine commands — all available headless via anicraft-cli.", commands().len()));
             ui.colored_label(T.text_dim, "MIT OR Apache-2.0"); // i18n-exempt: licence identifiers
             ui.label(theme::text(theme::Type::Caption, tr!("Typefaces: {fonts}", fonts = theme::font_summary())));
         });
-        crate::a11y::name_title_bar(&shown, tr!("About AniCraft"));
+        crate::a11y::name_title_bar(&shown, tr!("About crocwork Animate"));
         self.show_about = open;
     }
 
@@ -3212,7 +3212,7 @@ impl App {
         ];
         let mut opened: Option<Result<(), String>> = None;
         let shown = egui::Window::new(tr!("Project Files")).id(egui::Id::new("files_window")).open(&mut open).collapsible(false).resizable(false).default_width(620.0).show(ctx, |ui| {
-            ui.label(theme::text(theme::Type::Label, tr!("Where AniCraft's documents and files are on this computer")));
+            ui.label(theme::text(theme::Type::Label, tr!("Where crocwork Animate's documents and files are on this computer")));
             ui.add_space(4.0);
             egui::Grid::new("files").num_columns(3).spacing([10.0, 6.0]).striped(true).show(ui, |ui| {
                 for (label, path) in &entries {
@@ -3229,7 +3229,7 @@ impl App {
                 ui.end_row();
             });
             ui.add_space(4.0);
-            ui.label(theme::text(theme::Type::Caption, tr!("Saved documents and exports go where you type in the save box; a plain name lands in the folder AniCraft was started from.")));
+            ui.label(theme::text(theme::Type::Caption, tr!("Saved documents and exports go where you type in the save box; a plain name lands in the folder crocwork Animate was started from.")));
         });
         crate::a11y::name_title_bar(&shown, tr!("Project Files"));
         match opened {

@@ -65,14 +65,14 @@ pub fn commands_md() -> String {
     let cmds = anicraft_engine::commands();
     let mut out = String::from("# Command reference\n\n");
     out.push_str(&format!(
-        "Everything you can do in AniCraft is a command: the menus, the shortcuts, the command palette (**Ctrl+K**, macOS **⌘K**), \
+        "Everything you can do in crocwork Animate is a command: the menus, the shortcuts, the command palette (**Ctrl+K**, macOS **⌘K**), \
          `anicraft-cli` and AI assistants over MCP all run the same {} commands, listed here by menu. The id is what scripts and \
          [working headless](../working-headless.md) use; the parameters are what a command takes as JSON. Commands that change the \
          document are one undo step each. Your own shortcuts (**F1**) replace the defaults shown here; see the \
          [shortcut reference](shortcuts.md).\n\n",
         cmds.len()
     ));
-    out.push_str("This page is generated from the command registry, so it always matches the version of AniCraft it came with.\n");
+    out.push_str("This page is generated from the command registry, so it always matches the version of crocwork Animate it came with.\n");
     const HEADLESS: &str = "Not in a menu";
     let top = |m: &'static str| if m.is_empty() { HEADLESS } else { m.split('/').next().unwrap_or(HEADLESS) };
     let mut groups = ordered(cmds.iter().map(|c| top(c.menu)).filter(|g| *g != HEADLESS).collect());
@@ -113,12 +113,12 @@ pub fn commands_md() -> String {
 pub fn shortcuts_md() -> String {
     let mut out = String::from("# Shortcut reference\n\n");
     out.push_str(
-        "AniCraft's default keyboard shortcuts. On macOS, **Ctrl** is **⌘** (Command) and **Alt** is **⌥** (Option). \
+        "crocwork Animate's default keyboard shortcuts. On macOS, **Ctrl** is **⌘** (Command) and **Alt** is **⌥** (Option). \
          To change a shortcut, open **Help › Keyboard Shortcuts** (**F1**): see \
          [Preferences, shortcuts, accessibility and languages](../preferences-shortcuts-accessibility.md). \
          The keys in the fixed rows can't be reassigned. Every command, with or without a key, is in the \
          [command reference](commands.md).\n\n\
-         This page is generated from the editor's shortcut map, so it always matches the version of AniCraft it came with.\n",
+         This page is generated from the editor's shortcut map, so it always matches the version of crocwork Animate it came with.\n",
     );
     // (group, action, keys): the bindable actions with default keys, then the fixed keys.
     // A command in a submenu is named with it ("Timeline › Keyframe"), as the menus show it.

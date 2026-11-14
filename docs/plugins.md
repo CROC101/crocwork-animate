@@ -1,9 +1,9 @@
 # Plug-ins: the WebAssembly plug-in API (ABI v1)
 
-AniCraft plug-ins are **WebAssembly modules** run in a sandbox, the same host model as the other
+crocwork Animate plug-ins are **WebAssembly modules** run in a sandbox, the same host model as the other
 Craft apps (PhotoCraft's filter plug-ins). One `.wasm` file works on Windows, macOS, Linux and,
 later, the web build. A plug-in adds a command: it reads the open document and changes it
-through AniCraft's own command registry, so everything it does is checked like any other edit
+through crocwork Animate's own command registry, so everything it does is checked like any other edit
 and can be undone in one step. The decision and the alternatives are in
 [ADR 0017](adr/0017-wasm-plugins.md).
 
@@ -29,7 +29,7 @@ the selection is greyed out until something is selected.
 | `plugin.reload` | `{"folder"?: "…"}` | Re-reads every `*.wasm` in the plug-ins folder (first making `folder` the plug-ins folder when given). A bad module is reported and skipped. |
 
 **Where plug-ins live.** The app uses a `plugins` folder in its settings folder:
-`%APPDATA%\AniCraft\plugins` on Windows, `~/Library/Application Support/AniCraft/plugins` on
+`%APPDATA%\crocwork Animate\plugins` on Windows, `~/Library/Application Support/crocwork Animate/plugins` on
 macOS, `$XDG_CONFIG_HOME/anicraft/plugins` (default `~/.config/anicraft/plugins`) on Linux. Every
 `*.wasm` in it loads at start. The `ANICRAFT_PLUGINS` environment variable points somewhere
 else instead (handy while writing a plug-in). Plug-ins belong to the session, not the
@@ -262,7 +262,7 @@ WAT).
 
 ## Performance
 
-Measured on the development machine (Windows, debug build of AniCraft with optimised
+Measured on the development machine (Windows, debug build of crocwork Animate with optimised
 dependencies, `anicraft-cli run --sample … --plugins examples/plugins/dist`):
 
 | | |

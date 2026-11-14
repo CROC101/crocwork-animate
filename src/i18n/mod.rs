@@ -26,7 +26,7 @@ use std::sync::{LazyLock, Mutex};
 
 use catalog::Catalog;
 
-// `CRAFT_I18N: &[(&str, &str, &str)]`: (locale, its shared `common.tsv`, AniCraft's
+// `CRAFT_I18N: &[(&str, &str, &str)]`: (locale, its shared `common.tsv`, crocwork Animate's
 // `anicraft.tsv`), `""` for a missing file; empty without `CRAFT_I18N_DIR`.
 include!(concat!(env!("OUT_DIR"), "/craft_i18n.rs"));
 
@@ -74,7 +74,7 @@ pub struct Languages {
 
 impl Languages {
     /// From embedded `(locale, common, app)` catalogs. A locale is offered when it has its own
-    /// AniCraft catalog and is [`READY`]; one with only shared strings, or a base language
+    /// crocwork Animate catalog and is [`READY`]; one with only shared strings, or a base language
     /// embedded for its regional variants' sake, is a fallback only. Returns the skipped rows
     /// too, as `locale/file:line: why`.
     pub fn new(embedded: &[(&str, &str, &str)], ready_codes: &[&str]) -> (Languages, Vec<String>) {

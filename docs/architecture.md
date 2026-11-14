@@ -1,4 +1,4 @@
-# AniCraft architecture
+# crocwork Animate architecture
 
 ## 1. Philosophy
 

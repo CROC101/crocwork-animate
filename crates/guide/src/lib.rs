@@ -1,4 +1,4 @@
-//! AniCraft's user guide as a book (layer L0; ADR 0069).
+//! crocwork Animate's user guide as a book (layer L0; ADR 0069).
 //!
 //! The chapters are Markdown in `docs/guide/`, readable on GitHub as they are. This crate builds
 //! them into the bundled book: every page and picture is compiled in, so Help › User Guide works
@@ -230,12 +230,12 @@ pub fn render_page(pages: &[Page], at: usize) -> String {
     let next = link(pages.get(at + 1), "next", "Next");
     format!(
         "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\
-         <title>{t} · AniCraft User Guide</title>\n<link rel=\"stylesheet\" href=\"{root}{STYLESHEET}\">\n</head>\n<body>\n\
+         <title>{t} · crocwork Animate User Guide</title>\n<link rel=\"stylesheet\" href=\"{root}{STYLESHEET}\">\n</head>\n<body>\n\
          <a class=\"skip\" href=\"#content\">Skip to the chapter</a>\n\
-         <header class=\"top\"><a href=\"{root}index.html\">AniCraft User Guide</a> <span class=\"version\">{VERSION}</span></header>\n\
+         <header class=\"top\"><a href=\"{root}index.html\">crocwork Animate User Guide</a> <span class=\"version\">{VERSION}</span></header>\n\
          <div class=\"layout\">\n<nav class=\"toc\" aria-label=\"Chapters\">\n<ol>\n{toc}</ol>\n</nav>\n\
          <main id=\"content\">\n{body}<nav class=\"pager\" aria-label=\"Previous and next chapters\">{prev}{next}</nav>\n</main>\n</div>\n\
-         <footer>AniCraft {VERSION} · MIT OR Apache-2.0 · AniCraft is not affiliated with or endorsed by Adobe.</footer>\n</body>\n</html>\n",
+         <footer>crocwork Animate {VERSION} · MIT OR Apache-2.0 · crocwork Animate is not affiliated with or endorsed by Adobe.</footer>\n</body>\n</html>\n",
         t = escape(&title),
     )
 }

@@ -1,7 +1,7 @@
 {
   "id": "anicraft",
-  "name": "AniCraft",
-  "upgradeCode": "95D4D208-47EF-42CD-9127-28D9A7BA88A2",
+  "name": "crocwork Animate",
+  "upgradeCode": "B627D5BB-672E-57EC-BFB3-4E58EF878EC6",
   "sources": [
     "anicraft.wxs"
   ],
@@ -40,7 +40,7 @@
       "-1",
       "Software\\Classes\\Applications\\anicraft.exe",
       "FriendlyAppName",
-      "AniCraft"
+      "crocwork Animate"
     ],
     [
       "-1",
@@ -74,7 +74,7 @@
     ],
     [
       "-1",
-      "Software\\AniCraft",
+      "Software\\crocwork Animate",
       "InstallDir",
       "[INSTALLFOLDER]"
     ]

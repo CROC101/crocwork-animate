@@ -13,8 +13,8 @@ release: 1
 section: graphics
 priority: optional
 maintainer: ${ANICRAFT_MAINTAINER}
-vendor: ArtCraft Team
-homepage: https://getartcraft.com/apps/anicraft
+vendor: crocwork Team
+homepage: https://github.com/CROC101/crocwork-animate
 license: MIT OR Apache-2.0
 description: |-
   Open-source, native 2D animation studio.

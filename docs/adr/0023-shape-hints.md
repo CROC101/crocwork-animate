@@ -63,7 +63,7 @@ literature on polygon and Bézier blending. Nothing was copied.
 7. **Destructive tiers (ADR 0004)**: removing one or all hints is a routine, undoable edit:
    no confirmation, a status hint names the undo shortcut.
 8. **Stage** (`src/shape_hints.rs`): on the first frame of either keyframe, with the selection
-   tools, the active layer's hints show as 16-point lettered dots in AniCraft's own colours:
+   tools, the active layer's hints show as 16-point lettered dots in crocwork Animate's own colours:
    rose (`hint_unplaced`) while not on an edge, amber (`hint_start`, the shape tween's colour)
    once placed on the first keyframe, mint (`hint_end`) once placed on the last (brighter in
    the high-contrast palette); ink letters meet 4.5:1 on all three in both palettes (tested). Dragging one moves it live (each pointer move runs
@@ -87,4 +87,4 @@ literature on polygon and Bézier blending. Nothing was copied.
   4, 119 µs with all 26; a 2,000-segment outline stays bounded (`MAX_SEGS`).
 * Not yet: View › Show Shape Hints (they always show on the keyframes), hints inside symbols
   edited in place, hints on text, hints that also steer strokes separately from fills, and
-  XFL export (AniCraft doesn't write XFL).
+  XFL export (crocwork Animate doesn't write XFL).

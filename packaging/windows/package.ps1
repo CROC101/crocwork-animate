@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Build, sign and package AniCraft for Windows.
+  Build, sign and package crocwork Animate for Windows.
 
 .DESCRIPTION
   Produces, in $env:DIST (default: dist/release):
@@ -8,7 +8,7 @@
     anicraft-<version>-windows-<arch>-portable.zip   anicraft.exe + anicraft-cli.exe + notices
     anicraft-<version>-windows-<arch>-symbols.zip    anicraft.pdb + anicraft_cli.pdb (optional, for profilers)
 
-  The installer registers .anicraft (AniCraft is its default app) and offers AniCraft under
+  The installer registers .anicraft (crocwork Animate is its default app) and offers crocwork Animate under
   "Open with" for .fla and .xfl. The binaries link the C runtime statically (+crt-static), so
   neither the MSI nor the portable zip needs the Visual C++ redistributable. Signing is
   delegated to sign.ps1, which warns and leaves files unsigned when no signing secrets are set.
@@ -55,7 +55,7 @@ $Dist = if ($env:DIST) { $env:DIST } else { Join-Path $Root 'dist\release' }
 $TargetDir = if ($env:CARGO_TARGET_DIR) { $env:CARGO_TARGET_DIR } else { Join-Path $Root 'target' }
 New-Item -ItemType Directory -Force -Path $Dist | Out-Null
 
-Write-Output "AniCraft $Version for Windows $Arch ($Target)"
+Write-Output "crocwork Animate $Version for Windows $Arch ($Target)"
 
 if (-not $SkipBuild) {
   # Static CRT: no VC++ redistributable needed. Scoped to the target so host build scripts and
@@ -107,11 +107,11 @@ if ($env:CRAFT_FONTS_DIR) {
 }
 
 # ---- MSI ---------------------------------------------------------------------------------------
-# The setup wizard's art, drawn here from the app icon so the MSI shows AniCraft rather than
+# The setup wizard's art, drawn here from the app icon so the MSI shows crocwork Animate rather than
 # WiX's stock bitmaps: a 493x58 banner across the top of the inner pages (the page title is drawn
 # over its left side, so that stays white) and a 493x312 backdrop for the Welcome and Finish pages
 # (their text sits on the right; the left 164 px are ours). Both must be 24-bit BMPs. The colours
-# are the icon's (assets/app-icon/README.md): Paper and the AniCraft yellow.
+# are the icon's (assets/app-icon/README.md): Paper and the crocwork Animate yellow.
 function New-InstallerArt([string] $IconPng, [string] $BannerOut, [string] $DialogOut) {
   Add-Type -AssemblyName System.Drawing
   $paper = [System.Drawing.ColorTranslator]::FromHtml('#f2f1ee')
@@ -167,7 +167,7 @@ Remove-Item -Force -ErrorAction SilentlyContinue ([IO.Path]::ChangeExtension($Ms
 
 # ---- portable zip ------------------------------------------------------------------------------
 # The exes and notices at the archive's root (`<folder>\*`, not the folder itself), so they come
-# out side by side wherever it is extracted. Settings still live in %APPDATA%\AniCraft.
+# out side by side wherever it is extracted. Settings still live in %APPDATA%\crocwork Animate.
 $Portable = Join-Path $TargetDir "windows-package\anicraft-$Version-windows-$Arch-portable"
 Remove-Item -Recurse -Force $Portable -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $Portable | Out-Null
@@ -186,7 +186,7 @@ Remove-Item -Recurse -Force $Check -ErrorAction SilentlyContinue
 
 # ---- debug symbols -----------------------------------------------------------------------------
 # The MSVC linker writes a PDB beside each exe (anicraft.pdb, anicraft_cli.pdb). They ship as a
-# separate, optional download so profilers show AniCraft's function names for the released
+# separate, optional download so profilers show crocwork Animate's function names for the released
 # binaries. Signing doesn't change the PDB signature an exe records, so they match the signed exes.
 $Outputs = @($Msi, $Zip)
 $Pdbs = @('anicraft.pdb', 'anicraft_cli.pdb' | ForEach-Object { Join-Path $Bin $_ })

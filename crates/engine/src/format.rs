@@ -72,7 +72,7 @@ impl<'de> Deserialize<'de> for EnvelopeIn {
 
 pub fn to_json(doc: &Document) -> Result<String, EngineError> {
     let paths = path_table::build_table(doc);
-    let env = EnvelopeOut { format: FORMAT_NAME, version: FORMAT_VERSION, generator: format!("AniCraft {}", env!("CARGO_PKG_VERSION")), paths: &paths, document: doc };
+    let env = EnvelopeOut { format: FORMAT_NAME, version: FORMAT_VERSION, generator: format!("crocwork Animate {}", env!("CARGO_PKG_VERSION")), paths: &paths, document: doc };
     let compact = path_table::write_with_paths(&paths, || serde_json::to_string(&env)).map_err(|e| EngineError::Format(e.to_string()))?;
     if compact.len() < PRETTY_LIMIT {
         return path_table::write_with_paths(&paths, || serde_json::to_string_pretty(&env)).map_err(|e| EngineError::Format(e.to_string()));
@@ -86,7 +86,7 @@ pub fn from_json(text: &str) -> Result<Document, EngineError> {
         return Err(EngineError::Format(format!("unexpected format '{}'", env.format)));
     }
     if env.version > FORMAT_VERSION {
-        return Err(EngineError::Format(format!("file version {} is newer than this AniCraft (supports {FORMAT_VERSION})", env.version)));
+        return Err(EngineError::Format(format!("file version {} is newer than this crocwork Animate (supports {FORMAT_VERSION})", env.version)));
     }
     let mut doc = env.document.ok_or_else(|| EngineError::Format("the file has no document".into()))?;
     doc.sanitize();

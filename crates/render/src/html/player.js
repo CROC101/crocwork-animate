@@ -1,8 +1,8 @@
-// AniCraft HTML canvas player: the core (ADR 0028). SPDX-License-Identifier: MIT OR Apache-2.0
+// crocwork Animate HTML canvas player: the core (ADR 0028). SPDX-License-Identifier: MIT OR Apache-2.0
 //
 // Plays a movie exported by File > Export > HTML Canvas: the instance tree, movie clip
 // playheads, frame actions, button events, and frame scripts in the ActionScript subset
-// (compiled by AniCraft to a small script IR: variables, expressions, conditions, loops,
+// (compiled by crocwork Animate to a small script IR: variables, expressions, conditions, loops,
 // functions and listeners, ADR 0013). It is a line-by-line port of the Rust player
 // (crates/doc/src/player.rs, the reference) over the exported data, and the tests run it in a
 // JavaScript engine against that player. Nothing here touches the page: canvas.js draws and
@@ -15,7 +15,7 @@
 // fields (ADR 0066: a box, the authored text and its outline, and the font changed text is drawn
 // with), which are instances too: scripts name them, set their text and read it back.
 "use strict";
-var AniCraft = (function () {
+var crocwork Animate = (function () {
   // Budgets, as in the Rust player: a go-to loop ends in a message, not a hang.
   const MAX_ACTIONS_PER_STEP = 10000;
   const MAX_ENTERS_PER_STEP = 1000;

@@ -258,7 +258,7 @@ impl Plugin {
         let version: TypedFunc<(), i32> = live.func("ac_abi_version")?;
         let v = p.call(&mut live, &version, (), load_fuel, &deadline, &mut None, &p.limits)?;
         if v != ABI_VERSION {
-            return Err(Error::Abi(format!("ac_abi_version returned {v}; this AniCraft runs ABI version {ABI_VERSION}")));
+            return Err(Error::Abi(format!("ac_abi_version returned {v}; this crocwork Animate runs ABI version {ABI_VERSION}")));
         }
         let manifest: TypedFunc<(), i64> = live.func("ac_manifest")?;
         let packed = p.call(&mut live, &manifest, (), load_fuel, &deadline, &mut None, &p.limits)? as u64;

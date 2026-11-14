@@ -6,7 +6,7 @@
 ## Context
 
 Animate documents are full of text: titles, captions, speech bubbles, credits, score
-counters. The XFL importer reported every text field as skipped. AniCraft now has a text
+counters. The XFL importer reported every text field as skipped. crocwork Animate now has a text
 engine (ADR 0012): `ElementKind::Text(TextBlock)`, one style per block, laid out by
 `anicraft-text` and stored as outlines.
 
@@ -18,7 +18,7 @@ as `_sans`), size, fill colour and alpha, alignment, letter spacing, line spacin
 and indent. Lines end with a carriage return (`&#xD;`). This structure comes from public
 descriptions of XFL and from self-authored files only.
 
-AniCraft's block has one style, but a field may have runs with different styles.
+crocwork Animate's block has one style, but a field may have runs with different styles.
 
 ## Decision
 

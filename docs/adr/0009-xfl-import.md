@@ -5,7 +5,7 @@
 
 ## Context
 
-Artists coming to AniCraft have their work in Animate documents: `.fla` files (a zip archive)
+Artists coming to crocwork Animate have their work in Animate documents: `.fla` files (a zip archive)
 or `.xfl` packages (the same content as a folder). Opening them is the first interchange
 priority. The format is an XML package: `DOMDocument.xml` (stage, scenes, layers, frames,
 elements) and `LIBRARY/*.xml` (symbols), with shape geometry encoded as edge strings.
@@ -42,7 +42,7 @@ own timelines, nested to any depth.
 
 ## Consequences
 
-* Imported documents render and animate in AniCraft immediately and can be edited with every
+* Imported documents render and animate in crocwork Animate immediately and can be edited with every
   tool, then saved as `.anicraft`.
 * Text fields come across as text blocks (ADR 0014: one block per run of same-style lines,
   missing fonts named in the report).

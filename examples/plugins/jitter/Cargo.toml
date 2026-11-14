@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-plugin-jitter"
-description = "Sample AniCraft plug-in: moves, turns and scales each selected element by a random amount"
+description = "Sample crocwork Animate plug-in: moves, turns and scales each selected element by a random amount"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,6 +1,6 @@
 # The web editor
 
-AniCraft also runs in a web browser: the same program, built for WebAssembly
+crocwork Animate also runs in a web browser: the same program, built for WebAssembly
 (`wasm32-unknown-unknown`), drawing into a page with WebGL2. How it is built, and why, is in
 [ADR 0036](adr/0036-web-build.md). Nothing is hosted yet and the releases don't carry it yet; you
 build it and serve it yourself. `packaging/web/package.sh` builds it and zips it as the release

@@ -103,7 +103,7 @@ fn an_old_binary_fla_says_what_to_do() {
 }
 
 /// #226: one damaged part the document can do without (a bitmap's file, a library symbol) is
-/// left out and reported, and everything else opens, as it did before AniCraft read those
+/// left out and reported, and everything else opens, as it did before crocwork Animate read those
 /// parts; damage to `DOMDocument.xml` still refuses the file.
 #[test]
 fn damaged_parts_are_left_out_not_the_whole_document() {

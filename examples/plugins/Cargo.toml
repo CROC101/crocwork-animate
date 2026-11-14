@@ -1,4 +1,4 @@
-# Sample AniCraft plug-ins (docs/plugins.md). Not part of the AniCraft workspace: they build for
+# Sample crocwork Animate plug-ins (docs/plugins.md). Not part of the crocwork Animate workspace: they build for
 # wasm32-unknown-unknown only. Build with ./build.sh.
 [workspace]
 resolver = "3"

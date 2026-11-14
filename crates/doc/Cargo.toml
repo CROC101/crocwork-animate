@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-doc"
-description = "AniCraft L1: document model (stage, timeline, layers, keyframes, symbols) and timeline evaluation"
+description = "crocwork Animate L1: document model (stage, timeline, layers, keyframes, symbols) and timeline evaluation"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

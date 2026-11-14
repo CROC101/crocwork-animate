@@ -514,7 +514,7 @@ fn preferences(app: &mut App, ctx: &egui::Context) {
                             form_note(ui, LW, text(Type::Caption, s));
                         }
                     }
-                    // How the window itself is drawn (#207, #255): read when AniCraft starts.
+                    // How the window itself is drawn (#207, #255): read when crocwork Animate starts.
                     let backends = crate::platform::window_backends(crate::platform::OS);
                     if !backends.is_empty() {
                         ui.add_space(4.0);
@@ -528,9 +528,9 @@ fn preferences(app: &mut App, ctx: &egui::Context) {
                                 }
                             });
                         });
-                        form_note(ui, LW, text(Type::Caption, tr!("A change takes effect the next time AniCraft starts. If a way doesn't work, AniCraft starts with the next one.")));
+                        form_note(ui, LW, text(Type::Caption, tr!("A change takes effect the next time crocwork Animate starts. If a way doesn't work, crocwork Animate starts with the next one.")));
                         if let Some(log) = crate::startup::log_path() {
-                            form_note(ui, LW, text(Type::Caption, tr!("If AniCraft has trouble starting, this start-up log says why (attach it to a bug report):")));
+                            form_note(ui, LW, text(Type::Caption, tr!("If crocwork Animate has trouble starting, this start-up log says why (attach it to a bug report):")));
                             form_note(ui, LW, text(Type::Path, log.display().to_string()));
                         }
                     }
@@ -566,7 +566,7 @@ fn preferences(app: &mut App, ctx: &egui::Context) {
                     form_row(ui, LW, tr!("File dialogs"), |ui| {
                         ui.vertical(|ui| {
                             crate::theme::checkbox(ui, &mut p.native_dialogs, text(Type::Body, tr!("Use the system's open and save dialogs")));
-                            form_note(ui, toggle_indent, text(Type::Caption, tr!("Turn off on Linux desktops without an XDG desktop portal; AniCraft then asks for a path instead.")));
+                            form_note(ui, toggle_indent, text(Type::Caption, tr!("Turn off on Linux desktops without an XDG desktop portal; crocwork Animate then asks for a path instead.")));
                         });
                     });
                     ui.add_space(4.0);
@@ -576,7 +576,7 @@ fn preferences(app: &mut App, ctx: &egui::Context) {
                             form_note(
                                 ui,
                                 toggle_indent,
-                                text(Type::Caption, tr!("If AniCraft closes unexpectedly, the next start offers to restore it. Copies stay in the settings folder, never over your files, and go away when you save.")),
+                                text(Type::Caption, tr!("If crocwork Animate closes unexpectedly, the next start offers to restore it. Copies stay in the settings folder, never over your files, and go away when you save.")),
                             );
                         });
                     });
@@ -633,8 +633,8 @@ fn preferences(app: &mut App, ctx: &egui::Context) {
 /// Titles are English keys, translated where they are drawn; the licence texts stay as written.
 const NOTICES: &[(&str, &str)] = &[
     (tr_noop!("NOTICE"), include_str!("../NOTICE")),
-    (tr_noop!("AniCraft: MIT License"), include_str!("../LICENSE-MIT")),
-    (tr_noop!("AniCraft: Apache License 2.0"), include_str!("../LICENSE-APACHE")),
+    (tr_noop!("crocwork Animate: MIT License"), include_str!("../LICENSE-MIT")),
+    (tr_noop!("crocwork Animate: Apache License 2.0"), include_str!("../LICENSE-APACHE")),
     (tr_noop!("Font: Ubuntu Light (Ubuntu Font Licence 1.0)"), include_str!("../licenses/fonts/UFL-1.0-Ubuntu-font.txt")),
     (tr_noop!("Font: Hack (MIT, Bitstream Vera)"), include_str!("../licenses/fonts/LICENSE-Hack.txt")),
     (tr_noop!("Font: Noto Emoji (SIL OFL 1.1)"), include_str!("../licenses/fonts/OFL-1.1-NotoEmoji.txt")),
@@ -658,7 +658,7 @@ fn licenses(app: &mut App, ctx: &egui::Context) {
         .default_width(680.0)
         .default_height(560.0)
         .show(ctx, |ui| {
-            ui.label(text(Type::Body, tr!("AniCraft is free software: MIT OR Apache-2.0, at your option.")).strong());
+            ui.label(text(Type::Body, tr!("crocwork Animate is free software: MIT OR Apache-2.0, at your option.")).strong());
             ui.label(
                 text(Type::Body, tr!("It is an independent project, not affiliated with or endorsed by Adobe. Bundled fonts and Rust crates keep their own permissive licences, listed below."))
                     .color(T.text_dim),

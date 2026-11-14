@@ -2,7 +2,7 @@
 
 ## Versions
 
-AniCraft follows semantic versioning. Before 1.0, minor versions may change file formats and
+crocwork Animate follows semantic versioning. Before 1.0, minor versions may change file formats and
 commands, with migration on load (ADR 0003).
 
 | Version | Stage | Meaning |
@@ -41,10 +41,10 @@ the `release` branch (and by hand from the Actions tab):
 | Linux riscv64 | `.deb`, `.rpm`, `.tar.gz` (cross-compiled) | `package.sh --formats "deb rpm tar"` |
 | FreeBSD x86_64, aarch64 | `.tar.gz` | the shared workflow's built-in packager |
 
-Every installer registers `.anicraft` (AniCraft is its default app) and offers AniCraft for
+Every installer registers `.anicraft` (crocwork Animate is its default app) and offers crocwork Animate for
 `.fla` and `.xfl` under "Open with" without taking them over; installs the app icon, the
 `anicraft-cli` next to the app, and our licences and notices. The Windows MSI installs for the
-current account by default (`%LOCALAPPDATA%\Programs\ArtCraft\AniCraft`, no admin prompt) and
+current account by default (`%LOCALAPPDATA%\Programs\crocwork\crocwork Animate`, no admin prompt) and
 for everyone on request; see `packaging/windows/INSTALLATION.md`. Each script runs on its own OS
 and writes to `dist/release/`; without signing secrets it warns and builds unsigned (Windows) or
 ad-hoc-signed (macOS) artifacts, which is how to try the packaging locally.
@@ -74,7 +74,7 @@ on the release commit. CI never publishes.
 
 * [ ] Counsel confirm the patent posture and the clean-room approach to opening Animate files
   (`docs/legal/compliance.md`).
-* [ ] Counsel or a trademark search confirm the name "AniCraft".
+* [ ] Counsel or a trademark search confirm the name "crocwork Animate".
 * [ ] `cargo test`, `cargo clippy --all-targets -- -D warnings` and
   `cargo deny check licenses bans sources` pass, plus screenshot checks on Windows, macOS and
   Linux.
@@ -83,5 +83,5 @@ on the release commit. CI never publishes.
 * [ ] `CHANGELOG.md` has the version's section; the version is bumped in `Cargo.toml` through a
   PR, merged to `main`, and `main` is pushed to `release`.
 * [ ] The release run is green and the draft has every artifact; on a clean machine per OS the
-  installer installs, `.anicraft` files open AniCraft (macOS: see ADR 0026, not yet), and the
+  installer installs, `.anicraft` files open crocwork Animate (macOS: see ADR 0026, not yet), and the
   app uninstalls cleanly. Then publish the draft (this tags `v<version>`).

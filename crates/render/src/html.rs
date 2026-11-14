@@ -7,7 +7,7 @@
 //!
 //! The data is baked, not re-keyed: every timeline (each scene's and each symbol's that the
 //! movie uses) is evaluated frame by frame, so classic, shape and motion tweens, easing, motion
-//! guides and shape hints come out exactly as AniCraft computes them, and the browser never
+//! guides and shape hints come out exactly as crocwork Animate computes them, and the browser never
 //! interpolates. A frame is its layers (bottom first) and their items: shapes (a path, a paint,
 //! a stroke, a colour effect) and symbol instances (which the player resolves at run time: movie
 //! clips have their own playheads, buttons their pointer states). Identical paths, paints and
@@ -60,7 +60,7 @@ pub struct HtmlOptions {
 
 impl Default for HtmlOptions {
     fn default() -> Self {
-        HtmlOptions { title: "AniCraft movie".into(), sound: true, fit: true }
+        HtmlOptions { title: "crocwork Animate movie".into(), sound: true, fit: true }
     }
 }
 
@@ -952,7 +952,7 @@ pub fn movie(doc: &Document, opts: &HtmlOptions) -> Movie {
     let fps = if stage.fps.is_finite() && stage.fps > 0.0 { stage.fps } else { 24.0 };
     let json = json!({
         "v": FORMAT_VERSION,
-        "generator": format!("AniCraft {}", env!("CARGO_PKG_VERSION")),
+        "generator": format!("crocwork Animate {}", env!("CARGO_PKG_VERSION")),
         "stage": {"w": stage.width.max(1), "h": stage.height.max(1), "fps": num(fps, 1000.0), "bg": stage.background.to_hex()},
         "fit": opts.fit,
         "scenes": doc.scenes.iter().enumerate().map(|(i, s)| json!({"name": s.name, "tl": i})).collect::<Vec<_>>(),
@@ -1007,7 +1007,7 @@ pub fn to_html(doc: &Document, opts: &HtmlOptions) -> Result<HtmlExport, String>
     let (w, h) = (doc.stage.width.max(1), doc.stage.height.max(1));
     let mut html = String::with_capacity(data.len() + PLAYER_JS.len() + FILTERS_JS.len() + CANVAS_JS.len() + 1024);
     html.push_str("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
-    html.push_str(&format!("<meta name=\"generator\" content=\"AniCraft {}\">\n<title>{title}</title>\n", env!("CARGO_PKG_VERSION")));
+    html.push_str(&format!("<meta name=\"generator\" content=\"crocwork Animate {}\">\n<title>{title}</title>\n", env!("CARGO_PKG_VERSION")));
     html.push_str(&format!("<style>html,body{{margin:0;height:100%;background:{bg}}}body{{display:flex;align-items:center;justify-content:center;overflow:hidden}}canvas{{display:block;touch-action:none;user-select:none}}</style>\n</head>\n<body>\n"));
     html.push_str(&format!("<canvas id=\"anicraft-stage\" width=\"{w}\" height=\"{h}\" role=\"img\" aria-label=\"{title}\"></canvas>\n"));
     html.push_str("<script type=\"application/json\" id=\"anicraft-movie\">");

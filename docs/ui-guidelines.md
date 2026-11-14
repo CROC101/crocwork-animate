@@ -1,6 +1,6 @@
 # UI guidelines
 
-AniCraft's interface serves artists in a flow state (see `product-principles.md`). These rules
+crocwork Animate's interface serves artists in a flow state (see `product-principles.md`). These rules
 keep it professional, calm and predictable. **Tokens live in `src/theme.rs`**: colours in `T`,
 typography in `Type`. Panels never hard-code colours, font families or font sizes; a test
 (`guidelines_tests` in `src/main.rs`) fails the build if they do.

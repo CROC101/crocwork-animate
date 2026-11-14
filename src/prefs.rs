@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /// Which typeface a text role uses.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub enum FontChoice {
-    /// The fonts AniCraft bundles (Inter / JetBrains Mono, or egui's defaults).
+    /// The fonts crocwork Animate bundles (Inter / JetBrains Mono, or egui's defaults).
     #[default]
     Bundled,
     /// A font family installed on this computer.
@@ -47,8 +47,8 @@ pub enum StageRenderer {
     Cpu,
 }
 
-/// How the window itself is drawn (#207, #255): AniCraft picks, or one graphics interface the user
-/// chose for this computer. Takes effect the next time AniCraft starts; whichever is chosen, a
+/// How the window itself is drawn (#207, #255): crocwork Animate picks, or one graphics interface the user
+/// chose for this computer. Takes effect the next time crocwork Animate starts; whichever is chosen, a
 /// failure falls back to the next way that works (`startup`). Read leniently, so a value a
 /// newer build wrote never resets the other preferences.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
@@ -67,7 +67,7 @@ impl WindowBackend {
     /// The choice's name and what it is for, as Preferences lists it (English keys).
     pub fn describe(self) -> (&'static str, &'static str) {
         match self {
-            WindowBackend::Auto => (tr_noop!("Automatic"), tr_noop!("AniCraft tries the best way for this computer first, and the next one if a way doesn't work.")),
+            WindowBackend::Auto => (tr_noop!("Automatic"), tr_noop!("crocwork Animate tries the best way for this computer first, and the next one if a way doesn't work.")),
             WindowBackend::Vulkan => (tr_noop!("Vulkan"), tr_noop!("Try this if the window flickers or goes black with another choice.")),
             WindowBackend::Dx12 => (tr_noop!("DirectX 12"), tr_noop!("Windows' own graphics: try this if the window flickers or goes black with another choice.")),
             WindowBackend::Metal => (tr_noop!("Metal"), tr_noop!("The Mac's own graphics.")),
@@ -146,7 +146,7 @@ pub struct Prefs {
     /// last 10 documents opened or saved.
     #[serde(deserialize_with = "lenient_recent")]
     pub recent: anicraft_engine::cmds_recent::RecentFiles,
-    /// Show the start screen when AniCraft starts without a document to open (ADR 0059).
+    /// Show the start screen when crocwork Animate starts without a document to open (ADR 0059).
     pub start_screen: bool,
     /// Brushes of your own (ADR 0068), for the Brush and the Paint Brush.
     #[serde(deserialize_with = "lenient_brushes")]

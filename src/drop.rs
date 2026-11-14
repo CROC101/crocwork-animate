@@ -97,20 +97,20 @@ pub struct Plan {
 /// Why a file can't go there, in the interface language.
 fn refusal(kind: DropKind, start: bool) -> String {
     match kind {
-        DropKind::Unsupported => tr!("AniCraft opens .anicraft, .fla and .xfl documents, and imports SVG drawings, PNG and JPEG images, and WAV, Ogg and MP3 sounds").into(),
+        DropKind::Unsupported => tr!("crocwork Animate opens .anicraft, .fla and .xfl documents, and imports SVG drawings, PNG and JPEG images, and WAV, Ogg and MP3 sounds").into(),
         _ if start => tr!("Open or create a document first, then drop drawings, images and sounds on its stage").into(),
         _ => tr!("Drop drawings, images and sounds on the stage or a layer's frame to place them, or on the Library to add them").into(),
     }
 }
 
-/// What dropping `files` at `spot` does. One document opens (AniCraft has one document
+/// What dropping `files` at `spot` does. One document opens (crocwork Animate has one document
 /// window); other files in the same drop are left out then.
 pub fn plan(files: &[PathBuf], spot: Spot) -> Plan {
     let mut out = Plan::default();
     if let Some(doc) = files.iter().find(|f| kind_of(f) == DropKind::Document) {
         out.open = Some(doc.clone());
         for f in files.iter().filter(|f| *f != doc) {
-            out.left_out.push((f.clone(), tr!("AniCraft opens one document at a time; drop the others on their own").into()));
+            out.left_out.push((f.clone(), tr!("crocwork Animate opens one document at a time; drop the others on their own").into()));
         }
         return out;
     }
@@ -564,10 +564,10 @@ mod tests {
             assert_eq!(plan.left_out.len(), 2);
         }
         let plan_at = |spot| plan(&[p("a.svg"), p("b.png"), p("c.mp3"), p("d.psd")], spot);
-        // On the stage: everything AniCraft reads, the rest left out with a reason.
+        // On the stage: everything crocwork Animate reads, the rest left out with a reason.
         let on_stage = plan_at(Spot::Stage(10.0, 20.0));
         assert_eq!((on_stage.to, on_stage.import.len(), on_stage.left_out.len()), (Some(DropTarget::Stage), 3, 1));
-        assert!(on_stage.left_out[0].1.contains("SVG"), "says what AniCraft reads");
+        assert!(on_stage.left_out[0].1.contains("SVG"), "says what crocwork Animate reads");
         // On the Library: drawings (as graphic symbols), images and sounds.
         let in_library = plan_at(Spot::Library(Some(FolderId(7))));
         assert_eq!((in_library.to, in_library.import.len(), in_library.left_out.len()), (Some(DropTarget::Library), 3, 1));
@@ -692,7 +692,7 @@ mod tests {
         assert!(app.confirm.as_ref().is_some_and(|c| c.id == "file.open"), "the unsaved-changes guard asks");
         assert_eq!(app.s.path.as_deref(), Some(walk.as_path()));
         app.confirm = None;
-        // Only files AniCraft can't open: one clear message, nothing else.
+        // Only files crocwork Animate can't open: one clear message, nothing else.
         push_request(SystemRequest::Open(vec![dir.join("notes.txt")]));
         frame(&mut app);
         assert!(app.status.as_ref().is_some_and(|s| s.error && s.text.contains("notes.txt")));

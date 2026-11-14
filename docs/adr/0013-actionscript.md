@@ -9,7 +9,7 @@
 ## Context
 
 The project lead asked for ActionScript on the roadmap if it fits our constraints, at low
-priority, since it serves a smaller group of users. U2 already settled AniCraft's own scripting:
+priority, since it serves a smaller group of users. U2 already settled crocwork Animate's own scripting:
 the Craft-family WebAssembly plug-ins, with frame scripts on the same sandbox. The ActionScript
 question is about compatibility for people who bring Animate projects with code in them.
 
@@ -71,7 +71,7 @@ blocking anything else.
      deterministic; a **Test Movie** preview window and the HTML canvas export use the player.
      Fuel limits a step's work, so a bad loop can't hang the app.
    * `navigateToURL` and other effects outside the movie are ignored in preview (reported in
-     its output), so opening a file can't make AniCraft do things outside the document.
+     its output), so opening a file can't make crocwork Animate do things outside the document.
 3. **Not planned: the full language and platform (tier 3).** Classes, packages, the
    `flash.*` API, a bytecode virtual machine and SWF export with compiled code. That is a
    second product (a player), and open-source players for old content already exist. We
@@ -104,7 +104,7 @@ blocking anything else.
   canvas exports without being rewritten.
 * Documents with scripts look the same in every export as before, because exports render
   the authored timeline, not a played session. That matches Animate's own video export.
-* Games and applications written in ActionScript don't run in AniCraft and won't in this
+* Games and applications written in ActionScript don't run in crocwork Animate and won't in this
   plan. Their artwork and timelines still come across, and their scripts are kept.
 * The subset is a moving line. It grows from user reports of the "not run" messages, never
   by guessing what unsupported code would have done.

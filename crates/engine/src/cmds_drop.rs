@@ -72,8 +72,8 @@ pub fn kind_of(path: &Path) -> DropKind {
     }
 }
 
-/// The message for a file AniCraft can't take.
-pub const UNSUPPORTED: &str = "AniCraft opens .anicraft, .fla and .xfl documents, and imports SVG drawings, PNG and JPEG images, and WAV, Ogg and MP3 sounds";
+/// The message for a file crocwork Animate can't take.
+pub const UNSUPPORTED: &str = "crocwork Animate opens .anicraft, .fla and .xfl documents, and imports SVG drawings, PNG and JPEG images, and WAV, Ogg and MP3 sounds";
 
 /// What dropping a file of `kind` on `target` does.
 pub fn route(kind: DropKind, target: DropTarget) -> DropAction {

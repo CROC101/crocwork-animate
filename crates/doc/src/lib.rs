@@ -1,4 +1,4 @@
-//! AniCraft document model (layer L1).
+//! crocwork Animate document model (layer L1).
 //!
 //! A document is plain data. Time is a function: [`evaluate`] turns a document and a frame into
 //! a flat [`DisplayList`], which renderers draw. Nothing here mutates during playback.
@@ -1741,7 +1741,7 @@ impl Scene {
 /// Most scenes in a document.
 pub const MAX_SCENES: usize = 1_000;
 
-/// A whole AniCraft document: a persistent (structurally shared) tree.
+/// A whole crocwork Animate document: a persistent (structurally shared) tree.
 ///
 /// `clone()` is O(scenes + layers + symbols) pointer copies, which makes undo snapshots and
 /// render-thread hand-off cheap, and `==` costs O(changed) because shared subtrees compare by

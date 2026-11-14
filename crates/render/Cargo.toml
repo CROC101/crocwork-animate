@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-render"
-description = "AniCraft L2: deterministic CPU oracle renderer (analytic coverage rasterizer, paints, compositor, PNG)"
+description = "crocwork Animate L2: deterministic CPU oracle renderer (analytic coverage rasterizer, paints, compositor, PNG)"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

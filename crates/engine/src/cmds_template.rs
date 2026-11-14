@@ -1,4 +1,4 @@
-//! Templates (ADR 0065): new documents from the templates AniCraft ships with
+//! Templates (ADR 0065): new documents from the templates crocwork Animate ships with
 //! (`anicraft_doc::templates`, built by code) and from the user's own, which File › Save as
 //! Template keeps as plain `.anicraft` files with a picture beside them:
 //! `<folder>/<category>/<name>.anicraft` and `<name>.png`. The shell passes the folder (its

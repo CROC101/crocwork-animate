@@ -1,4 +1,4 @@
-//! XFL document → AniCraft document.
+//! XFL document → crocwork Animate document.
 //!
 //! What maps (first slice of M4): stage size, frame rate and colour; the first scene's
 //! layers (name, colour, visibility, lock, outline; guide layers; folders flattened); frames
@@ -17,7 +17,7 @@
 //! their first frame (`video`, ADR 0086). Sounds and videos that don't come across are named in
 //! the report with why. Everything else (bitmaps kept only in Animate's own storage, video playback,
 //! motion tweens with property curves, unknown filters) is counted in the report instead of guessed at,
-//! and so is whatever is drawn the nearest way AniCraft can (ragged, stipple and hatched
+//! and so is whatever is drawn the nearest way crocwork Animate can (ragged, stipple and hatched
 //! strokes, reflecting gradients, …). The self-authored corpus in `tests/corpus/` covers
 //! every feature listed here, with golden renders (ADR 0035).
 
@@ -151,7 +151,7 @@ const MAX_BITMAPS: usize = 10_000;
 const MAX_SOUNDS: usize = 10_000;
 const MAX_VIDEOS: usize = 10_000;
 
-/// Names the format of sound data that didn't decode, and why when it is a kind AniCraft reads:
+/// Names the format of sound data that didn't decode, and why when it is a kind crocwork Animate reads:
 /// "AIFF", "WAV in IMA ADPCM", "Animate's own sound data".
 fn sound_format(data: &[u8], from_bin: bool, err: &anicraft_doc::audio::AudioError) -> String {
     use anicraft_doc::audio::{AudioError, Format};
@@ -178,7 +178,7 @@ fn sound_format(data: &[u8], from_bin: bool, err: &anicraft_doc::audio::AudioErr
                 format!("WAV in {name}")
             }
             AudioError::Unsupported(what) => format!("{kind} with {what}"),
-            AudioError::TooLong => format!("{kind} longer than AniCraft plays"),
+            AudioError::TooLong => format!("{kind} longer than crocwork Animate plays"),
             AudioError::Empty => format!("{kind} holding no audio"),
             _ => format!("a damaged {kind} file"),
         };
@@ -315,7 +315,7 @@ fn paint(def: &X, bitmaps: &HashMap<String, BitmapId>, report: &mut Report) -> O
             let m = matrix(def).m;
             let matrix = Affine { m: [m[0] / TWIPS, m[1] / TWIPS, m[2] / TWIPS, m[3] / TWIPS, m[4], m[5]] };
             // Animate repeats a bitmap fill unless it is clipped (then the edge pixels extend,
-            // which AniCraft draws as the image shown once).
+            // which crocwork Animate draws as the image shown once).
             Some(Paint::Bitmap { bitmap, repeat: !def.bool("bitmapIsClipped").unwrap_or(false), matrix })
         }
         _ => None,
@@ -434,7 +434,7 @@ impl<'a> Builder<'a> {
         let still = el.attr("libraryItemName").and_then(|n| self.videos.get(n)).copied();
         let found = still.flatten().and_then(|id| self.doc.bitmap(id).map(|b| (id, b.width as f32, b.height as f32)));
         let Some((bitmap, w, h)) = found else {
-            self.report.skip(if still.is_some() { "instances of videos AniCraft can't play" } else { "instances of missing videos" });
+            self.report.skip(if still.is_some() { "instances of videos crocwork Animate can't play" } else { "instances of missing videos" });
             return;
         };
         let size = |k: &str, natural: f32| el.f32(k).map(|t| t / TWIPS).filter(|v| v.is_finite() && *v > 0.0 && *v <= 100_000.0).unwrap_or(natural);
@@ -623,7 +623,7 @@ impl<'a> Builder<'a> {
     fn timeline(&mut self, tl: &X) -> Timeline {
         let mut layers = Vec::new();
         // Layers by their position in the file's layer list: `parentLayerIndex` points at a
-        // layer's folder or mask. Links that don't fit AniCraft's rules are dropped by
+        // layer's folder or mask. Links that don't fit crocwork Animate's rules are dropped by
         // `repair_masks` below.
         let mut by_index: Vec<LayerId> = Vec::new();
         for l in tl.list("layers").iter().filter(|l| l.name == "DOMLayer").take(MAX_LAYERS) {
@@ -660,7 +660,7 @@ impl<'a> Builder<'a> {
                 let duration = f.u32("duration").unwrap_or(1).clamp(1, MAX_FRAME);
                 let mut k = Keyframe::new(start, duration);
                 // A frame's name is a label (or an anchor, a label too); a comment is a note
-                // to the animator that nothing can go to, which AniCraft has no place for yet.
+                // to the animator that nothing can go to, which crocwork Animate has no place for yet.
                 if f.attr("labelType").map(str::trim) == Some("comment") {
                     self.report.skip("frame comments");
                 } else {
@@ -966,7 +966,7 @@ impl<'a> Builder<'a> {
                     self.sounds.insert(name.to_string(), s.id);
                     self.doc.sounds.push(Arc::new(s));
                 }
-                (None, Some(why)) => self.report.skip_named("sounds in formats AniCraft can't decode", format!("{shown}: {why}")),
+                (None, Some(why)) => self.report.skip_named("sounds in formats crocwork Animate can't decode", format!("{shown}: {why}")),
                 (None, None) if unreadable => self.report.skip_named("sounds whose files couldn't be read", shown),
                 (None, None) => self.report.skip_named("missing sound files", shown),
             }
@@ -974,7 +974,7 @@ impl<'a> Builder<'a> {
         Ok(())
     }
 
-    /// Reads the document's video items (`DOMVideoItem`, ADR 0086). AniCraft has no video
+    /// Reads the document's video items (`DOMVideoItem`, ADR 0086). crocwork Animate has no video
     /// playback: a video whose data is an FLV file in the Screen Video codec comes across as a
     /// bitmap of its first frame (in the Library beside where the video was, named
     /// "<video> (first frame)"), which its instances show; every video is named in the report
@@ -1044,7 +1044,7 @@ impl<'a> Builder<'a> {
                         (None, true) => "its file couldn't be read".into(),
                         (None, false) => "its file is missing".into(),
                     };
-                    self.report.skip_named("videos AniCraft can't play", format!("{shown}: {why}{length}"));
+                    self.report.skip_named("videos crocwork Animate can't play", format!("{shown}: {why}{length}"));
                     None
                 }
             };
@@ -1333,7 +1333,7 @@ fn fla_from(data: &[u8], fonts: Option<&Fonts>) -> Result<(Document, Report), Xf
         return Err(XflError::NotXfl("the file is too large".into()));
     }
     if data.starts_with(&OLE_MAGIC) {
-        return Err(XflError::NotXfl("this .fla was saved by Flash CS4 or earlier, in a format AniCraft can't read: open it in Animate and save it again".into()));
+        return Err(XflError::NotXfl("this .fla was saved by Flash CS4 or earlier, in a format crocwork Animate can't read: open it in Animate and save it again".into()));
     }
     let archive = crate::zip::Archive::open(data)?;
     let root = package_root(&archive)?;

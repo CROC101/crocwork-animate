@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-engine"
-description = "AniCraft L3: session, undo history, command registry and the .anicraft file format"
+description = "crocwork Animate L3: session, undo history, command registry and the .anicraft file format"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

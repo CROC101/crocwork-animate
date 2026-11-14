@@ -9,7 +9,7 @@
 
 Sound items with their file in the package already came across (ADR 0057), but everything
 else about sound was only counted: effects and envelopes were dropped with one line, and a
-sound in a format AniCraft can't decode was "1 sounds stored in Animate's own format", with no
+sound in a format crocwork Animate can't decode was "1 sounds stored in Animate's own format", with no
 name, so an artist couldn't tell which sound to fix. Videos were counted as "videos" and
 dropped. And two archive layouts real users hand us were refused: an XFL folder zipped as a
 folder (`walk/DOMDocument.xml`, often with macOS's `__MACOSX/` beside it), and a zip with data
@@ -37,14 +37,14 @@ self-authored.
 2. **What doesn't come across is named.** `Report::names` (kind → names, at most 64 kept per
    kind; the count stays whole) lists each sound or video that didn't come across with the
    reason; the summary line shows the first three per kind, then "and N more", and the whole
-   line is on the status bar's hover. Sounds: "sounds in formats AniCraft can't decode"
+   line is on the status bar's hover. Sounds: "sounds in formats crocwork Animate can't decode"
    (`theme.aif: AIFF`, `voice.wav: WAV in IMA ADPCM`, `x: Animate's own sound data`, `a damaged
    MP3 file`, FLAC, Ogg Opus, AAC, Sun AU — told from the first bytes; a WAV's codec is read
    from its `fmt ` chunk), "sounds whose files couldn't be read", "missing sound files". The
    kinds' names changed from ADR 0057's ("sounds stored in Animate's own format" is now a
-   reason inside "sounds in formats AniCraft can't decode"). `file.open` returns `named` for
+   reason inside "sounds in formats crocwork Animate can't decode"). `file.open` returns `named` for
    the CLI and MCP.
-3. **Videos: a still where we can read one, a name always.** AniCraft has no video playback
+3. **Videos: a still where we can read one, a name always.** crocwork Animate has no video playback
    (and won't bundle patent-pool decoders). A `DOMVideoItem`'s data is looked for as
    `LIBRARY/<href>`, the package-relative `sourceExternalFilepath`, then `bin/<videoDataHRef>`.
    If it is an FLV whose first video tag is a **Screen Video** key frame (codec 3: blocks of

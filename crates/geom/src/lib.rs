@@ -1,4 +1,4 @@
-//! AniCraft geometry (layer L0): points, affine transforms, rectangles and Bézier paths.
+//! crocwork Animate geometry (layer L0): points, affine transforms, rectangles and Bézier paths.
 //!
 //! Everything here is pure math with no allocation beyond the path buffers, deterministic
 //! across platforms (plain `f32`, no fused ops that depend on the target).

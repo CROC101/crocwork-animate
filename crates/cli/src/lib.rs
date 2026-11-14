@@ -1,4 +1,4 @@
-//! AniCraft headless front end: argument parsing, the JSON-lines `serve` loop and the MCP
+//! crocwork Animate headless front end: argument parsing, the JSON-lines `serve` loop and the MCP
 //! server (`mcp`). Every operation goes through the engine's command registry.
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
 
@@ -11,7 +11,7 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 pub const USAGE: &str = "\
-AniCraft CLI — headless animation engine
+crocwork Animate CLI — headless animation engine
 
 USAGE:
   anicraft-cli info <file|--sample>
@@ -462,7 +462,7 @@ pub fn handle_request(s: &mut Session, line: &str) -> Value {
 
 /// JSON-lines loop: one request per line, one response per line. Ends on EOF or `{"cmd":"quit"}`.
 pub fn serve<R: BufRead, W: Write>(s: &mut Session, input: R, out: &mut W) -> std::io::Result<()> {
-    writeln!(out, "{}", json!({"ready": true, "app": "AniCraft", "version": env!("CARGO_PKG_VERSION")}))?;
+    writeln!(out, "{}", json!({"ready": true, "app": "crocwork Animate", "version": env!("CARGO_PKG_VERSION")}))?;
     out.flush()?;
     for line in input.lines() {
         let line = line?;

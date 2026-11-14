@@ -3,7 +3,7 @@
 //!
 //! A field holds text runs (`<textRuns><DOMTextRun><characters>…</characters><textAttrs>
 //! <DOMTextAttrs face="Arial-BoldMT" size="24" fillColor="#FF0000" alignment="center"
-//! letterSpacing="1" lineSpacing="2"/>`). An AniCraft text block has one style, so a field
+//! letterSpacing="1" lineSpacing="2"/>`). An crocwork Animate text block has one style, so a field
 //! becomes one block per run of consecutive lines that share a style, stacked as Animate
 //! stacks them; a line that mixes styles takes the style most of its characters have, and the
 //! report says so.
@@ -82,7 +82,7 @@ fn run_style(attrs: Option<&X>, flags: &mut Flags) -> RunStyle {
     }
 }
 
-/// What a field used that AniCraft draws differently, reported once per field.
+/// What a field used that crocwork Animate draws differently, reported once per field.
 #[derive(Default)]
 struct Flags {
     justified: bool,

@@ -75,7 +75,7 @@ fn windows_icon() {
         return;
     }
     let mut res = winresource::WindowsResource::new();
-    res.set_icon("assets/app-icon/anicraft.ico").set("ProductName", "AniCraft").set("FileDescription", "AniCraft 2D vector animation studio");
+    res.set_icon("assets/app-icon/anicraft.ico").set("ProductName", "crocwork Animate").set("FileDescription", "crocwork Animate 2D vector animation studio");
     if let Err(e) = res.compile() {
         if required("ANICRAFT_REQUIRE_WINRES") {
             fail(&format!("ANICRAFT_REQUIRE_WINRES=1 but anicraft.exe's icon and version resource could not be embedded: {e}"));
@@ -137,11 +137,11 @@ fn main() {
     }
 }
 
-/// AniCraft's own catalog in a craft-i18n locale: `locales/<locale>/anicraft.tsv`.
+/// crocwork Animate's own catalog in a craft-i18n locale: `locales/<locale>/anicraft.tsv`.
 const APP_CATALOG: &str = "anicraft.tsv";
 
 /// `CRAFT_I18N` (ADR 0040), as craft-i18n's `docs/integration.md` describes: one
-/// `(locale, common.tsv, anicraft.tsv)` entry per locale with AniCraft's own catalog, and the
+/// `(locale, common.tsv, anicraft.tsv)` entry per locale with crocwork Animate's own catalog, and the
 /// base language of a regional one (`pt` for `pt-br`) so it can fall back, embedded with
 /// `include_str!`. Without `CRAFT_I18N_DIR` the list is empty and the interface is English.
 /// `CRAFT_I18N_REQUIRED=1` makes a missing or empty checkout an error (for releases).
@@ -173,7 +173,7 @@ fn craft_i18n() -> String {
     code
 }
 
-/// `(locale, common.tsv, anicraft.tsv)` for every locale under `dir` with AniCraft's catalog,
+/// `(locale, common.tsv, anicraft.tsv)` for every locale under `dir` with crocwork Animate's catalog,
 /// and for the base language of each regional one.
 type I18nEntry = (String, Option<PathBuf>, Option<PathBuf>);
 

@@ -1,4 +1,4 @@
-// AniCraft GPU stage: tile binning on the GPU (ADR 0048).
+// crocwork Animate GPU stage: tile binning on the GPU (ADR 0048).
 //
 // The same tile lists as the CPU binning (binning.rs, the reference), from the prepared fills'
 // flattened polygons, in four kinds of dispatch:

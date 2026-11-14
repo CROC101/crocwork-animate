@@ -1,4 +1,4 @@
-//! AniCraft XML (layer L0): a small, strict-enough XML element reader shared by the importers.
+//! crocwork Animate XML (layer L0): a small, strict-enough XML element reader shared by the importers.
 //!
 //! XFL and SVG keep everything that matters in elements and attributes (XFL even stores shape
 //! geometry as an attribute), so the reader builds a tree of elements with attributes. An

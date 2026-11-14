@@ -1,4 +1,4 @@
-# AniCraft for AI assistants (MCP)
+# crocwork Animate for AI assistants (MCP)
 
 `anicraft-cli mcp` is a [Model Context Protocol](https://modelcontextprotocol.io) server. Any
 MCP client (an AI assistant, an editor, a script) can then open a document, draw, animate,

@@ -52,7 +52,7 @@ Two halves with different needs:
 
 Baking rather than interpolating in JavaScript, because:
 
-* **Fidelity.** The browser shows exactly AniCraft's frames. A JS interpolator would have to
+* **Fidelity.** The browser shows exactly crocwork Animate's frames. A JS interpolator would have to
   reimplement easing presets and custom curves, motion-tween property tracks, guide-path
   walking with orientation, and shape morphing with hints (`anicraft-geom::morph` alone is
   ~900 lines): a second implementation to drift from the first, for every feature added later.

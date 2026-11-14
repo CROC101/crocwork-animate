@@ -341,7 +341,7 @@ impl ColorEffect {
 
 // ----- files ---------------------------------------------------------------------------------
 //
-// Every effect is written with the fields older AniCraft files have (`alpha`, `tint`,
+// Every effect is written with the fields older crocwork Animate files have (`alpha`, `tint`,
 // `tint_amount`: the look as near as they can say it), so None, Alpha and Tint effects are
 // written exactly as before. `style` (and `brightness`, `multiply`, `offset`) are added only
 // when those fields alone would read back as something else. A file without `style` reads as

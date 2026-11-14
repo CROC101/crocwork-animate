@@ -7,20 +7,20 @@ On macOS, press ⌘ where this guide says Ctrl, and ⌥ where it says Alt.
 
 ## The window won't open, or stays blank
 
-AniCraft draws its window with your graphics card through a modern graphics interface (Vulkan,
+crocwork Animate draws its window with your graphics card through a modern graphics interface (Vulkan,
 Metal or DirectX 12). If that fails to start, which happens on some older cards, laptops with two
-graphics chips, virtual machines and Linux setups, AniCraft tries the next way by itself: on
+graphics chips, virtual machines and Linux setups, crocwork Animate tries the next way by itself: on
 Windows, DirectX 12 on the built-in graphics chip, and then OpenGL everywhere. If a graphics
-driver crashes or hangs while AniCraft starts, the next start tries that way last.
+driver crashes or hangs while crocwork Animate starts, the next start tries that way last.
 
-If no way works, AniCraft says so in a message and names its **start-up log**, a text file that
+If no way works, crocwork Animate says so in a message and names its **start-up log**, a text file that
 records each way it tried and why it failed. Please attach it to your bug report. It is
 `anicraft.log` in the `Logs` folder of the [settings folder](#where-settings-live), with the
 previous run's beside it as `anicraft.previous.log`.
 
 If the window opens but flickers, goes black for a moment or looks garbled, choose another way
 in **Preferences › Stage › Window graphics** (for example **DirectX 12** or **OpenGL** on
-Windows) and restart AniCraft. From a terminal, the same choice is:
+Windows) and restart crocwork Animate. From a terminal, the same choice is:
 
 ```sh
 anicraft --renderer gl        # or dx12, vulkan, metal
@@ -49,13 +49,13 @@ Exports always use the CPU renderer, so a stage problem never ends up in your fi
 
 ## Fonts look different or are missing
 
-* **The interface font.** AniCraft's builds normally include the Inter and JetBrains Mono
+* **The interface font.** crocwork Animate's builds normally include the Inter and JetBrains Mono
   typefaces. A build made without them uses simpler built-in fonts instead. Either way you can
   pick any installed font in **Preferences › Appearance › Interface font** and **Data font**.
 * **Text in your animation.** The Text tool offers the fonts installed on your computer, plus a
   built-in face. Text is stored in the document as outlines, so it looks the same on a computer
   that doesn't have the font; to change the wording or style there, install the font.
-* **Animate files.** When a document uses a font you don't have, AniCraft uses a close
+* **Animate files.** When a document uses a font you don't have, crocwork Animate uses a close
   substitute and names the missing family in the import report. Install the font and open the
   file again. See [Opening Animate files](opening-animate-files.md).
 * **In the web version**, a page can't see your computer's fonts, so text uses the built-in
@@ -63,40 +63,40 @@ Exports always use the CPU renderer, so a stage problem never ends up in your fi
 
 ## No sound on Linux
 
-AniCraft plays sound through ALSA, which PipeWire and PulseAudio reach through their ALSA
+crocwork Animate plays sound through ALSA, which PipeWire and PulseAudio reach through their ALSA
 plug-ins. If playback is silent or the status bar says "no sound output device":
 
 1. Make sure the ALSA library is installed (`libasound2`, called `alsa-lib` on Fedora and Arch).
    The deb and rpm packages ask for it.
 2. On PipeWire, install `pipewire-alsa`; on PulseAudio, its ALSA plug-in (often in
    `pulseaudio` or `alsa-plugins-pulseaudio`).
-3. Check that another program can play sound, then restart AniCraft.
+3. Check that another program can play sound, then restart crocwork Animate.
 
 Sounds still import, show on the timeline and go into Export Audio and Export Video even when
-playback is silent. A message that "this build of AniCraft has no sound output" means it was
+playback is silent. A message that "this build of crocwork Animate has no sound output" means it was
 built without sound playback; use a release build.
 
 ## Video export doesn't work
 
-**File › Export › Export Video…** hands the frames to ffmpeg, which you install yourself (AniCraft
+**File › Export › Export Video…** hands the frames to ffmpeg, which you install yourself (crocwork Animate
 doesn't bundle a video encoder). Install ffmpeg so it is on your `PATH`, or set the environment
 variable `ANICRAFT_FFMPEG` to the full path of the `ffmpeg` program. The web version can't run
 ffmpeg at all: export an animated GIF, animated PNG or WebP, a PNG sequence or an HTML page
 instead. See [Exporting and publishing](exporting-and-publish.md).
 
-## AniCraft closed unexpectedly
+## crocwork Animate closed unexpectedly
 
-Your unsaved work is probably safe. AniCraft keeps a recovery copy in the background (every
+Your unsaved work is probably safe. crocwork Animate keeps a recovery copy in the background (every
 minute or every 25 changes by default, see **Preferences › Files › Autosave**).
 
-1. Start AniCraft again. The **Recover unsaved work** window lists what was left behind.
+1. Start crocwork Animate again. The **Recover unsaved work** window lists what was left behind.
 2. **Restore** opens a copy as unsaved work. Save puts it back where it was (if the file was saved
-   after the copy, AniCraft asks for a new name instead, so nothing is overwritten).
+   after the copy, crocwork Animate asks for a new name instead, so nothing is overwritten).
 3. **Discard…** deletes a copy for good, after a second click.
 4. **Later** keeps the copies. **File › Recover Autosaved Documents…** brings the window back.
 
 Recovery copies never replace your own files, and they go away when you save or close normally.
-If the status bar ever says "Autosave failed", save your work by hand; AniCraft keeps trying.
+If the status bar ever says "Autosave failed", save your work by hand; crocwork Animate keeps trying.
 
 ## Where settings live
 
@@ -105,8 +105,8 @@ in one settings folder. Its path is shown at the bottom of the Preferences windo
 
 | System | Settings folder |
 |---|---|
-| Windows | `%APPDATA%\AniCraft` |
-| macOS | `~/Library/Application Support/AniCraft` |
+| Windows | `%APPDATA%\crocwork Animate` |
+| macOS | `~/Library/Application Support/crocwork Animate` |
 | Linux and FreeBSD | `~/.config/anicraft` (or `$XDG_CONFIG_HOME/anicraft`) |
 | Web version | the browser's storage for the site |
 
@@ -114,26 +114,26 @@ Inside it: `prefs.json` (preferences and shortcuts), `Recovery` (autosaved copie
 (your templates), `plugins` (installed plug-ins), `Thumbnails` (start screen pictures) and `Logs`
 (the start-up log).
 
-To start over with default preferences, quit AniCraft and rename or delete `prefs.json`. A
-damaged preferences file never stops AniCraft from starting: it falls back to the defaults.
+To start over with default preferences, quit crocwork Animate and rename or delete `prefs.json`. A
+damaged preferences file never stops crocwork Animate from starting: it falls back to the defaults.
 
 ## Opening files from the desktop
 
 * **Windows and Linux**: double-click a `.anicraft` file. `.fla` and `.xfl` files are offered under
-  **Open with**. You can also drop any of them on the AniCraft window.
-* **macOS**: double-click a `.anicraft`, `.fla` or `.xfl` in Finder, drop it on AniCraft's Dock
-  icon, or use **Open With › AniCraft**, whether AniCraft is running or not. If you have unsaved
-  changes, AniCraft asks first. This is new and still being checked on real Macs; if it doesn't
+  **Open with**. You can also drop any of them on the crocwork Animate window.
+* **macOS**: double-click a `.anicraft`, `.fla` or `.xfl` in Finder, drop it on crocwork Animate's Dock
+  icon, or use **Open With › crocwork Animate**, whether crocwork Animate is running or not. If you have unsaved
+  changes, crocwork Animate asks first. This is new and still being checked on real Macs; if it doesn't
   work for you, use **File › Open…** and please report it.
-* **An old `.fla`**: files saved by Flash CS4 or earlier use an older format. AniCraft says so;
+* **An old `.fla`**: files saved by Flash CS4 or earlier use an older format. crocwork Animate says so;
   open the file in Animate, save it again, then open that copy.
-* **A damaged `.fla`**: AniCraft refuses it with a sentence that says what is wrong, and never
+* **A damaged `.fla`**: crocwork Animate refuses it with a sentence that says what is wrong, and never
   writes anything from it to your disk.
 
 ## Other desktop quirks
 
 * **Linux: the open and save dialogs don't appear.** Your desktop may have no XDG desktop portal.
-  Turn off **Preferences › Files › Use the system's open and save dialogs**, and AniCraft asks for
+  Turn off **Preferences › Files › Use the system's open and save dialogs**, and crocwork Animate asks for
   a path instead.
 * **Wayland: Test Movie opens in a different place each time.** On Wayland the desktop decides
   where windows go. To keep the movie inside the editor, turn off **Preferences › Test Movie ›
@@ -161,10 +161,10 @@ downloads frame by frame, and your browser may ask once to allow several downloa
 
 ## Reporting a bug
 
-Please report problems on [GitHub issues](https://github.com/storytold/AniCraft/issues). A good
+Please report problems on [GitHub issues](https://github.com/storytold/crocwork Animate/issues). A good
 report has:
 
-* the version (**Help › About AniCraft**, or `anicraft-cli --version`) and your system;
+* the version (**Help › About crocwork Animate**, or `anicraft-cli --version`) and your system;
 * what you did, step by step, what you expected and what happened instead;
 * a screenshot, and the document if you can share it (for Animate files, the import report too).
 
@@ -173,20 +173,20 @@ Check for Updates…** tells you whether a newer version is out.
 
 ## FAQ
 
-### Is AniCraft free?
+### Is crocwork Animate free?
 
-Yes. AniCraft is free and open source, for any use, including commercial work. Downloads are on
-the [releases page](https://github.com/storytold/AniCraft/releases).
+Yes. crocwork Animate is free and open source, for any use, including commercial work. Downloads are on
+the [releases page](https://github.com/storytold/crocwork Animate/releases).
 
 ### What is the licence?
 
-AniCraft is dual-licensed under the MIT licence or the Apache License 2.0, at your choice. The
-licences cover AniCraft itself; the animations you make with it are yours. **Help › Licenses &
-Notices** shows the full texts, including those of the fonts and icons AniCraft ships.
+crocwork Animate is dual-licensed under the MIT licence or the Apache License 2.0, at your choice. The
+licences cover crocwork Animate itself; the animations you make with it are yours. **Help › Licenses &
+Notices** shows the full texts, including those of the fonts and icons crocwork Animate ships.
 
-### Is AniCraft made by Adobe, or affiliated with Adobe?
+### Is crocwork Animate made by Adobe, or affiliated with Adobe?
 
-No. AniCraft is an independent, open-source project. It is not affiliated with, sponsored by or
+No. crocwork Animate is an independent, open-source project. It is not affiliated with, sponsored by or
 endorsed by Adobe. It works the way people who know Adobe Animate expect, and it opens Animate
 documents, but none of Adobe's code or assets are in it.
 
@@ -199,13 +199,13 @@ a report after opening. Motion tweens from Animate files are not imported yet. S
 
 ### Can it save back to `.fla`?
 
-No. AniCraft saves its own `.anicraft` format, and an opened Animate file comes in as a new,
+No. crocwork Animate saves its own `.anicraft` format, and an opened Animate file comes in as a new,
 untitled document, so saving never overwrites the original.
 
 ### Can it export SWF?
 
-No. AniCraft doesn't export SWF, and browsers no longer play it anyway. For the web, use **File › Export › Export HTML Canvas…**, which plays your movie, buttons and
-scripts in any browser. AniCraft also exports video (with ffmpeg), animated GIF, animated PNG and
+No. crocwork Animate doesn't export SWF, and browsers no longer play it anyway. For the web, use **File › Export › Export HTML Canvas…**, which plays your movie, buttons and
+scripts in any browser. crocwork Animate also exports video (with ffmpeg), animated GIF, animated PNG and
 WebP, Lottie, sprite sheets, SVG and PNG frames and sequences, and audio as WAV.
 
 ### Does ActionScript work?
@@ -222,12 +222,12 @@ most on Windows so far.
 
 ### Is it ready for production work?
 
-Not yet. AniCraft is an early alpha: much works, but expect rough edges, and save often. The
+Not yet. crocwork Animate is an early alpha: much works, but expect rough edges, and save often. The
 honest, detailed status is in the project's roadmap on GitHub.
 
 ### Can I open several documents at once?
 
-Not yet. AniCraft works on one document at a time for now. Opening another asks you to save
+Not yet. crocwork Animate works on one document at a time for now. Opening another asks you to save
 the current one first if it has unsaved changes.
 
 ### Is the interface available in my language?
@@ -235,8 +235,8 @@ the current one first if it has unsaved changes.
 Not yet. The interface is ready for translation, but it is in English only today. See
 [Interface languages](preferences-shortcuts-accessibility.md).
 
-### Can an AI assistant use AniCraft?
+### Can an AI assistant use crocwork Animate?
 
 Yes, if you want it to. `anicraft-cli mcp` lets an assistant that supports the Model Context
-Protocol draw, animate and export through AniCraft's commands. It is never on unless you set it
+Protocol draw, animate and export through crocwork Animate's commands. It is never on unless you set it
 up. See [Working headless](working-headless.md).

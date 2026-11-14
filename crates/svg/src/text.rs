@@ -3,7 +3,7 @@
 //! SVG places text in chunks: a chunk starts at the `text` element and at every `tspan` with
 //! an absolute `x`, and runs on until the next one. Each chunk becomes one single-line text
 //! block, placed by its baseline (`x`, `y`, plus a leading `dx`/`dy`) and its `text-anchor`.
-//! An AniCraft block has one style, so a chunk whose pieces differ in style takes the style of
+//! An crocwork Animate block has one style, so a chunk whose pieces differ in style takes the style of
 //! most of its visible characters, and the report counts it (as in ADR 0014). Whitespace is
 //! collapsed as browsers do, unless `xml:space="preserve"`.
 //!
@@ -63,7 +63,7 @@ impl Chunk {
     }
 }
 
-/// What a `text` element used that AniCraft draws differently, reported once per element.
+/// What a `text` element used that crocwork Animate draws differently, reported once per element.
 #[derive(Default)]
 struct Flags {
     per_char: bool,

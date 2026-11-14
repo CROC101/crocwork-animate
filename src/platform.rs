@@ -257,13 +257,13 @@ pub fn shortcut_label_for(os: Os, s: &str, glyphs: bool) -> String {
     out
 }
 
-/// Where preferences live: %APPDATA%\AniCraft, ~/Library/Application Support/AniCraft, or
+/// Where preferences live: %APPDATA%\crocwork Animate, ~/Library/Application Support/crocwork Animate, or
 /// $XDG_CONFIG_HOME/anicraft (default ~/.config/anicraft).
 pub fn config_dir() -> Option<PathBuf> {
     let env = |k: &str| std::env::var_os(k).filter(|v| !v.is_empty()).map(PathBuf::from);
     match OS {
-        Os::Windows => env("APPDATA").map(|p| p.join("AniCraft")),
-        Os::Mac => env("HOME").map(|p| p.join("Library").join("Application Support").join("AniCraft")), // i18n-exempt: folder names
+        Os::Windows => env("APPDATA").map(|p| p.join("crocwork Animate")),
+        Os::Mac => env("HOME").map(|p| p.join("Library").join("Application Support").join("crocwork Animate")), // i18n-exempt: folder names
         // A web page has no folders: settings go to browser storage (`load_settings`).
         Os::Web => None,
         Os::Linux | Os::Other => env("XDG_CONFIG_HOME").or_else(|| env("HOME").map(|h| h.join(".config"))).map(|p| p.join("anicraft")),
@@ -290,12 +290,12 @@ pub fn recovery_dir_overridden() -> bool {
 pub fn guide_dir() -> PathBuf {
     let env = |k: &str| std::env::var_os(k).filter(|v| !v.is_empty()).map(PathBuf::from);
     let cache = match OS {
-        Os::Windows => env("LOCALAPPDATA").map(|p| p.join("AniCraft")),
-        Os::Mac => env("HOME").map(|p| p.join("Library").join("Caches").join("AniCraft")), // i18n-exempt: folder names
+        Os::Windows => env("LOCALAPPDATA").map(|p| p.join("crocwork Animate")),
+        Os::Mac => env("HOME").map(|p| p.join("Library").join("Caches").join("crocwork Animate")), // i18n-exempt: folder names
         Os::Web => None,
         Os::Linux | Os::Other => env("XDG_CACHE_HOME").or_else(|| env("HOME").map(|h| h.join(".cache"))).map(|p| p.join("anicraft")),
     };
-    cache.unwrap_or_else(|| std::env::temp_dir().join("AniCraft")).join(format!("guide-{}", env!("CARGO_PKG_VERSION"))) // i18n-exempt: a folder name
+    cache.unwrap_or_else(|| std::env::temp_dir().join("crocwork Animate")).join(format!("guide-{}", env!("CARGO_PKG_VERSION"))) // i18n-exempt: a folder name
 }
 
 /// Help › User Guide (ADR 0069): the book bundled in the app, written to [`guide_dir`] and
@@ -501,7 +501,7 @@ pub fn movie_host_for(os: Os, embed_viewports: bool, own_window: bool) -> MovieH
     }
 }
 
-/// Whether AniCraft can put a window back where it was. Wayland never tells an app where its
+/// Whether crocwork Animate can put a window back where it was. Wayland never tells an app where its
 /// windows are, nor lets it place them: the desktop does.
 pub fn window_positions() -> bool {
     let env = |k: &str| std::env::var(k).ok().filter(|v| !v.is_empty());
@@ -529,7 +529,7 @@ pub fn usable_position(at: [f32; 2], monitor: Option<egui::Vec2>) -> Option<egui
     ok.then(|| egui::pos2(x, y))
 }
 
-// ----- documents the system asks AniCraft to open (ADR 0062) ------------------------------------
+// ----- documents the system asks crocwork Animate to open (ADR 0062) ------------------------------------
 
 /// Something the system asked of the running app, outside its windows.
 // Only macOS hands documents to a running app; elsewhere the tests make requests.
@@ -584,11 +584,11 @@ thread_local! {
     static MAC_INBOX: std::cell::RefCell<Option<fmv_macos_events::Inbox>> = const { std::cell::RefCell::new(None) };
 }
 
-/// Listens for documents the system hands over while AniCraft runs. Keep the result until the
+/// Listens for documents the system hands over while crocwork Animate runs. Keep the result until the
 /// event loop returns. On macOS it must start before the event loop does, so the document that
 /// launched the app (sent as an Apple Event, not on the command line) isn't missed. Windows and
 /// Linux pass that document on the command line (`main`), and a second document starts a second
-/// AniCraft, so there is nothing to listen for there.
+/// crocwork Animate, so there is nothing to listen for there.
 pub struct DocumentListener {
     #[cfg(target_os = "macos")]
     _registration: fmv_macos_events::Registration,
@@ -694,7 +694,7 @@ pub fn filters(cmd: &str) -> (&'static str, &'static [&'static str]) {
         "brush.preset_export" | "brush.preset_import" => (tr_noop!("Brush set"), &["json"]),
         "swatch.export" => (tr_noop!("Swatch file"), &["json"]),
         "swatch.import" => (tr_noop!("Swatch file or GIMP palette"), &["json", "gpl"]),
-        _ => (tr_noop!("AniCraft document"), &["anicraft"]),
+        _ => (tr_noop!("crocwork Animate document"), &["anicraft"]),
     }
 }
 

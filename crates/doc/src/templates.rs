@@ -1,4 +1,4 @@
-//! The templates AniCraft ships with (ADR 0065): small documents built by code, so nothing
+//! The templates crocwork Animate ships with (ADR 0065): small documents built by code, so nothing
 //! binary is committed and every line of them is original work. Each sets up a stage size and
 //! frame rate, named layers ready to draw on, and guides on a locked guide layer (shown while
 //! editing, never in output). They open as new, untitled documents (`file.new_from_template`).

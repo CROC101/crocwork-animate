@@ -1,4 +1,4 @@
-//! AniCraft desktop app.
+//! crocwork Animate desktop app.
 //!
 //! ```text
 //! anicraft [file.anicraft] [--screenshot out.png] [--renderer wgpu|gl] [--open <panel>]
@@ -92,7 +92,7 @@ use std::path::{Path, PathBuf};
 #[cfg(not(target_arch = "wasm32"))]
 #[derive(Debug, PartialEq)]
 enum Opened {
-    /// Nothing to report (no file, or an AniCraft document).
+    /// Nothing to report (no file, or an crocwork Animate document).
     Quiet,
     /// The import report of an Animate document.
     Imported(String),
@@ -140,7 +140,7 @@ struct Look {
 #[cfg(not(target_arch = "wasm32"))]
 fn run(attempt: startup::Attempt, file: Option<&Path>, shot: Option<PathBuf>, open: Option<String>, look: Look) -> eframe::Result {
     let options = attempt.options(eframe::NativeOptions {
-        viewport: platform::viewport(egui::ViewportBuilder::default().with_title("AniCraft").with_inner_size([1600.0, 940.0]).with_min_inner_size([960.0, 600.0])),
+        viewport: platform::viewport(egui::ViewportBuilder::default().with_title("crocwork Animate").with_inner_size([1600.0, 940.0]).with_min_inner_size([960.0, 600.0])),
         ..Default::default()
     });
     // The embedded interface font joins the text library before anything lays text out:
@@ -151,10 +151,10 @@ fn run(attempt: startup::Attempt, file: Option<&Path>, shot: Option<PathBuf>, op
     let (session, report) = open_session(file);
     let file_given = file.map(Path::to_path_buf);
     eframe::run_native(
-        "AniCraft",
+        "crocwork Animate",
         options,
         Box::new(move |cc| {
-            // A document the system hands over while AniCraft is idle wakes it (ADR 0062).
+            // A document the system hands over while crocwork Animate is idle wakes it (ADR 0062).
             platform::wake_on_requests(&cc.egui_ctx);
             startup::log_adapter(cc.wgpu_render_state.as_ref());
             let starting_fresh = file_given.is_none() && shot.is_none();
@@ -173,7 +173,7 @@ fn run(attempt: startup::Attempt, file: Option<&Path>, shot: Option<PathBuf>, op
             a.open_panel(open.as_deref());
             match report {
                 // An imported document says what came across, as opening it from the menu does.
-                Opened::Imported(r) => a.status_ok(tr!("{report} Save to keep it as an AniCraft document.", report = r)),
+                Opened::Imported(r) => a.status_ok(tr!("{report} Save to keep it as an crocwork Animate document.", report = r)),
                 Opened::Failed(name, e) => a.status_err(tr!("Could not open {name}: {e}", name = name, e = e)),
                 Opened::Quiet => {}
             }
@@ -284,7 +284,7 @@ fn main() -> eframe::Result {
     };
     match args.print {
         Some(Print::Version) => {
-            println!("AniCraft {} ({})", env!("CARGO_PKG_VERSION"), app::RELEASE_STAGE);
+            println!("crocwork Animate {} ({})", env!("CARGO_PKG_VERSION"), app::RELEASE_STAGE);
             return Ok(());
         }
         Some(Print::Help) => {
@@ -365,7 +365,7 @@ mod args_tests {
         assert!(fallback.path.is_none());
         // #226: and the window says why (a release build has no console to print it on).
         assert!(matches!(&said, Opened::Failed(name, why) if name == "missing.anicraft" && !why.is_empty()), "{said:?}");
-        // An Animate document double-clicked or opened with AniCraft imports, with its report.
+        // An Animate document double-clicked or opened with crocwork Animate imports, with its report.
         let xfl = Path::new(env!("CARGO_MANIFEST_DIR")).join("crates/xfl/tests/corpus/shapes/shapes.xfl");
         let (imported, said) = open_session(Some(&xfl));
         assert!(matches!(said, Opened::Imported(_)), "{said:?}");

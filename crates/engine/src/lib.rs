@@ -1,4 +1,4 @@
-//! AniCraft engine (layer L3): the session, undo history and the command registry.
+//! crocwork Animate engine (layer L3): the session, undo history and the command registry.
 //!
 //! Every user-visible action is a [`CommandSpec`]. The egui shell, the CLI, the JSON-lines
 //! control channel and future MCP server all call [`Session::execute`] with a command id and

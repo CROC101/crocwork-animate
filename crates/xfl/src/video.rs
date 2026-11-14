@@ -1,5 +1,5 @@
-//! Video items in Animate documents (ADR 0086). AniCraft has no video playback, so an embedded
-//! video comes across as a still of its first frame when its stream is one AniCraft can read,
+//! Video items in Animate documents (ADR 0086). crocwork Animate has no video playback, so an embedded
+//! video comes across as a still of its first frame when its stream is one crocwork Animate can read,
 //! and is otherwise named in the report with its codec and length.
 //!
 //! Written from the public *Video File Format Specification* (FLV, version 10) and the *SWF File
@@ -21,7 +21,7 @@ const MAX_TAGS: usize = 4096;
 pub enum Video {
     /// Its first frame, as straight RGBA8 pixels.
     Frame { width: u32, height: u32, rgba: Vec<u8> },
-    /// A video AniCraft can't show, by the name of its format ("FLV, On2 VP6").
+    /// A video crocwork Animate can't show, by the name of its format ("FLV, On2 VP6").
     Unreadable(String),
 }
 

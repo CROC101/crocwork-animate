@@ -1,6 +1,6 @@
 //! The parser: tokens to a syntax tree, by recursive descent (the grammar of ECMA-262 3rd
 //! edition §11–14, with ActionScript 3.0's type annotations, `import`, `as`, `is`, rest
-//! parameters and `for each`). It reads more of the language than AniCraft runs, so lowering
+//! parameters and `for each`). It reads more of the language than crocwork Animate runs, so lowering
 //! can say exactly which construct isn't run and where; what it reads but never runs (`for in`
 //! heads, `switch` and `try` bodies) is skipped by balanced brackets. Bounded: nesting
 //! deeper than [`super::MAX_DEPTH`] is a problem, not a stack overflow.

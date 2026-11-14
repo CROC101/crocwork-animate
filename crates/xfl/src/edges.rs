@@ -1,4 +1,4 @@
-//! XFL shape edges → AniCraft paths.
+//! XFL shape edges → crocwork Animate paths.
 //!
 //! A `DOMShape` stores its outline as `<Edge>` elements. Each carries an `edges` string of
 //! drawing commands in twips (1/20 px): `!x y` moves, `|x y` or `/x y` draws a line, `[cx cy x y`

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Check the MSI's icon references without building or installing AniCraft.
+  Check the MSI's icon references without building or installing crocwork Animate.
 
 .DESCRIPTION
   ICE50 requires advertised shortcut icon identifiers to have the target file's extension.

@@ -1,4 +1,4 @@
-//! The start screen (ADR 0059): what AniCraft shows when it starts without a document to open,
+//! The start screen (ADR 0059): what crocwork Animate shows when it starts without a document to open,
 //! as Animate's Home screen does. New with stage-size presets (and a custom size), Open, the
 //! recent files with their pictures, the sample animation, and the templates (ADR 0065: built-in
 //! and the user's own; File › New from Template opens the screen on them). It takes the place of the
@@ -101,7 +101,7 @@ fn header(app: &mut App, ui: &mut egui::Ui, ctx: &egui::Context) {
         ui.add(egui::Image::new((crate::app::app_mark(ctx).id(), vec2(44.0, 44.0))));
         ui.add_space(8.0);
         ui.vertical(|ui| {
-            ui.label(text(Type::Title, "AniCraft")); // i18n-exempt: the product name
+            ui.label(text(Type::Title, "crocwork Animate")); // i18n-exempt: the product name
             ui.label(text(Type::Caption, tr!("Version {version} · {stage}", version = env!("CARGO_PKG_VERSION"), stage = crate::i18n::t(crate::app::RELEASE_STAGE))));
         });
         ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
@@ -179,7 +179,7 @@ fn open_column(app: &mut App, ui: &mut egui::Ui, ctx: &egui::Context) {
     ui.label(text(Type::Heading, tr!("Open")));
     ui.add_space(6.0);
     ui.horizontal(|ui| {
-        if ui.add(egui::Button::new(tr!("Open…")).min_size(vec2(0.0, TARGET))).on_hover_text(tr!("An AniCraft document, or an Animate .fla or .xfl")).clicked() {
+        if ui.add(egui::Button::new(tr!("Open…")).min_size(vec2(0.0, TARGET))).on_hover_text(tr!("An crocwork Animate document, or an Animate .fla or .xfl")).clicked() {
             app.invoke("file.open");
         }
         if ui.add(egui::Button::new(tr!("Sample animation")).min_size(vec2(0.0, TARGET))).on_hover_text(tr!("A short animation to look at and take apart")).clicked() {
@@ -258,7 +258,7 @@ fn footer(app: &mut App, ui: &mut egui::Ui) {
     ui.separator();
     ui.horizontal(|ui| {
         let mut on = app.prefs.start_screen;
-        if crate::theme::checkbox(ui, &mut on, tr!("Show this screen when AniCraft starts")).changed() {
+        if crate::theme::checkbox(ui, &mut on, tr!("Show this screen when crocwork Animate starts")).changed() {
             let mut p = app.prefs.clone();
             p.start_screen = on;
             let ctx = ui.ctx().clone();

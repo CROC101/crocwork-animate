@@ -81,7 +81,7 @@ hand from the public descriptions of the format.
      per-property curves keep the slider's ease and are reported (since ADR 0081 they import
      exactly, as custom eases and property-group eases);
    * reverse loop modes play forward and are reported;
-   * what AniCraft draws the nearest way is now reported instead of silently changed: caps and
+   * what crocwork Animate draws the nearest way is now reported instead of silently changed: caps and
      joins other than round (drawn as they are since ADR 0046), gradient and bitmap strokes, repeating and reflecting gradients,
      focal points, elliptical radial gradients, linear-RGB gradients, and extra tween spins.
 

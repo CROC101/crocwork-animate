@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-plugin-star-field"
-description = "Sample AniCraft plug-in: scatters stars over the stage on a new layer"
+description = "Sample crocwork Animate plug-in: scatters stars over the stage on a new layer"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

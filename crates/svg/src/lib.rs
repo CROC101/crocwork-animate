@@ -1,4 +1,4 @@
-//! AniCraft SVG import (layer L2): an SVG drawing into editable vector shapes and text.
+//! crocwork Animate SVG import (layer L2): an SVG drawing into editable vector shapes and text.
 //!
 //! Written from the public W3C SVG 1.1 / SVG 2 and CSS Masking specifications. Supported: `svg`,
 //! `g`, `a`, `switch`, `use`, `path`, `rect` (rounded), `circle`, `ellipse`, `line`, `polyline`
@@ -12,7 +12,7 @@
 //! linear and radial gradients (both unit systems, `gradientTransform`, stops inherited through
 //! `href`).
 //!
-//! **Clip paths and masks** (`clip`, ADR 0015) become AniCraft mask layers: the drawing comes
+//! **Clip paths and masks** (`clip`, ADR 0015) become crocwork Animate mask layers: the drawing comes
 //! out as layers, bottom first, and artwork under a clip is a masked layer under a mask layer
 //! holding the clip's shapes. A clip that cuts nothing is dropped, artwork it hides entirely is
 //! left out, and clips inside clips are intersected exactly when all but one are convex
@@ -21,7 +21,7 @@
 //! `anicraft-text`, one per text chunk, with the missing-font reporting of Animate import
 //! (ADR 0014).
 //!
-//! What AniCraft cannot represent yet is reported, never guessed silently: images, filters,
+//! What crocwork Animate cannot represent yet is reported, never guessed silently: images, filters,
 //! soft masks, patterns, style sheets, text on a path, reflected/repeated gradients and
 //! skewed gradient transforms (approximated).
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
@@ -500,7 +500,7 @@ impl Default for Style {
             stroke: PaintSpec::None,
             stroke_opacity: 1.0,
             stroke_width: 1.0,
-            // SVG's initial values, not AniCraft's (round) defaults.
+            // SVG's initial values, not crocwork Animate's (round) defaults.
             cap: Cap::Butt,
             join: Join::Miter,
             miter_limit: 4.0,

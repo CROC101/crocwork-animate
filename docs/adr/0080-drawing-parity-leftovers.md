@@ -7,7 +7,7 @@
 
 ## Context
 
-The user guide's drawing chapter listed everyday Animate drawing features AniCraft still
+The user guide's drawing chapter listed everyday Animate drawing features crocwork Animate still
 lacked: PolyStar's Polygon option, the Brush's Paint Selection and Paint Inside modes, entering a
 drawing object with a double-click, Envelope (and Delete Envelope), and gradient and bitmap
 strokes. Artists coming from Animate reach for these without thinking. We learned the behaviour

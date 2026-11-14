@@ -72,7 +72,7 @@ const REPORTS: &[(&str, &[(&str, usize)])] = &[
             ("frame sounds whose sound isn't in the package", 1),
             ("missing sound files", 1),
             ("sound in and out points (played whole)", 1),
-            ("sounds in formats AniCraft can't decode", 3),
+            ("sounds in formats crocwork Animate can't decode", 3),
             ("unknown sound effects (played without)", 1),
         ],
     ),
@@ -83,7 +83,7 @@ const REPORTS: &[(&str, &[(&str, usize)])] = &[
     ("text", &[("text fields (no fonts on this computer)", 4)]),
     ("textfields", &[("text fields (no fonts on this computer)", 4)]),
     ("tweens", &[("motion tweens (kept as keyframes)", 1), ("tween spins (turned the shortest way)", 1)]),
-    ("video", &[("instances of videos AniCraft can't play", 1), ("videos (first frame kept as a still)", 1), ("videos AniCraft can't play", 2)]),
+    ("video", &[("instances of videos crocwork Animate can't play", 1), ("videos (first frame kept as a still)", 1), ("videos crocwork Animate can't play", 2)]),
 ];
 
 /// Items named under one kind of report line.
@@ -97,7 +97,7 @@ const NAMES: &[(&str, &[Named])] = &[
         &[
             ("missing sound files", &["lost.wav"]),
             (
-                "sounds in formats AniCraft can't decode",
+                "sounds in formats crocwork Animate can't decode",
                 &["theme.aif: AIFF", "voice.wav: WAV in IMA ADPCM", "Sounds/loop: Animate's own sound data"],
             ),
         ],
@@ -106,7 +106,7 @@ const NAMES: &[(&str, &[Named])] = &[
         "video",
         &[
             ("videos (first frame kept as a still)", &["Clips/screen.flv: Screen Video, 2.0 s"]),
-            ("videos AniCraft can't play", &["intro.flv: FLV, On2 VP6, 4.5 s", "gone.mp4: its file is missing, 1.0 s"]),
+            ("videos crocwork Animate can't play", &["intro.flv: FLV, On2 VP6, 4.5 s", "gone.mp4: its file is missing, 1.0 s"]),
         ],
     ),
 ];
@@ -363,7 +363,7 @@ fn bitmaps_come_from_png_and_jpeg_files() {
     assert_eq!(evaluate(&doc, 0).items.iter().filter(|i| i.image.is_some()).count(), 5);
 }
 
-/// ADR 0086: the sounds AniCraft decodes come into the Library, in their folder, and every
+/// ADR 0086: the sounds crocwork Animate decodes come into the Library, in their folder, and every
 /// frame keeps its sound's sync, repeats and effect.
 #[test]
 fn sounds_come_across_with_their_sync_repeats_and_effects() {
@@ -388,12 +388,12 @@ fn sounds_come_across_with_their_sync_repeats_and_effects() {
             (4, Some((beep, SoundSync::Event, 1, SoundEffect::FadeRightToLeft))),
             (8, Some((beep, SoundSync::Event, 1, custom))),
             (12, Some((beep, SoundSync::Start, 2, SoundEffect::FadeOut))),
-            // An effect AniCraft doesn't know plays without one (reported).
+            // An effect crocwork Animate doesn't know plays without one (reported).
             (16, Some((beep, SoundSync::Event, 1, SoundEffect::None))),
             (18, Some((beep, SoundSync::Stop, 1, SoundEffect::None))),
             // In and out points are reported; the sound plays whole.
             (20, Some((beep, SoundSync::Event, 1, SoundEffect::None))),
-            // Its sound is in a format AniCraft can't decode.
+            // Its sound is in a format crocwork Animate can't decode.
             (22, None),
         ]
     );

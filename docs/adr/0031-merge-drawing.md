@@ -18,8 +18,8 @@ Clicking with the Selection tool selects one fill or one stroke segment, shown w
 pattern rather than a box. Double-clicking selects what is connected. A dragged fill cuts into
 whatever it is dropped on. *Object Drawing* (J) switches this off.
 
-AniCraft only had drawing objects: every shape was an element of its own that never touched
-another. Artists coming from Animate (issue #42) found that the most visible way AniCraft did
+crocwork Animate only had drawing objects: every shape was an element of its own that never touched
+another. Artists coming from Animate (issue #42) found that the most visible way crocwork Animate did
 not behave like Animate. Behaviour was learned from Adobe's public help pages and from watching
 the program; nothing was copied.
 

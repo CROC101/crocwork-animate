@@ -283,7 +283,7 @@ fn in_a_browser_every_file_comes_back_and_several_make_one_zip() {
         assert_eq!(&z[end..end + 4], &[0x50, 0x4b, 0x05, 0x06]);
         assert_eq!(u16::from_le_bytes([z[end + 10], z[end + 11]]), 3);
         assert!(z.windows(16).any(|w| w == b"img/Untitled.svg"));
-        // AniCraft's hardened ZIP reader (the .fla one) opens it, checks every CRC, and gets
+        // crocwork Animate's hardened ZIP reader (the .fla one) opens it, checks every CRC, and gets
         // each file back exactly.
         let archive = anicraft_xfl::zip::Archive::open(&z).unwrap();
         for (p, data) in &files {

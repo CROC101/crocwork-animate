@@ -1,6 +1,6 @@
 # Drawing
 
-AniCraft's drawing tools work the way Animate's do: shapes on a layer cut into and join each
+crocwork Animate's drawing tools work the way Animate's do: shapes on a layer cut into and join each
 other, the Selection tool bends lines, and the Paint Bucket fills what your lines enclose.
 This chapter covers every tool, the two ways of drawing, and how to colour, arrange and
 transform your artwork.
@@ -48,7 +48,7 @@ The Bone and Camera tools are covered in
 
 ## Merge drawing and drawing objects
 
-AniCraft has two ways of drawing, as Animate does.
+crocwork Animate has two ways of drawing, as Animate does.
 
 **Merge drawing** is the default. Lines and fills you draw become part of one connected
 drawing on that layer:
@@ -226,7 +226,7 @@ primaries and a few gradients.
 **Export Swatches** saves them as a small swatch file (`.json`) to import into other documents.
 **Import Swatches** reads that file or a **GIMP palette** (`.gpl`, which Inkscape, Krita and
 many palette sites also use); the swatches are added after yours. Adobe's `.aco`, `.ase` and
-`.clr` swatch files are Adobe's own formats and don't open in AniCraft: export the palette
+`.clr` swatch files are Adobe's own formats and don't open in crocwork Animate: export the palette
 as GIMP `.gpl` from a tool that has it.
 
 To recolour existing artwork, select it and change **Fill** and **Stroke** in Properties.
@@ -468,7 +468,7 @@ without snapping. Rulers, the grid and guides never show in Test Movie or in exp
 
 ## Not there yet
 
-Not in AniCraft yet: gradient and bitmap strokes; swatch folders, bitmap swatches and the
+Not in crocwork Animate yet: gradient and bitmap strokes; swatch folders, bitmap swatches and the
 swatches inside Animate files; moving the Envelope's handles from the keyboard; pen tilt for
 brushes; erasing inside symbols; and Animate's ragged, stipple and hatched line styles (drawn
 solid when you open an Animate file).

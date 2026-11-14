@@ -6,10 +6,10 @@
 
 ## Context
 
-U2 settled AniCraft's scripting surface: the Craft-family plug-in system, as in PhotoCraft
+U2 settled crocwork Animate's scripting surface: the Craft-family plug-in system, as in PhotoCraft
 (sandboxed WebAssembly run by `wasmi`, `plugin.*` commands, fuel, memory and time limits, one
 undo step per run). PhotoCraft's filters are pure functions: pixels in, pixels out, and no
-imports at all. AniCraft's plug-ins are different work: generate shapes, transform the
+imports at all. crocwork Animate's plug-ins are different work: generate shapes, transform the
 selection, later drive the timeline from frame scripts. They must read the document and edit
 it, and the project rules say every edit is a command. Hostile or buggy plug-ins must never
 crash or hang the app, touch files, or leave half an edit behind.
@@ -67,7 +67,7 @@ crash or hang the app, touch files, or leave half an edit behind.
     by a script and never committed as binaries; the host's tests use WAT fixtures compiled
     by the `wat` crate (dev-dependency). The guest SDK has the only `unsafe` a Rust plug-in
     needs (two imports, raw pointers of the exports). It is guest code inside the sandbox, outside
-    the AniCraft workspace and its `unsafe_code = "forbid"`.
+    the crocwork Animate workspace and its `unsafe_code = "forbid"`.
 
 ## Building on it
 

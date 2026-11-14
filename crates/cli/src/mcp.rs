@@ -20,7 +20,7 @@ const MAX_PICTURE_EDGE: f32 = 2048.0;
 /// Most steps in one `anicraft_run_script` call.
 const MAX_STEPS: usize = 10_000;
 
-const INSTRUCTIONS: &str = "AniCraft is a 2D animation studio. Every edit is a command: call \
+const INSTRUCTIONS: &str = "crocwork Animate is a 2D animation studio. Every edit is a command: call \
 anicraft_commands to find one (filter by words such as 'tween' or 'export'), then anicraft_run \
 with its id and params, or anicraft_run_script for several in order. Frames in params are \
 0-based. Commands act on the current scene, layer, frame and selection, which anicraft_document \
@@ -32,14 +32,14 @@ fn tools() -> Value {
     json!([
         {
             "name": "anicraft_commands",
-            "title": "List AniCraft commands",
+            "title": "List crocwork Animate commands",
             "description": "Lists the commands anicraft_run accepts: id, label, menu, shortcut, a summary of their params, and whether they change the document. Optionally only those whose id or label contains `filter`.",
             "inputSchema": {"type": "object", "properties": {"filter": {"type": "string", "description": "Words to look for in the id or label, e.g. \"tween\" or \"export\"."}}},
             "annotations": {"readOnlyHint": true, "openWorldHint": false}
         },
         {
             "name": "anicraft_run",
-            "title": "Run an AniCraft command",
+            "title": "Run an crocwork Animate command",
             "description": "Runs one command (see anicraft_commands) with its params and returns its result, plus the document revision and current frame. Commands that would lose work or replace a file need \"confirm\": true in params.",
             "inputSchema": {
                 "type": "object",
@@ -53,7 +53,7 @@ fn tools() -> Value {
         },
         {
             "name": "anicraft_run_script",
-            "title": "Run several AniCraft commands",
+            "title": "Run several crocwork Animate commands",
             "description": "Runs commands in order and returns each result. Stops at the first error and says which step failed; the steps before it stay done (undo them with edit.undo).",
             "inputSchema": {
                 "type": "object",
@@ -197,7 +197,7 @@ pub fn handle(s: &mut Session, line: &str) -> Option<Value> {
             json!({
                 "protocolVersion": version,
                 "capabilities": {"tools": {"listChanged": false}},
-                "serverInfo": {"name": "anicraft", "title": "AniCraft", "version": env!("CARGO_PKG_VERSION")},
+                "serverInfo": {"name": "anicraft", "title": "crocwork Animate", "version": env!("CARGO_PKG_VERSION")},
                 "instructions": INSTRUCTIONS
             })
         }

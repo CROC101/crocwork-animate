@@ -1,4 +1,4 @@
-//! AniCraft text (layer 1): the fonts on this computer, and text laid out into vector outlines.
+//! crocwork Animate text (layer 1): the fonts on this computer, and text laid out into vector outlines.
 //!
 //! `layout` shapes text with `harfrust` (a HarfBuzz port), breaks it into lines, and draws each
 //! glyph's outline with `skrifa` into one [`Path`], in pixels, with the layout box's top-left
@@ -275,7 +275,7 @@ impl std::fmt::Display for TextError {
 
 impl std::error::Error for TextError {}
 
-/// The fonts AniCraft can use: the system's, those in `CRAFT_FONTS_DIR`, and faces the app
+/// The fonts crocwork Animate can use: the system's, those in `CRAFT_FONTS_DIR`, and faces the app
 /// registered (its embedded interface font).
 pub struct Fonts {
     db: fontdb::Database,

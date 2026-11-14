@@ -50,7 +50,7 @@ pub struct RecoveryMeta {
     pub name: String,
     /// Seconds since 1970 (UTC) when it was written.
     pub saved_at: u64,
-    /// The AniCraft version that wrote it.
+    /// The crocwork Animate version that wrote it.
     pub app: String,
     /// Movie frames and scenes, for the restore list.
     pub frames: u32,
@@ -266,7 +266,7 @@ pub fn scan(dir: &Path, own: Option<&str>) -> Vec<Entry> {
 pub fn find(dir: &Path, id: &str) -> Result<Entry> {
     check_id(id)?;
     if is_live(dir, id) {
-        return Err(EngineError::State("that document is open in another AniCraft window; it is still being autosaved there".into()));
+        return Err(EngineError::State("that document is open in another crocwork Animate window; it is still being autosaved there".into()));
     }
     let document = document_path(dir, id);
     let ours = file(dir, id, "lock").is_file() || file(dir, id, "json").is_file();

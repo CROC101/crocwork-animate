@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-audio"
-description = "AniCraft L0: sound decoding (WAV, Ogg Vorbis, MP3), deterministic mixing and resampling, WAV writing, waveform peaks"
+description = "crocwork Animate L0: sound decoding (WAV, Ogg Vorbis, MP3), deterministic mixing and resampling, WAV writing, waveform peaks"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

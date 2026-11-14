@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-plugin-sdk"
-description = "Guest-side helpers for AniCraft WebAssembly plug-ins (ABI v1)"
+description = "Guest-side helpers for crocwork Animate WebAssembly plug-ins (ABI v1)"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

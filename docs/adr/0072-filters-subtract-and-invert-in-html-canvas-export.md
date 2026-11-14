@@ -16,7 +16,7 @@ acceptable:
 * **CSS `filter` on the context** (`ctx.filter = "blur(4px) drop-shadow(…)"`): a Gaussian, not
   our box passes; no inner shadow or glow, knockout, hide object, bevel, gradient ramps or
   colour matrix of ours; support and results vary between browsers. The page would differ
-  from AniCraft and from browser to browser.
+  from crocwork Animate and from browser to browser.
 * **`shadowBlur`**: one shadow, Gaussian-ish, outer only, again browser-defined.
 
 Subtract and Invert have no `globalCompositeOperation` at all.

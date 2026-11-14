@@ -5,7 +5,7 @@
 //! edge). Everything is a parameter: no bitmaps, so a preset is a few numbers, renders at any
 //! size and gives the same outline from the same points every time.
 //!
-//! The built-ins are AniCraft's own, made from these parameters. The user's presets belong to
+//! The built-ins are crocwork Animate's own, made from these parameters. The user's presets belong to
 //! the session (they survive New and Open, like recent files); the desktop app keeps them in
 //! its preferences and puts them back at start, so the engine never reads the settings folder.
 //! A brush set moves between computers as a small JSON file (`brush.preset_export`/`_import`).
@@ -403,7 +403,7 @@ impl BrushLibrary {
             return Err(EngineError::Param(format!("not a brush set file (its format is '{}')", f.format.chars().take(40).collect::<String>())));
         }
         if f.version > FILE_VERSION {
-            return Err(EngineError::Param(format!("this brush set is version {}, newer than this AniCraft reads ({FILE_VERSION})", f.version)));
+            return Err(EngineError::Param(format!("this brush set is version {}, newer than this crocwork Animate reads ({FILE_VERSION})", f.version)));
         }
         Ok(f.brushes.into_iter().take(MAX_USER_PRESETS * 4).filter_map(|v| serde_json::from_value::<BrushPreset>(v).ok()).map(BrushPreset::sanitized).filter(|p| !p.name.is_empty()).collect())
     }

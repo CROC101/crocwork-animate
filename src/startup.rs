@@ -5,7 +5,7 @@
 //! `ANICRAFT_RENDERER`, or Preferences › Stage › Window graphics), then the platform's order
 //! ([`crate::platform::window_attempts`]), ending with OpenGL. An attempt that returns an error
 //! or panics before the window has drawn falls through to the next one; when none works, a
-//! system message box says so and where the log is, so AniCraft never just disappears.
+//! system message box says so and where the log is, so crocwork Animate never just disappears.
 //!
 //! A driver can also crash the process or hang, which nothing inside it can catch. Each attempt
 //! leaves a marker in the log folder until the window has drawn a few frames; if the next start
@@ -92,7 +92,7 @@ pub fn plan(forced: Option<WindowBackend>, chosen: WindowBackend, platform: &[(W
     out
 }
 
-/// Longest log written in one run: enough for any start-up, bounded however long AniCraft runs.
+/// Longest log written in one run: enough for any start-up, bounded however long crocwork Animate runs.
 const MAX_LOG_BYTES: u64 = 1024 * 1024;
 /// Frames the window draws before the start counts as working.
 const STARTED_AFTER: u32 = 3;
@@ -133,7 +133,7 @@ pub fn begin(dir: Option<PathBuf>) -> Option<String> {
         previous(info);
     }));
     let unix = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_secs());
-    line(&format!("AniCraft {} ({}), {} {}, started at {unix} (Unix time)", env!("CARGO_PKG_VERSION"), crate::app::RELEASE_STAGE, std::env::consts::OS, std::env::consts::ARCH));
+    line(&format!("crocwork Animate {} ({}), {} {}, started at {unix} (Unix time)", env!("CARGO_PKG_VERSION"), crate::app::RELEASE_STAGE, std::env::consts::OS, std::env::consts::ARCH));
     if let Some(d) = &died_in {
         line(&format!("the previous start stopped while opening the window with {d}: trying it last"));
     }
@@ -224,11 +224,11 @@ pub fn give_up(why: &str) {
     line(&format!("no way to open the window worked; last: {why}"));
     let log = log_path().map_or_else(String::new, |p| p.display().to_string());
     let text = if log.is_empty() {
-        tr!("AniCraft couldn't open its window with this computer's graphics driver ({why}). Updating the graphics driver usually helps.", why = why).to_string()
+        tr!("crocwork Animate couldn't open its window with this computer's graphics driver ({why}). Updating the graphics driver usually helps.", why = why).to_string()
     } else {
-        tr!("AniCraft couldn't open its window with this computer's graphics driver ({why}). Updating the graphics driver usually helps. If it doesn't, please attach this file to a bug report: {log}", why = why, log = log).to_string()
+        tr!("crocwork Animate couldn't open its window with this computer's graphics driver ({why}). Updating the graphics driver usually helps. If it doesn't, please attach this file to a bug report: {log}", why = why, log = log).to_string()
     };
-    let _ = rfd::MessageDialog::new().set_level(rfd::MessageLevel::Error).set_title(tr!("AniCraft couldn't start")).set_description(text).set_buttons(rfd::MessageButtons::Ok).show();
+    let _ = rfd::MessageDialog::new().set_level(rfd::MessageLevel::Error).set_title(tr!("crocwork Animate couldn't start")).set_description(text).set_buttons(rfd::MessageButtons::Ok).show();
 }
 
 #[cfg(test)]

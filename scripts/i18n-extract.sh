@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Lists every AniCraft interface string for translators (ADR 0040, docs/localisation.md), as a
+# Lists every crocwork Animate interface string for translators (ADR 0040, docs/localisation.md), as a
 # craft-i18n catalog template: the header, then one commented-out row per string
 # (`#<context><TAB><English><TAB>`), for locales/<locale>/anicraft.tsv in storytold/craft-i18n.
 # The strings come from the shell's tr!/trc!/trn!/tr_noop! calls and the command registry's

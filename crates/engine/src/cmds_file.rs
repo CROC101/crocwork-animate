@@ -291,7 +291,7 @@ pub(crate) fn import_to_stage(s: &mut Session, p: &Value) -> Result<Value> {
         (drawing, s.doc.bitmaps.last().map(|b| b.id.0))
     };
     if drawing.is_empty() {
-        return Err(EngineError::State(format!("{} has no shapes AniCraft can import yet. {}", path.display(), drawing.report.summary())));
+        return Err(EngineError::State(format!("{} has no shapes crocwork Animate can import yet. {}", path.display(), drawing.report.summary())));
     }
     let stage = s.doc.stage;
     // `cx`/`cy` centre it on a point (a drop, ADR 0059); `x`/`y` give its top-left corner.
@@ -432,7 +432,7 @@ pub(crate) fn read_svg(path: &std::path::Path) -> Result<anicraft_svg::SvgImport
     }
     let drawing = anicraft_svg::import(&crate::vfs::read(path)?).map_err(|e| EngineError::Format(format!("{}: {e}", path.display())))?;
     if drawing.is_empty() {
-        return Err(EngineError::State(format!("{} has no shapes AniCraft can import yet. {}", path.display(), drawing.report.summary())));
+        return Err(EngineError::State(format!("{} has no shapes crocwork Animate can import yet. {}", path.display(), drawing.report.summary())));
     }
     Ok(drawing)
 }
@@ -606,7 +606,7 @@ fn export_sprite_sheet(s: &mut Session, p: &Value) -> Result<Value> {
     let atlas = json!({
         "frames": map,
         "meta": {
-            "app": "AniCraft",
+            "app": "crocwork Animate",
             "version": env!("CARGO_PKG_VERSION"),
             "image": image,
             "format": "RGBA8888",
@@ -630,7 +630,7 @@ fn ffmpeg_program(p: &Value) -> Result<std::ffi::OsString> {
     Ok(std::env::var_os("ANICRAFT_FFMPEG").filter(|x| !x.is_empty()).unwrap_or_else(|| "ffmpeg".into()))
 }
 
-/// Export Video: movie frames streamed in order to the user's own ffmpeg (AniCraft bundles no
+/// Export Video: movie frames streamed in order to the user's own ffmpeg (crocwork Animate bundles no
 /// video encoder; see docs/legal/compliance.md). `.webm` is VP9 (royalty-free); `.mp4` is H.264
 /// from whatever encoder that ffmpeg has. Frames render in parallel batches; odd sizes are
 /// padded to even, as 4:2:0 video needs.
@@ -688,7 +688,7 @@ fn export_video(s: &mut Session, p: &Value) -> Result<Value> {
         .spawn()
         .map_err(|e| {
             EngineError::State(format!(
-                "AniCraft makes video with ffmpeg, which could not be started ({e}). Install it from ffmpeg.org, or point ANICRAFT_FFMPEG at it."
+                "crocwork Animate makes video with ffmpeg, which could not be started ({e}). Install it from ffmpeg.org, or point ANICRAFT_FFMPEG at it."
             ))
         })?;
     // Read ffmpeg's messages as they come, so a full pipe never stalls it.
@@ -802,7 +802,7 @@ fn export_lottie(s: &mut Session, p: &Value) -> Result<Value> {
         return Err(EngineError::Param("'to' must not be before 'from'".into()));
     }
     let background = opt_bool(p, "background")?.unwrap_or(false);
-    let name: String = path.file_stem().map_or_else(|| "AniCraft".into(), |n| n.to_string_lossy().chars().take(128).collect());
+    let name: String = path.file_stem().map_or_else(|| "crocwork Animate".into(), |n| n.to_string_lossy().chars().take(128).collect());
     let out = anicraft_render::lottie::to_lottie(&s.doc, &name, from, to, background);
     crate::vfs::write(&path, out.json.as_bytes())?;
     let summary = if out.report.is_empty() {
@@ -817,7 +817,7 @@ fn export_lottie(s: &mut Session, p: &Value) -> Result<Value> {
 /// (see `anicraft_render::html`, ADR 0028).
 fn export_html(s: &mut Session, p: &Value) -> Result<Value> {
     let path = PathBuf::from(str_req(p, "path")?);
-    let stem: String = path.file_stem().map_or_else(|| "AniCraft movie".into(), |n| n.to_string_lossy().chars().take(128).collect());
+    let stem: String = path.file_stem().map_or_else(|| "crocwork Animate movie".into(), |n| n.to_string_lossy().chars().take(128).collect());
     let title = match opt_str(p, "title")? {
         Some(t) if t.chars().count() > 256 => return Err(EngineError::Param("param 'title' is at most 256 characters".into())),
         Some(t) if !t.trim().is_empty() => t.to_string(),

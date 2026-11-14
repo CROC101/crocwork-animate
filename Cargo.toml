@@ -11,7 +11,7 @@ edition = "2024"
 license = "MIT OR Apache-2.0"
 # An application, not a library: not published to crates.io.
 publish = false
-repository = "https://github.com/storytold/AniCraft"
+repository = "https://github.com/storytold/crocwork Animate"
 rust-version = "1.95"
 
 [workspace.dependencies]
@@ -72,7 +72,7 @@ todo = "warn"
 
 [package]
 name = "anicraft"
-description = "AniCraft desktop app: egui shell over the AniCraft engine"
+description = "crocwork Animate desktop app: egui shell over the crocwork Animate engine"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

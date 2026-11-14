@@ -1,4 +1,4 @@
-//! AniCraft CPU oracle renderer (layer L2).
+//! crocwork Animate CPU oracle renderer (layer L2).
 //!
 //! Deterministic: the same display list and view always produce the same bytes, whatever the
 //! thread count. Each output row is written by exactly one task and shapes composite in order.

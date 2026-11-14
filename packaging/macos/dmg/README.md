@@ -1,7 +1,7 @@
 # macOS DMG window
 
 What Finder shows when the DMG opens: a 660 × 400 pt background with AniCraft.app and the
-`Applications` link side by side on a Paper card, an Ink arrow between them, on the AniCraft
+`Applications` link side by side on a Paper card, an Ink arrow between them, on the crocwork Animate
 yellow. `package.sh` copies these files into the image; nothing here is generated at build time,
 so the DMG still builds with `hdiutil makehybrid` (no mounted device, no Finder scripting on CI).
 
@@ -9,11 +9,11 @@ so the DMG still builds with `hdiutil makehybrid` (no mounted device, no Finder 
 |---|---|
 | `background.tiff` | The background at 1x (660 × 400 px, 72 dpi) and 2x (1320 × 800 px, 144 dpi) in one HiDPI TIFF (16-colour palette, Deflate, sRGB; about 11 KB). Goes to `.background/background.tiff`. |
 | `dmg-layout.DS_Store` | Finder's view settings for the volume: window size, icon size 128, AniCraft.app at (190, 196), `Applications` at (470, 196), and the background. Goes to `.DS_Store` in the image; named so it isn't mistaken for (or ignored like) a Finder-generated `.DS_Store`. |
-| `generate.py` | Draws `background.tiff` with Pillow in the icon's three colours (`assets/app-icon/README.md`: Ink `#0b0b0c`, Paper `#f2f1ee`, AniCraft `#dac604`) and writes `dmg-layout.DS_Store` from the layout above. |
+| `generate.py` | Draws `background.tiff` with Pillow in the icon's three colours (`assets/app-icon/README.md`: Ink `#0b0b0c`, Paper `#f2f1ee`, crocwork Animate `#dac604`) and writes `dmg-layout.DS_Store` from the layout above. |
 
 ## The volume name has no version
 
-The mounted volume is called `AniCraft`, not `AniCraft <version>`. The layout points at the
+The mounted volume is called `crocwork Animate`, not `crocwork Animate <version>`. The layout points at the
 background through an alias that includes the volume name, and Finder resolves it by that name:
 with a versioned name the window keeps its size and icon positions but shows no background. The
 DMG file name (`anicraft-<version>-macos-<arch>.dmg`) still carries the version.

@@ -6,7 +6,7 @@
 
 ## Context
 
-M8 ends with a documentation book. Until now AniCraft's documentation was written for
+M8 ends with a documentation book. Until now crocwork Animate's documentation was written for
 contributors (`docs/*.md`, the ADRs) and the in-app help was the command palette, the shortcut
 editor and tooltips. Artists, many of them coming from Adobe Animate, need a guide written for
 them: where things are, how to do common tasks, what works differently from Animate, and what
@@ -17,7 +17,7 @@ isn't there yet. It must work offline from the app, match the version it ships w
 1. **Chapters are Markdown in `docs/guide/`**, one file per chapter, readable on GitHub as they
    are, in plain English for artists (British spelling, as the rest of the docs; no ADR numbers or
    crate names). `index.md` is the contents page. A "Coming from Animate" chapter maps Animate's
-   panels, tools and shortcuts to AniCraft's, with nominative use of the names only
+   panels, tools and shortcuts to crocwork Animate's, with nominative use of the names only
    (`docs/legal/compliance.md`) and the non-affiliation line.
 2. **The references are generated, never written by hand.** `reference/commands.md` lists every
    `CommandSpec` by top menu (label, id, submenu, default key with its macOS spelling, whether it

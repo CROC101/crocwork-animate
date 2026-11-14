@@ -3,7 +3,7 @@
 Titles, captions, speech bubbles, scores and name boxes: this chapter covers the Text tool, the
 fonts it uses, the three kinds of text, and how text looks when you export.
 
-A note on keys: AniCraft uses **Ctrl** on Windows and Linux and **⌘** (Command) on macOS, and
+A note on keys: crocwork Animate uses **Ctrl** on Windows and Linux and **⌘** (Command) on macOS, and
 **Alt** is **⌥** (Option) on macOS. So **Ctrl+B** is **⌘B** on a Mac.
 
 ## Typing text
@@ -33,7 +33,7 @@ Animate.
 | **Width** | Turn on **Wrap** to wrap lines at a fixed width, and set the width. With Wrap off, each paragraph stays on one line. |
 
 Bold and italic use the matching face of the font (for example, its Bold or Italic file). If a
-font has no bold or italic face, AniCraft doesn't fake one.
+font has no bold or italic face, crocwork Animate doesn't fake one.
 
 A style applies to the whole text block. Different styles for single words in one block aren't
 there yet; use a separate block for each style.
@@ -41,21 +41,21 @@ there yet; use a separate block for each style.
 ## Fonts on your computer
 
 The **Font** menu lists the fonts installed on your computer, plus Inter, which comes with
-AniCraft. There is nothing to set up: install a font in your system as usual and it shows up the
-next time AniCraft starts.
+crocwork Animate. There is nothing to set up: install a font in your system as usual and it shows up the
+next time crocwork Animate starts.
 
 ### Your text looks the same everywhere
 
-AniCraft saves the shapes of the letters with the document. So a file you send to someone looks
+crocwork Animate saves the shapes of the letters with the document. So a file you send to someone looks
 exactly the same on their computer, even if they don't have the font, and so do your exports.
 
-If you edit text whose font isn't on this computer, AniCraft lays it out again with the default
+If you edit text whose font isn't on this computer, crocwork Animate lays it out again with the default
 font and tells you, so nothing changes behind your back.
 
 ### Missing characters
 
 If a font doesn't have a character you type (an emoji, or a letter from another script), the
-character shows as an empty box. AniCraft doesn't borrow it from another font yet, so pick a font
+character shows as an empty box. crocwork Animate doesn't borrow it from another font yet, so pick a font
 that covers your language.
 
 ## Static, dynamic and input text
@@ -149,8 +149,8 @@ In the **HTML canvas** export, the movie plays in a web browser:
   the viewer doesn't have your font, it uses a similar one, and the export report tells you this
   can happen.
 
-AniCraft doesn't embed font files in the web page. Most font licences don't allow that, and
-AniCraft can't check the licence for you. This only affects text that changes while the movie
+crocwork Animate doesn't embed font files in the web page. Most font licences don't allow that, and
+crocwork Animate can't check the licence for you. This only affects text that changes while the movie
 plays.
 
 See [Exporting and Publish](exporting-and-publish.md) for every format.

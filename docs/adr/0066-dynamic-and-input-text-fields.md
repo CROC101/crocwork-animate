@@ -10,7 +10,7 @@
 
 Animate has three text types. **Static** text is artwork. **Dynamic** text is a field scripts
 fill in while the movie plays (a score, a question, a name). **Input** text is a field the
-viewer types into (a name, an answer, a password), which scripts then read. AniCraft's text
+viewer types into (a name, an answer, a password), which scripts then read. crocwork Animate's text
 (ADR 0012) was static only: a block's outlines are laid out by the engine when it is edited and
 stored, so rendering never needs fonts. XFL import (ADR 0014) brought dynamic and input fields
 in as static text, keeping only the instance name. Scripts (ADR 0013, 0052) could not name text
@@ -96,7 +96,7 @@ also layer 1, which `anicraft-doc` may not use.
      reasons; its one advantage (pixel parity of the caret with Test Movie) doesn't matter to
      viewers.
    * **Text a script sets is drawn with `fillText`** in the field's family, then the generic
-     `sans-serif`, wrapped and aligned in the box as AniCraft does. Its glyphs come from the
+     `sans-serif`, wrapped and aligned in the box as crocwork Animate does. Its glyphs come from the
      viewer's browser and may differ in shape and width from Test Movie when the family isn't
      on the viewer's computer. The export report says so for every page with fields ("text fields (their authored text keeps its outlines; text a script or the viewer changes is drawn with the browser's fonts)").
 9. **Font embedding: not in this slice, by decision.** Embedding font files in the page would
@@ -118,7 +118,7 @@ also layer 1, which `anicraft-doc` may not use.
 ## Consequences
 
 * Animate projects with scores, quizzes and name entry play in Test Movie and in the HTML
-  page without changes, and their fields stay editable as text in AniCraft.
+  page without changes, and their fields stay editable as text in crocwork Animate.
 * Exports other than HTML canvas show fields as authored; that matches Animate's video export.
 * The document format is unchanged for files without fields; fields add one small object.
 * Not yet: `htmlText` and HTML rendering in fields, per-character styles (ADR 0012),

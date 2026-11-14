@@ -1,10 +1,10 @@
-//! Guest-side helpers for AniCraft WebAssembly plug-ins (ABI v1, `docs/plugins.md`).
+//! Guest-side helpers for crocwork Animate WebAssembly plug-ins (ABI v1, `docs/plugins.md`).
 //!
-//! A plug-in names its manifest and its `run` function with [`plugin!`] and talks to AniCraft
+//! A plug-in names its manifest and its `run` function with [`plugin!`] and talks to crocwork Animate
 //! with [`command`], [`document`], [`selected_elements`] and [`log`]. The only `unsafe` a
 //! plug-in needs is here: the two host imports and the raw pointers the exports receive.
 //! Everything else is plain Rust; `std` is fine as long as nothing touches WASI (files, clock,
-//! randomness), since AniCraft refuses modules with any other import.
+//! randomness), since crocwork Animate refuses modules with any other import.
 
 use serde_json::{Value, json};
 
@@ -32,7 +32,7 @@ pub fn request(req: &Value) -> Result<Value, String> {
     if v["ok"] == true { Ok(v["result"].clone()) } else { Err(v["error"].as_str().unwrap_or("the host refused the request").to_string()) }
 }
 
-/// Runs an AniCraft command by id (`draw.star`, `element.translate`, …; see
+/// Runs an crocwork Animate command by id (`draw.star`, `element.translate`, …; see
 /// `anicraft-cli commands`).
 pub fn command(id: &str, params: Value) -> Result<Value, String> {
     request(&json!({"op": "command", "id": id, "params": params})).map_err(|e| format!("{id}: {e}"))

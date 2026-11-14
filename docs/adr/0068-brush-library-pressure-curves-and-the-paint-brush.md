@@ -89,7 +89,7 @@ was copied: no presets, no shapes and no art brushes.
      engine-enforced confirmations. Saving and renaming don't touch the document.
    * Plug-ins may list brushes but not change them or touch brush set files.
 
-7. **Built-in brushes are AniCraft's own**: Pencil, Ink Pen, Flat Calligraphy, Round Taper, Marker,
+7. **Built-in brushes are crocwork Animate's own**: Pencil, Ink Pen, Flat Calligraphy, Round Taper, Marker,
    Chalk and Dotted, each a set of these parameters (`brush_library::builtin`).
 
 8. **Shell.**

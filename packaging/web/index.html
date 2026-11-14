@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
-    <title>AniCraft</title>
+    <title>crocwork Animate</title>
     <link rel="icon" href="anicraft.png">
     <style>
       html, body { margin: 0; height: 100%; overflow: hidden; background: #131316; }
@@ -20,14 +20,14 @@
   </head>
   <body>
     <canvas id="anicraft_canvas"></canvas>
-    <div id="anicraft_loading">Loading AniCraft…</div>
-    <noscript>AniCraft needs JavaScript and WebAssembly.</noscript>
+    <div id="anicraft_loading">Loading crocwork Animate…</div>
+    <noscript>crocwork Animate needs JavaScript and WebAssembly.</noscript>
     <script type="module">
       import init from "./anicraft.js";
       // init() loads anicraft_bg.wasm and runs the program's main, which starts the editor.
       init().catch((e) => {
         console.error(e);
-        document.getElementById("anicraft_loading").textContent = "AniCraft could not start in this browser: " + e;
+        document.getElementById("anicraft_loading").textContent = "crocwork Animate could not start in this browser: " + e;
       });
     </script>
   </body>

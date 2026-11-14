@@ -10,9 +10,9 @@ Import to Stage (`file.import`, `crates/svg`) brought an SVG drawing across as s
 layer, and reported `clipPath`, `mask` and `text` as skipped (drawn unclipped, or not at
 all). Those three are everywhere in real drawings: design tools wrap every frame in a clip,
 illustrations crop artwork into shapes, icons use masks, and posters and diagrams carry text.
-AniCraft already has the models to receive them: mask layers (ADR 0010: a mask layer's fills
+crocwork Animate already has the models to receive them: mask layers (ADR 0010: a mask layer's fills
 reveal the normal layers under it) and text blocks (ADR 0012), with the font lookup and
-reporting written for Animate documents (ADR 0014). AniCraft's own SVG export writes masks
+reporting written for Animate documents (ADR 0014). crocwork Animate's own SVG export writes masks
 as `clipPath`s, so a masked frame should also come back.
 
 SVG clipping is more general than mask layers: clips nest (a clipped group inside a clipped
@@ -73,7 +73,7 @@ and from self-authored drawings.
 
 * Masked frames exported as SVG come back as the same picture on mask layers (tested: pixel
   identical at half size), and typical design-tool exports lose their redundant frame clips.
-* Imported clips are editable as AniCraft masks: move, reshape or unlock them like any mask.
+* Imported clips are editable as crocwork Animate masks: move, reshape or unlock them like any mask.
 * A drawing with many clips makes many layers (two per masked run), inside one folder.
 * Text in SVG files is laid out with this computer's fonts once, on import, then stored as
   outlines like all text (ADR 0012).

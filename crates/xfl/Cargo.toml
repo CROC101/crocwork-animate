@@ -1,6 +1,6 @@
 [package]
 name = "anicraft-xfl"
-description = "AniCraft XFL/FLA import: Animate documents (DOMDocument.xml, library symbols, shape edges) into the AniCraft document model"
+description = "crocwork Animate XFL/FLA import: Animate documents (DOMDocument.xml, library symbols, shape edges) into the crocwork Animate document model"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

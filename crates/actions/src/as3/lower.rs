@@ -588,7 +588,7 @@ impl<'a> Lower<'a> {
         }
         for s in at.path.0.split('.').filter(|s| !s.is_empty()) {
             if !matches!(s, "root" | "parent" | "this") && !valid_instance_name(s) {
-                self.problem(e.pos, format!("`{s}` isn't an instance name AniCraft can address (1-64 letters, digits, `_` or `$`)"));
+                self.problem(e.pos, format!("`{s}` isn't an instance name crocwork Animate can address (1-64 letters, digits, `_` or `$`)"));
                 return None;
             }
         }
@@ -828,7 +828,7 @@ impl<'a> Lower<'a> {
                     return match ir::key_code(m) {
                         Some(k) => Some(X::lit(Value::Num(f64::from(k)))),
                         None => {
-                            self.problem(e.pos, format!("`Keyboard.{m}` isn't a key AniCraft knows"));
+                            self.problem(e.pos, format!("`Keyboard.{m}` isn't a key crocwork Animate knows"));
                             None
                         }
                     };

@@ -170,7 +170,7 @@ impl Js {
         ctx.eval(Source::from_bytes(FILTERS_JS)).unwrap_or_else(|e| panic!("filters.js: {e}"));
         ctx.eval(Source::from_bytes(HOST_JS)).unwrap();
         let polys: Vec<Value> = m.paths.iter().map(|p| Value::Array(p.flatten(&Affine::IDENTITY, 0.05).into_iter().map(|l| json!({"c": l.closed, "p": l.points.iter().map(|q| json!([q.x, q.y])).collect::<Vec<_>>()})).collect())).collect();
-        let setup = format!("var POLYS = {}; var P = new AniCraft.Player({}, host);", Value::Array(polys), m.json);
+        let setup = format!("var POLYS = {}; var P = new crocwork Animate.Player({}, host);", Value::Array(polys), m.json);
         ctx.eval(Source::from_bytes(&setup)).unwrap_or_else(|e| panic!("setup: {e}"));
         Js { ctx }
     }
@@ -891,7 +891,7 @@ fn the_js_player_draws_random_numbers_like_the_rust_player() {
         let m = movie(&d, &HtmlOptions::default());
         let rust = anicraft_doc::player::start_seeded(&d, seed, &mut NoScripts).output;
         let mut js = Js::new(&m);
-        js.eval(&format!("(P = new AniCraft.Player({}, host, {seed}), 0)", m.json));
+        js.eval(&format!("(P = new crocwork Animate.Player({}, host, {seed}), 0)", m.json));
         assert_eq!(js.eval("P.start().output"), json!(rust), "seed {seed}");
     }
 }

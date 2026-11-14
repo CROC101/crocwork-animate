@@ -23,7 +23,7 @@ from PIL import Image, ImageCms, ImageDraw
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 # Keep in sync with package.sh (volume name) and README.md (layout).
-VOLUME = "AniCraft"
+VOLUME = "crocwork Animate"
 WIDTH, HEIGHT = 660, 400  # window content, pt; the background's 1x size
 TITLE_BAR = 32
 ICON_SIZE = 128
@@ -40,7 +40,7 @@ SUPERSAMPLE = 4  # drawn this much larger, then reduced: smooth edges without Pi
 
 
 def draw(scale):
-    """The background at `scale` (1 or 2): the AniCraft field, a Paper card behind both icons and
+    """The background at `scale` (1 or 2): the crocwork Animate field, a Paper card behind both icons and
     their labels (Finder draws the labels in black), and an Ink arrow from the app to Applications.
     Nothing is drawn within 10 pt of an icon box or its label strip."""
     k = scale * SUPERSAMPLE

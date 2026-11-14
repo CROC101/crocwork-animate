@@ -11,9 +11,9 @@ Craft family already has a shared translation repository, **storytold/craft-i18n
 (MIT OR Apache-2.0): TSV catalogs keyed by the English text (`context<TAB>English<TAB>translation`,
 `@plural`, `@id`, `@msg` rows), a `common.tsv` per locale with the strings the apps share
 (about 1 200 rows in 50 locales today) and a `<app>.tsv` per app, consumed as an optional build
-input (`CRAFT_I18N_DIR`), like craft-fonts. It has **no AniCraft catalog yet**.
+input (`CRAFT_I18N_DIR`), like craft-fonts. It has **no crocwork Animate catalog yet**.
 
-The lookup code the other apps use lives in craft-libs, which is a git dependency; AniCraft
+The lookup code the other apps use lives in craft-libs, which is a git dependency; crocwork Animate
 takes dependencies from crates.io only (`deny.toml`). Outside PR #38 built localisation on that
 crate and on storytold's egui and winit forks (for Arabic), so it could not be taken as it is,
 but its design was sound and several of its ideas are used here.
@@ -43,15 +43,15 @@ Georgian need no shaping, only a font the app doesn't bundle.
    counts, `@id`, `language.name`) in under 300 lines with its tests (`catalog.rs`) instead of depending on
    craft-libs. build.rs follows craft-i18n's `docs/integration.md`: `CRAFT_I18N_DIR=<checkout>`
    embeds `locales/<locale>/common.tsv` and `anicraft.tsv` with `include_str!` for every locale
-   that has AniCraft's own catalog (plus a regional locale's base language, for fallback);
+   that has crocwork Animate's own catalog (plus a regional locale's base language, for fallback);
    unset, the interface is English; `CRAFT_I18N_REQUIRED=1` makes a missing checkout an error
    for releases. Fallback order for `pt-br`: pt-br app → pt-br shared → pt app → pt shared →
    English. No catalog files are committed here, and craft-i18n is never a Cargo dependency.
    One format means our strings go to craft-i18n without conversion, and every translation the
-   family already has (its shared catalog) applies to AniCraft as soon as a locale has its
+   family already has (its shared catalog) applies to crocwork Animate as soon as a locale has its
    `anicraft.tsv`.
 
-3. **Which languages are offered.** A locale is offered when it has its own AniCraft catalog
+3. **Which languages are offered.** A locale is offered when it has its own crocwork Animate catalog
    (a locale with only shared strings is a fallback, so the app never offers a language it is
    barely translated into, as craft-i18n's integration rule says) **and** is in `i18n::READY`:
    left-to-right languages in Latin, Greek or Cyrillic script, which the bundled faces cover and
@@ -59,7 +59,7 @@ Georgian need no shaping, only a font the app doesn't bundle.
    shaped scripts (Indic, Thai, Lao) and CJK/Georgian (font) catalogs are embedded but not
    offered until the shell can draw them (consequences).
 
-4. **A pseudo-locale ships instead of a real language** while craft-i18n has no AniCraft
+4. **A pseudo-locale ships instead of a real language** while craft-i18n has no crocwork Animate
    catalog. `--lang pseudo` (and Preferences in debug builds) draws every string accented,
    about a third longer and bracketed (`Save` → `[Šàvé ~~]`), with placeholders kept: untranslated
    text stands out, truncation loses the `]`, and layouts are tested for German-length text.

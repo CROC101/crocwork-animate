@@ -57,7 +57,7 @@ engine, and two of them keep state (the recent list, its pictures) between sessi
    in a release build), kept as `Thumbnails/<key>.png` in the settings folder (browser storage,
    base64, on the web), the key a 64-bit FNV-1a of the normalised path. Screenshot and test runs
    write nothing.
-6. **The start screen replaces the workspace, never covers it.** It shows when AniCraft starts with
+6. **The start screen replaces the workspace, never covers it.** It shows when crocwork Animate starts with
    no file to open (Preferences › `start_screen`, a checkbox on the screen itself), from File › Start
    Screen, and from Open Recent in the palette. The menus and status bar stay; Esc or "Back to the
    document" returns to the document behind, untouched. New offers HD 1280 × 720, Full HD 1920 ×

@@ -1,4 +1,4 @@
-# Lists every AniCraft interface string for translators (ADR 0040, docs/localisation.md), as a
+# Lists every crocwork Animate interface string for translators (ADR 0040, docs/localisation.md), as a
 # craft-i18n catalog template. Same as scripts/i18n-extract.sh:
 #
 #   scripts/i18n-extract.ps1 [out.tsv]                     # default: target/i18n/anicraft.tsv

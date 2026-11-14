@@ -167,7 +167,7 @@ pub fn open_or_run(app: &mut App, id: &str, params: serde_json::Value) {
 /// samples in a scratch folder (one pinned), and one that is missing. Their pictures stay in
 /// memory; nothing goes into the settings folder.
 pub fn sample_entries(app: &mut App) {
-    let folder = std::env::temp_dir().join("AniCraft samples"); // i18n-exempt: a folder name
+    let folder = std::env::temp_dir().join("crocwork Animate samples"); // i18n-exempt: a folder name
     let _ = anicraft_engine::vfs::create_dir_all(&folder);
     let docs = [("Bouncing ball.anicraft", Some(anicraft_engine::doc::sample::demo()), true), ("Title card.anicraft", Some(anicraft_engine::doc::sample::interactive()), false), ("Old walk cycle.anicraft", None, false)]; // i18n-exempt: sample file names
     let mut list = anicraft_engine::cmds_recent::RecentFiles::default();

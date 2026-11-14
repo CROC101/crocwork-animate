@@ -1,7 +1,7 @@
 //! Full SVG path data (SVG 1.1 §8.3 / SVG 2 "paths"): every command in absolute and relative
 //! form (M L H V C S Q T A Z), implicit repeats, packed numbers and arc flags.
 //!
-//! [`crate::Path::from_svg`] stays the strict parser for AniCraft's own file format; this one
+//! [`crate::Path::from_svg`] stays the strict parser for crocwork Animate's own file format; this one
 //! reads SVG written by other tools (icon sets now, SVG import later). Elliptical arcs become
 //! cubic Béziers using the endpoint-to-centre conversion of the SVG implementation notes
 //! (W3C SVG 1.1 Appendix F.6, Royalty-Free Patent Policy), at most a quarter turn per cubic.

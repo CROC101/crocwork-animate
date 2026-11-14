@@ -111,7 +111,7 @@ pub fn to_svg(dl: &DisplayList, stage: &Stage) -> String {
 
     let mut out = String::with_capacity(defs.len() + body.len() + 256);
     let _ = write!(out, "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{w}\" height=\"{h}\" viewBox=\"0 0 {w} {h}\">");
-    let _ = write!(out, "<!-- AniCraft {} -->", env!("CARGO_PKG_VERSION"));
+    let _ = write!(out, "<!-- crocwork Animate {} -->", env!("CARGO_PKG_VERSION"));
     if !defs.is_empty() {
         let _ = write!(out, "<defs>{defs}</defs>");
     }
