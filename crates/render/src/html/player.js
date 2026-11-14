@@ -15,7 +15,7 @@
 // fields (ADR 0066: a box, the authored text and its outline, and the font changed text is drawn
 // with), which are instances too: scripts name them, set their text and read it back.
 "use strict";
-var crocwork Animate = (function () {
+var AniCraft = (function () {
   // Budgets, as in the Rust player: a go-to loop ends in a message, not a hang.
   const MAX_ACTIONS_PER_STEP = 10000;
   const MAX_ENTERS_PER_STEP = 1000;

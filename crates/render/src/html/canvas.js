@@ -47,7 +47,7 @@
   // Each page load gets its own Math.random() sequence (a movie's, not for security); the
   // player itself is deterministic.
   const seed = Date.now() % 4294967296;
-  const player = new crocwork Animate.Player(movie, host, seed);
+  const player = new AniCraft.Player(movie, host, seed);
 
   function stagePath(path, m) {
     const out = new Path2D();
@@ -216,10 +216,10 @@
   function paintStyle(g, f, fx) {
     const p = movie.paints[f];
     if (!p) return null;
-    if (p.s) return css(crocwork Animate.applyEffect(fx, p.s));
+    if (p.s) return css(AniCraft.applyEffect(fx, p.s));
     if (p.l || p.r) {
       const gr = p.l ? g.createLinearGradient(p.l[0], p.l[1], p.l[2], p.l[3]) : g.createRadialGradient(p.f ? p.f[0] : p.r[0], p.f ? p.f[1] : p.r[1], 0, p.r[0], p.r[1], p.r[2]);
-      for (const s of p.st) gr.addColorStop(s[0], css(crocwork Animate.applyEffect(fx, [s[1], s[2], s[3], s[4]])));
+      for (const s of p.st) gr.addColorStop(s[0], css(AniCraft.applyEffect(fx, [s[1], s[2], s[3], s[4]])));
       return gr;
     }
     if (p.b !== undefined) {
@@ -227,7 +227,7 @@
       if (!im || !im.complete || !im.naturalWidth) return "rgba(128,128,128,1)";
       // A colour effect beyond alpha draws the bitmap's pixels through it (ADR 0056), as the
       // renderer does: once per bitmap and effect while the effect stays the same.
-      const recolour = crocwork Animate.recolours(fx);
+      const recolour = AniCraft.recolours(fx);
       const key = recolour ? f + ":" + fx.join(",") : f;
       let pat = patterns.get(key);
       if (!pat) {
@@ -256,7 +256,7 @@
     }
     const d = px.data;
     for (let i = 0; i < d.length; i += 4) {
-      const o = crocwork Animate.applyEffect(fx, [d[i] / 255, d[i + 1] / 255, d[i + 2] / 255, d[i + 3] / 255]);
+      const o = AniCraft.applyEffect(fx, [d[i] / 255, d[i + 1] / 255, d[i + 2] / 255, d[i + 3] / 255]);
       d[i] = Math.round(o[0] * 255);
       d[i + 1] = Math.round(o[1] * 255);
       d[i + 2] = Math.round(o[2] * 255);
@@ -298,7 +298,7 @@
   }
   function fieldColour(f) {
     const p = movie.paints[f.tf.f];
-    return css(crocwork Animate.applyEffect(f.c, p && p.s ? p.s : [0, 0, 0, 1]));
+    return css(AniCraft.applyEffect(f.c, p && p.s ? p.s : [0, 0, 0, 1]));
   }
   // `text` as the field's lines: broken where it breaks, and in a Multiline field wrapped at the
   // box less its gutters (greedily, at spaces).
@@ -347,7 +347,7 @@
   function drawField(L, f, set, seen) {
     const g = L.ctx;
     const tf = f.tf, m = f.m, box = paths[tf.r];
-    if (!crocwork Animate.finite(m) || !box) return;
+    if (!AniCraft.finite(m) || !box) return;
     if (tf.bg !== undefined) {
       const style = paintStyle(g, tf.bg, f.c);
       if (style) {
@@ -377,10 +377,10 @@
     if (tf.bd) {
       // 1 px in the field's space, mitred, like any stroke (stage width × the mean scale).
       g.setTransform(scale, 0, 0, scale, -L.x0, -L.y0);
-      g.lineWidth = crocwork Animate.meanScale(m);
+      g.lineWidth = AniCraft.meanScale(m);
       g.lineJoin = "miter";
       g.lineCap = "butt";
-      g.strokeStyle = css(crocwork Animate.applyEffect(f.c, tf.bd));
+      g.strokeStyle = css(AniCraft.applyEffect(f.c, tf.bd));
       g.stroke(stagePath(box, m));
       g.lineJoin = "round";
       g.lineCap = "round";
@@ -496,7 +496,7 @@
     player.evaluate({
       item: function (it) {
         const path = paths[it.p];
-        if (!path || !crocwork Animate.finite(it.m)) return;
+        if (!path || !AniCraft.finite(it.m)) return;
         if (filtering) trail.push("i" + it.p + "," + it.m.join(",") + "," + it.f + "," + (it.s ? it.s.join(",") : "") + "," + it.c.join(",") + "," + (it.k ? JSON.stringify(it.k) : "") + "," + it.eo + "," + it.masks);
         let L = top();
         if (it.masks !== null) {
@@ -519,7 +519,7 @@
           const style = paintStyle(g, it.f, it.c);
           if (style) {
             const bitmap = movie.paints[it.f] && movie.paints[it.f].b !== undefined;
-            g.globalAlpha = bitmap && !crocwork Animate.recolours(it.c) ? Math.min(Math.max(it.c[3], 0), 1) : 1;
+            g.globalAlpha = bitmap && !AniCraft.recolours(it.c) ? Math.min(Math.max(it.c[3], 0), 1) : 1;
             set(L, it.m);
             g.fillStyle = style;
             // A bitmap without Allow Smoothing keeps hard pixel edges (ADR 0050).
@@ -531,7 +531,7 @@
           }
         }
         if (it.s) {
-          const scale = crocwork Animate.meanScale(it.m);
+          const scale = AniCraft.meanScale(it.m);
           const w = it.s[4] * scale * k;
           if (w > 0 && Number.isFinite(w)) {
             g.setTransform(k, 0, 0, k, -L.x0, -L.y0);
@@ -546,7 +546,7 @@
               g.setLineDash(st.d.map((x) => x * scale));
               g.lineDashOffset = (st.o || 0) * scale;
             }
-            g.strokeStyle = css(crocwork Animate.applyEffect(it.c, it.s));
+            g.strokeStyle = css(AniCraft.applyEffect(it.c, it.s));
             g.stroke(stagePath(path, it.m));
             if (dashed) {
               g.setLineDash([]);

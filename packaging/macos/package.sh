@@ -123,13 +123,13 @@ cp "$WORK/bin/anicraft" "$APP/Contents/MacOS/crocwork Animate"
 cp "$WORK/bin/anicraft-cli" "$APP/Contents/MacOS/anicraft-cli"
 # The .icns is made here from the committed tile on Apple's grid (assets/app-icon/README.md) with
 # the system's own sips and iconutil, so no generated binary is committed for it.
-ICONSET="$WORK/crocwork Animate.iconset"
+ICONSET="$WORK/AniCraft.iconset"
 mkdir -p "$ICONSET"
 for s in 16 32 128 256 512; do
   sips -z "$s" "$s" "$ROOT/assets/app-icon/anicraft-padded-1024.png" --out "$ICONSET/icon_${s}x${s}.png" >/dev/null
   sips -z $((s * 2)) $((s * 2)) "$ROOT/assets/app-icon/anicraft-padded-1024.png" --out "$ICONSET/icon_${s}x${s}@2x.png" >/dev/null
 done
-iconutil -c icns -o "$APP/Contents/Resources/crocwork Animate.icns" "$ICONSET"
+iconutil -c icns -o "$APP/Contents/Resources/AniCraft.icns" "$ICONSET"
 # Licences and notices, inside the bundle before it is signed.
 cp "$ROOT/NOTICE" "$ROOT/ATTRIBUTION.md" "$ROOT/LICENSE-MIT" "$ROOT/LICENSE-APACHE" "$APP/Contents/Resources/"
 # Licences of the embedded craft-fonts fonts (only when built with CRAFT_FONTS_DIR).

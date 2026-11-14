@@ -2201,7 +2201,7 @@ fn html_export_writes_one_page_that_holds_the_interactive_movie() {
     let html = std::fs::read_to_string(&path).unwrap();
     assert_eq!(v["bytes"].as_u64(), Some(html.len() as u64));
     assert!(html.starts_with("<!DOCTYPE html>") && html.contains("<title>menu</title>"), "the title defaults to the file name");
-    assert!(html.contains("\"op\":\"goto_and_play\"") && html.contains("new crocwork Animate.Player"), "actions and the player are in the page");
+    assert!(html.contains("\"op\":\"goto_and_play\"") && html.contains("new AniCraft.Player"), "actions and the player are in the page");
     assert_eq!((v["scenes"].as_u64(), v["frames"].as_u64()), (Some(1), Some(u64::from(s.doc.frame_count()))));
     assert!(v["timelines"].as_u64().unwrap() >= 3, "the scene, the button and the spinner: {v}");
     assert_eq!(v["report"], "");

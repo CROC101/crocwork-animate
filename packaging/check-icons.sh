@@ -24,7 +24,7 @@ png_size() {
 
 # Windows: the .ico build.rs embeds and the MSI's shortcut and Add/Remove Programs icon.
 need "$ICONS/anicraft.ico"
-# macOS: package.sh makes crocwork Animate.icns from the tile on Apple's grid.
+# macOS: package.sh makes AniCraft.icns from the tile on Apple's grid.
 need "$ICONS/anicraft-padded-1024.png"
 # Linux: hicolor theme icons (desktop entry, AppStream, MIME type, AppImage, Flatpak).
 for s in 16 24 32 48 64 128 256 512; do

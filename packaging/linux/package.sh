@@ -104,7 +104,7 @@ fi
 
 # ---- AppImage -----------------------------------------------------------------------------------
 if has appimage; then
-  APPDIR="$WORK/crocwork Animate.AppDir"
+  APPDIR="$WORK/AniCraft.AppDir"
   cp -R "$STAGE" "$APPDIR"
   ln -s usr/bin/anicraft "$APPDIR/AppRun"
   cp "$HERE/$APP_ID.desktop" "$APPDIR/$APP_ID.desktop"
